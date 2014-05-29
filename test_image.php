@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$im = @imagecreatetruecolor(200, 60)
+$im = @imagecreatetruecolor(160, 50)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
@@ -36,8 +36,8 @@ $diff_days =  $incident_date->diff($current_date);
 
 
 //Write the text to the image.
-imagestring($im , 1 , 50, 5 , 'It has been' , $text_color);
-imagestring($im , 1 , 75, 15, $diff_days->format('%a') , $text_color);
+imagestring($im , 1 , 40, 5 , 'It has been' , $text_color);
+imagestring($im , 1 , 65, 15, $diff_days->format('%a') , $text_color);
 imagestring($im , 1 , 5 , 25, 'days since the last Incident', $text_color);
 imagestring($im , 1 , 5 , 35, "Last Incident: ".$incident_name, $text_color);
 
