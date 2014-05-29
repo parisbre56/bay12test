@@ -37,7 +37,7 @@ $diff_days =  $incident_date->diff($current_date);
 
 //Write the text to the image.
 imagestring($im , 1 , 45, 5 , 'It has been' , $text_color);
-imagestring($im , 1 , 65, 15, $diff_days->format('%3a') , $text_color);
+imagestring($im , 1 , 65, 15, $diff_days->format('%03a') , $text_color);
 imagestring($im , 1 , 5 , 25, 'days since the last Incident', $text_color);
 imagestring($im , 1 , 5 , 35, "Last Incident: ".$incident_name, $text_color);
 
