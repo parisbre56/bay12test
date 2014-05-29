@@ -32,7 +32,7 @@ $current_date = new DateTime('now');
 
 //Get day difference and put it in a string.
 $diff_days =  $incident_date->diff($current_date);
-$diff_str = sprintf('%03d',$diff_days->d);
+$diff_string = sprintf('%03d',$diff_days->days);
 
 
 //Write the text to the image.
