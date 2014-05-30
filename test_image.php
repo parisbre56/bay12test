@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$im = @imagecreatetruecolor(150, 50)
+$im = @imagecreatetruecolor(1500, 500)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
@@ -10,12 +10,9 @@ $background = imagecolorallocate($im,0,0,0);
 $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
-// Set the enviroment variable for GD
-putenv('GDFONTPATH=' . realpath('.'));
-
-// Name the font to be used (note the lack of the .ttf extension)
-$font_normal_name = 'DejaVuSans-Bold';
-$font_bold_name = 'DejaVuSans';
+// Name the font to be used
+$font_normal_name = './DejaVuSans-Bold.ttf';
+$font_bold_name = './DejaVuSans.ttf';
 
 //Get fonts
 $font_normal=imageloadfont($font_normal_name);
