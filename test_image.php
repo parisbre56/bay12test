@@ -2,7 +2,9 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$im = @imagecreatetruecolor(198, 56)
+$image_x = 198;
+$image_y = 56;
+$im = @imagecreatetruecolor($image_x, $image_y)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
@@ -39,18 +41,35 @@ $current_date = new DateTime('now');
 $diff_days =  $incident_date->diff($current_date);
 $diff_string = sprintf('%03d',$diff_days->days);
 
+//Text
+$text_one = 'It has been';
+$text_two = $diff_string;
+$text_three = 'days since the last Incident';
+$text_four = "Last Incident: ".$incident_name;
+
+//Get the text bounding boxes
+$bb_one = imagettfbbox(10,0,$font_normal,$text_one);
+$bb_two = imagettfbbox(10,0,$font_bold,$text_two);
+$bb_three = imagettfbbox(10,0,$font_normal,$text_three);
+$bb_four = imagettfbbox(10,0,$font_normal,$text_four);
+
+//Compute their position so that they can be centered in the X and have equal distance in the Y.
+$total_y = ($bb_one[1]-$bb_one[7])+ ($bb_two[1]-$bb_two[7])+ ($bb_three[1]-$bb_three[7])+ ($bb_four[1]-$bb_four[7]);
+$free_y = ($image_y-$total_y)/5;
+$one_x = ($image_x-($bb_one[4]-$bb_one[6]))/2;
+$one_y = 1*$free_y+($bb_one[1]-$bb_one[7]);
+$two_x = ($image_x-($bb_two[4]-$bb_two[6]))/2;
+$two_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7]);
+$three_x = ($image_x-($bb_three[4]-$bb_three[6]))/2;
+$three_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7]);
+$four_x = ($image_x-($bb_four[4]-$bb_four[6]))/2;
+$four_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y+($bb_four[1]-$bb_four[7]);
 
 //Write the text to the image.
-/* THESE ARE OLD. They're small and can't be made bold.
-imagestring($im , 1 , 45, 5 , 'It has been' , $text_color);
-imagestring($im , 1 , 65, 15, $diff_string , $text_color);
-imagestring($im , 1 , 5 , 25, 'days since the last Incident', $text_color);
-imagestring($im , 1 , 5 , 35, "Last Incident: ".$incident_name, $text_color);
-*/
-imagettftext($im,10,0,50,14,$text_color,$font_normal,'It has been');
-imagettftext($im,10,0,75,26,$text_color,$font_bold,$diff_string);
-imagettftext($im,10,0,5,38,$text_color,$font_normal,'days since the last Incident');
-imagettftext($im,10,0,5,50,$text_color,$font_normal,"Last Incident: ".$incident_name);
+imagettftext($im,10,0,$one_x,$one_y,$text_color,$font_normal,$text_one);
+imagettftext($im,10,0,$two_x,$two_y,$text_color,$font_bold,$text_two);
+imagettftext($im,10,0,$three_x,$three_y,$text_color,$font_normal,$text_three);
+imagettftext($im,10,0,$four_x,$four_y,$text_color,$font_normal,$text_four);
 
 //Output the image to the browser and destroy it locally.
 imagepng($im);
