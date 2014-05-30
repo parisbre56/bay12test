@@ -57,13 +57,13 @@ $bb_four = imagettfbbox(10,0,$font_normal,$text_four);
 $total_y = ($bb_one[1]-$bb_one[7])+ ($bb_two[1]-$bb_two[7])+ ($bb_three[1]-$bb_three[7])+ ($bb_four[1]-$bb_four[7]);
 $free_y = ($image_y-$total_y)/5;
 $one_x = ($image_x-($bb_one[4]-$bb_one[6]))/2;
-$one_y = 2*$free_y;
+$one_y = 5*$free_y;
 $two_x = ($image_x-($bb_two[4]-$bb_two[6]))/2;
-$two_y = 2*$free_y+($bb_one[1]-$bb_one[7])+$free_y;
+$two_y = 5*$free_y+($bb_one[1]-$bb_one[7])+$free_y;
 $three_x = ($image_x-($bb_three[4]-$bb_three[6]))/2;
-$three_y = 2*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y;
+$three_y = 5*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y;
 $four_x = ($image_x-($bb_four[4]-$bb_four[6]))/2;
-$four_y = 2*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y;
+$four_y = 5*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y;
 
 //Write the text to the image.
 imagettftext($im,10,0,$one_x,$one_y,$text_color,$font_normal,$text_one);
