@@ -2,9 +2,9 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$image_x = 198;
-$image_y = 56;
-$im = @imagecreatetruecolor(198, 56)
+$image_x = 298;
+$image_y = 96;
+$im = @imagecreatetruecolor($image_x, $image_y)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
