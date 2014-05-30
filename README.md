@@ -21,11 +21,11 @@ and
 $font_normal
 point to the files containing the bold and normal TrueTypeFonts respectively.
 
-$<something>_date
-is the date of the last <something>. It is used to compute the difference in days.
+$|something|_date
+is the date of the last |something|. It is used to compute the difference in days.
 
-$<something>_name
-is the name of the last <something>.
+$|something|_name
+is the name of the last |something|.
 
 $text_one
 through
