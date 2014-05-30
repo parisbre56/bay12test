@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$im = @imagecreatetruecolor(200, 55)
+$im = @imagecreatetruecolor(198, 56)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
@@ -47,10 +47,10 @@ imagestring($im , 1 , 65, 15, $diff_string , $text_color);
 imagestring($im , 1 , 5 , 25, 'days since the last Incident', $text_color);
 imagestring($im , 1 , 5 , 35, "Last Incident: ".$incident_name, $text_color);
 */
-imagettftext($im,10,0,50,12,$text_color,$font_normal,'It has been');
-imagettftext($im,10,0,75,24,$text_color,$font_bold,$diff_string);
-imagettftext($im,10,0,5,36,$text_color,$font_normal,'days since the last Incident');
-imagettftext($im,10,0,5,48,$text_color,$font_normal,"Last Incident: ".$incident_name);
+imagettftext($im,10,0,50,14,$text_color,$font_normal,'It has been');
+imagettftext($im,10,0,75,26,$text_color,$font_bold,$diff_string);
+imagettftext($im,10,0,5,38,$text_color,$font_normal,'days since the last Incident');
+imagettftext($im,10,0,5,50,$text_color,$font_normal,"Last Incident: ".$incident_name);
 
 //Output the image to the browser and destroy it locally.
 imagepng($im);
