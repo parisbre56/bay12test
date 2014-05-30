@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$im = @imagecreatetruecolor(1500, 500)
+$im = @imagecreatetruecolor(155, 55)
 	or die('Cannot Initialize new GD image stream');
 
 //Set background and text color
@@ -11,14 +11,9 @@ $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
 // Name the font to be used
-$font_normal = './DejaVuSans-Bold.ttf';
-$font_bold = './DejaVuSans.ttf';
+$font_bold = './DejaVuSans-Bold.ttf';
+$font_normal = './DejaVuSans.ttf';
 
-/*
-//Get fonts
-$font_normal=imageloadfont($font_normal_name);
-$font_bold=imageloadfont($font_bold_name);
-*/
 
 
 //////////////////////////////////////////////////////////////
@@ -52,10 +47,10 @@ imagestring($im , 1 , 65, 15, $diff_string , $text_color);
 imagestring($im , 1 , 5 , 25, 'days since the last Incident', $text_color);
 imagestring($im , 1 , 5 , 35, "Last Incident: ".$incident_name, $text_color);
 */
-imagettftext($im,10,0,45,5,$text_color,$font_normal,'It has been');
-imagettftext($im,10,0,65,15,$text_color,$font_bold,$diff_string);
-imagettftext($im,10,0,5,25,$text_color,$font_normal,'days since the last Incident');
-imagettftext($im,10,0,5,35,$text_color,$font_normal,"Last Incident: ".$incident_name);
+imagettftext($im,10,0,45,10,$text_color,$font_normal,'It has been');
+imagettftext($im,10,0,65,20,$text_color,$font_bold,$diff_string);
+imagettftext($im,10,0,5,30,$text_color,$font_normal,'days since the last Incident');
+imagettftext($im,10,0,5,40,$text_color,$font_normal,"Last Incident: ".$incident_name);
 
 //Output the image to the browser and destroy it locally.
 imagepng($im);
