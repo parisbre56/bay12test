@@ -21,4 +21,8 @@ Attempting to pull data from github: git pull https://github.com/parisbre56/bay1
 Root directory contents after update: ls -la
 ';
 	passthru('ls -la');
+	
+	print '
+=================
+Goodbye...'
 ?>
