@@ -24,5 +24,5 @@ Root directory contents after update: ls -la
 	
 	print '
 =================
-Goodbye...'
+Goodbye...';
 ?>
