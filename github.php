@@ -1,5 +1,5 @@
 <?php
-	function execute_and_print($to_exec) {
+	function executeAndPrint($to_exec) {
 		unset($result);
 		exec($to_exec,$result);
 		for($i=0,$size=count($result);$i<$size;++$i) {
@@ -11,6 +11,6 @@
 	print 'Executing manual refresh...\n=================\n';
 	//The git pull command should be put here.
 	print 'Root directory contents before update:\n';
-	$result = exec('ls -la');
+	executeAndPrint('ls -la');
 ?>
 
