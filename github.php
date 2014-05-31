@@ -6,7 +6,7 @@
 ';
 	//The git pull command should be put here.
 	print '
-Root directory contents before update: ls -la aaaaaaaaaaaaa
+Root directory contents before update: ls -la
 ';
 	passthru('ls -la');
 	print '
@@ -24,5 +24,5 @@ Root directory contents after update: ls -la
 	
 	print '
 =================
-Goodbye...';
+Goodbye!';
 ?>
