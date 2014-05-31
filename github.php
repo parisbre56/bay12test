@@ -3,9 +3,7 @@
 	header('Content-type: text/plain');
 	print 'Executing manual refresh...
 =================
-';
-	//The git pull command should be put here.
-	print '
+
 Root directory contents before update: ls -la
 ';
 	passthru('ls -la');
@@ -21,7 +19,6 @@ Attempting to pull data from github: git pull https://github.com/parisbre56/bay1
 Root directory contents after update: ls -la
 '; 
 	passthru('ls -la');
-	
 	print '
 =================
 Goodbye!';
