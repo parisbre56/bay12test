@@ -5,5 +5,7 @@ header('Content-type: text/plain');
 // (on a system with the "whoami" executable in the path)
 echo 'Executing manual refresh...';
 //The git pull command should be put here.
+echo exec('ls');
+exho exec('git');
 ?>
 
