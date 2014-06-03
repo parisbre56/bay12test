@@ -215,10 +215,11 @@ line-height: 1.4;
             <h2>Bay12test</h2>
           </hgroup>
           <div class="row">
-          <section class=\'col-xs-12 col-sm-6 col-md-6\'>
-            <section>
+            <section class=\'col-xs-12 col-sm-6 col-md-6\'>
               <h2>Root folder contents:</h2>
-                <p>
+            </section>
+            <section>
+              <p>
 ';
 
 $localdir=opendir('.');
@@ -230,7 +231,6 @@ while(($filename=readdir($localdir))!==false) {
 }
 
 print "                </p>
-            </section>
 
           </section>
           
