@@ -9,23 +9,8 @@ $imagearray=array( 'http://parisbre56-phpexperiment.rhcloud.com/test_image.php',
 //Select one at random      
 $index = rand(0,(count($imagearray)/2)-1);
 
-//Get the selected image
-if ($imagearray[($index*2)+1]=="png") {
-  header ('Content-type:image/png');
-  $image=imagecreatefrompng($imagearray[$index*2]);
-  imagepng($image);
-  imagedestroy($image);
-} 
-else if ($imagearray[($index*2)+1]=="gif") {
-  header ('Content-type:image/gif');
-  $image=imagecreatefromgif($imagearray[$index*2]);
-  imagegif($image);
-  imagedestroy($image);
-}
-else {
-  header ('Content-type:text/plain');
-  echo "Unhandled image type " . $imagearray[($index*2)+1] . " for image " . $imagearray[$index*2] . "
-  Edit \"image_random_test.php\" in github to add support";
-}
+//Get the selected image and print it
+header ('Content-type:image/' . $imagearray[($index*2)+1]);
+print file_get_contents($imagearray[$index*2]);
 
 ?>
