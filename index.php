@@ -220,7 +220,11 @@ line-height: 1.4;
             </section>
           </div>
 </section>
-        <footer><p>
+        <footer>
+        <section class=\'container\'>
+          <div class="row">
+            <section class=\'col-xs-12 col-sm-6 col-md-6\'>
+              <p>
 ';
 
 $localdir=opendir('.');
@@ -231,7 +235,7 @@ while(($filename=readdir($localdir))!==false) {
   }
 }
 
-print "</p><br><br>
+print "</p></section></div></section><br><br>
 
 
 
