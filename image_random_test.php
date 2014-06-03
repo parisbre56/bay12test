@@ -1,9 +1,9 @@
 <?php
 
 //Images and their type
-$imagearray=array( 'http://parisbre56-phpexperiment.rhcloud.com/test_image.php','png'
-                   'http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php','png'
-                   'http://parisbre56-phpexperiment.rhcloud.com/image_combo_test.php','gif'
+$imagearray=array( 'http://parisbre56-phpexperiment.rhcloud.com/test_image.php','png',
+                   'http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php','png',
+                   'http://parisbre56-phpexperiment.rhcloud.com/image_combo_test.php','gif',
                    'http://parisbre56-phpexperiment.rhcloud.com/image_gif_test.php','png'         );
         
 //Select one at random      
