@@ -7,8 +7,40 @@ header('Content-Type: image/png');
 $gap=0
 
 //Open images
-$image1=imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
-$image2=imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php');
+$image1=@imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
+if(!$image1) {
+  /* Create a blank image */
+  $im  = imagecreatetruecolor(150, 30);
+  $bgc = imagecolorallocate($im, 255, 255, 255);
+  $tc  = imagecolorallocate($im, 0, 0, 0);
+
+  imagefilledrectangle($im, 0, 0, 150, 30, $bgc);
+
+  /* Output an error message */
+  imagestring($im, 1, 5, 5, 'Error loading image image 1', $tc);
+  
+  imagepng($im);
+  
+  imagedestroy($im);
+}
+$image2=@imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php');
+if(!$image2) {
+  /* Create a blank image */
+  $im  = imagecreatetruecolor(150, 30);
+  $bgc = imagecolorallocate($im, 255, 255, 255);
+  $tc  = imagecolorallocate($im, 0, 0, 0);
+
+  imagefilledrectangle($im, 0, 0, 150, 30, $bgc);
+
+  /* Output an error message */
+  imagestring($im, 1, 5, 5, 'Error loading image image 2', $tc);
+  
+  imagepng($im);
+  
+  imagedestroy($im);
+}
+
+
 
 //Get size
 $image1_x=imagesx($image1);
