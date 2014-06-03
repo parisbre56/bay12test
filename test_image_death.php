@@ -13,8 +13,8 @@ $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
 // Name the font to be used
-$font_bold = './CourierBold.ttf';
-$font_normal = './Courier.ttf';
+$font_bold = './ArialBold.ttf';
+$font_normal = './Arial.ttf';
 
 //Text size
 $text_size = 12;
