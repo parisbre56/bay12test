@@ -7,8 +7,8 @@ header('Content-Type: image/png');
 $gap=0
 
 //Open images
-$image1=imagecreatefromgd('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
-$image2=imagecreatefromgd('http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php');
+$image1=imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
+$image2=imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image_death.php');
 
 //Get size
 $image1_x=imagesx($image1);
