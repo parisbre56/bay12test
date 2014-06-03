@@ -218,26 +218,23 @@ line-height: 1.4;
             <section class=\'col-xs-12 col-sm-6 col-md-6\'>
               <h2>Root folder contents:</h2>
             </section>
-            <section>
-              <p>
+          </div>
+</section>
+        <footer><p>
 ';
 
 $localdir=opendir('.');
 while(($filename=readdir($localdir))!==false) {
   if($filename[0]!='.') {
-    print "                <br><a href=\"http://parisbre56-phpexperiment.rhcloud.com/\"" . $filename . ">" . $filename . "</a></p>
+    print "                <br><a href=\"http://parisbre56-phpexperiment.rhcloud.com/" . $filename . "\">" . $filename . "</a>
 ";
   }
 }
 
-print "                </p>
-
-          </section>
-          
-</div>
+print "</p><br><br>
 
 
-        <footer>
+
           <p>Repository and instructions in: <br><a href=\"https://github.com/parisbre56/bay12test\">https://github.com/parisbre56/bay12test</a></p>
           <p>Contact Parisbre56 at:<br><a href=\"http://www.bay12forums.com/smf/index.php?action=profile;u=78376\">http://www.bay12forums.com/smf/index.php?action=profile;u=78376</a><br><a href=\"mailto:parisbre56@gmail.com?Subject=Openshift PHP Bay12\">parisbre56@gmail.com</a></p>
           <div class=\"logo\"><a href=\"https://www.openshift.com/\"></a></div>
