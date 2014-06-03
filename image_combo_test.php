@@ -4,7 +4,7 @@ header('Content-Type: image/png');
 //TODO Could make this automated? Read a text file containing the image locations and combine them? 
 
 //Distance between the two images
-$gap=0
+$gap=0;
 
 //Open images
 $image1=@imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
