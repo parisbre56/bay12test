@@ -2,8 +2,9 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$image_x = 198;
-$image_y = 56;
+$image_x = 230;
+$image_y = 70;
+
 $im = @imagecreatetruecolor($image_x, $image_y)
 	or die('Cannot Initialize new GD image stream');
 
@@ -15,7 +16,8 @@ imagefill($im, 0, 0, $background);
 // Name the font to be used
 $font_bold = './CourierBold.ttf';
 $font_normal = './Courier.ttf';
-
+//Font size
+$font_size = 12;
 
 
 //////////////////////////////////////////////////////////////
@@ -48,10 +50,10 @@ $text_three = 'days since the last Incident';
 $text_four = "Last Incident: ".$incident_name;
 
 //Get the text bounding boxes
-$bb_one = imagettfbbox(10,0,$font_normal,$text_one);
-$bb_two = imagettfbbox(10,0,$font_bold,$text_two);
-$bb_three = imagettfbbox(10,0,$font_normal,$text_three);
-$bb_four = imagettfbbox(10,0,$font_normal,$text_four);
+$bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
+$bb_two = imagettfbbox($font_size,0,$font_bold,$text_two);
+$bb_three = imagettfbbox($font_size,0,$font_normal,$text_three);
+$bb_four = imagettfbbox($font_size,0,$font_normal,$text_four);
 
 //Compute their position so that they can be centered in the X and have equal distance in the Y.
 $total_y = ($bb_one[1]-$bb_one[7])+ ($bb_two[1]-$bb_two[7])+ ($bb_three[1]-$bb_three[7])+ ($bb_four[1]-$bb_four[7]);
@@ -66,10 +68,10 @@ $four_x = ($image_x-($bb_four[4]-$bb_four[6]))/2;
 $four_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y+($bb_four[1]-$bb_four[7]);
 
 //Write the text to the image.
-imagettftext($im,10,0,$one_x,$one_y,$text_color,$font_normal,$text_one);
-imagettftext($im,10,0,$two_x,$two_y,$text_color,$font_bold,$text_two);
-imagettftext($im,10,0,$three_x,$three_y,$text_color,$font_normal,$text_three);
-imagettftext($im,10,0,$four_x,$four_y,$text_color,$font_normal,$text_four);
+imagettftext($im,$font_size,0,$one_x,$one_y,$text_color,$font_normal,$text_one);
+imagettftext($im,$font_size,0,$two_x,$two_y,$text_color,$font_bold,$text_two);
+imagettftext($im,$font_size,0,$three_x,$three_y,$text_color,$font_normal,$text_three);
+imagettftext($im,$font_size,0,$four_x,$four_y,$text_color,$font_normal,$text_four);
 
 //Output the image to the browser and destroy it locally.
 imagepng($im);
