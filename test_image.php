@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$image_x = 270;
+$image_x = 290;
 $image_y = 70;
 
 $im = @imagecreatetruecolor($image_x, $image_y)
