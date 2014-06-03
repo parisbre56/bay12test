@@ -13,8 +13,8 @@ $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
 // Name the font to be used
-$font_bold = './DejaVuSans-Bold.ttf';
-$font_normal = './DejaVuSans.ttf';
+$font_bold = './CourierBold.ttf';
+$font_normal = './Courier.ttf';
 
 
 
