@@ -2,6 +2,9 @@
 header ('Content-type:image/gif');
 include('GIFEncoder.class.php');
 
+//Delay between frames
+$delay=1000;
+
 // Open the first source image
 $image = imagecreatefrompng('http://parisbre56-phpexperiment.rhcloud.com/test_image.php');
 
@@ -14,7 +17,7 @@ imagegif($image);
 $frames[]=ob_get_contents();
 
 // Delay in the animation.
-$framed[]=100;
+$framed[]=$delay;
 
 // Clean output buffer.
 ob_end_clean();
@@ -29,7 +32,7 @@ imagegif($image);
 $frames[]=ob_get_contents();
 
 // Delay in the animation.
-$framed[]=100;
+$framed[]=$delay;
 
 // Clean output buffer.
 ob_end_clean();
