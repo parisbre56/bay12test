@@ -2,8 +2,8 @@
 header('Content-Type: image/png');
 
 //Create a black image
-$image_x = 290;
-$image_y = 70;
+$image_x = 200;
+$image_y = 60;
 
 $im = @imagecreatetruecolor($image_x, $image_y)
 	or die('Cannot Initialize new GD image stream');
@@ -17,7 +17,7 @@ imagefill($im, 0, 0, $background);
 $font_bold = './ArialBold.ttf';
 $font_normal = './Arial.ttf';
 //Font size
-$font_size = 12;
+$font_size = 11;
 
 
 //////////////////////////////////////////////////////////////
