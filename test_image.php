@@ -45,9 +45,10 @@ $diff_string = sprintf('%03d',$diff_days->days);
 
 //Text
 $text_one = 'It has been';
-$text_two = $diff_string;
+//$text_two = $diff_string;
+$text_two = "ONGOING, DO NOT PANIC"
 $text_three = 'days since the last Incident';
-$text_four = "Last Incident: ".$incident_name;
+$text_four = "Current: ".$incident_name;
 
 //Get the text bounding boxes
 $bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
