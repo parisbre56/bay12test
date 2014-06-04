@@ -29,7 +29,7 @@ $death_date = new DateTime('4-June-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Hasala : APC Rampage';
+$death_name = 'Hasala';
 
 //////////////////////////////////////////////////////////////
 
