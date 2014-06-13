@@ -24,11 +24,11 @@ $font_size = 11;
 
 //INCIDENT DATE!!!
 
-$incident_date = new DateTime('4-June-2014');
+$incident_date = new DateTime('13-June-2014');
 
 //INCIDENT NAME!!!
 
-$incident_name = 'APC Rampage';
+$incident_name = 'I. Hear. A. Sound.';
 
 //////////////////////////////////////////////////////////////
 
@@ -45,8 +45,8 @@ $diff_string = sprintf('%03d',$diff_days->days);
 
 //Text
 $text_one = 'It has been';
-$text_two = $diff_string;
-//$text_two = 'ONGOING: DO NOT PANIC';
+//$text_two = $diff_string;
+$text_two = 'ONGOING: DO NOT PANIC';
 $text_three = 'days since the last Incident';
 $text_four = "Current: ".$incident_name;
 
