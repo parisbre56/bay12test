@@ -23,7 +23,7 @@ $death_date = new DateTime('17-July-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Morul';
+$death_name = 'Morul (Oh gods so much gibberish why is it still getting longer';
 
 //////////////////////////////////////////////////////////////
 
@@ -45,7 +45,7 @@ $text_three = 'days since the last Death';
 $text_four = "Last: ".$death_name;
 
 $width = strlen($text_four) * 10;
-if($width > 200)
+if($width > $image_x)
 	$image_x = $width;
 
 //Create a black image
