@@ -23,7 +23,7 @@ $death_date = new DateTime('17-July-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Moru, chestworms';
+$death_name = 'coru, chestworms';
 
 //////////////////////////////////////////////////////////////
 
@@ -42,7 +42,7 @@ $diff_string = sprintf('%03d',$diff_days->days);
 $text_one = 'It has been';
 $text_two = $diff_string;
 $text_three = 'days since the last Death';
-$text_four = "Last: ".$death_name;
+$text_four = "ast: ".$death_name;
 
 $width = strlen($text_four) * 7 + 15;
 if($width > $image_x)
