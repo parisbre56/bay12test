@@ -44,7 +44,7 @@ $text_two = $diff_string;
 $text_three = 'days since the last Death';
 $text_four = "Last: ".$death_name;
 
-$width = strlen($text_four) * 8;
+$width = strlen($text_four) * 7;
 if($width > $image_x)
 	$image_x = $width;
 
