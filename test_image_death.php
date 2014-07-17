@@ -1,7 +1,8 @@
 <?php
 header('Content-Type: image/png');
 
-
+$image_x = 200;
+$image_y = 60;
 
 // Name the font to be used
 $font_bold = './ArialBold.ttf';
@@ -47,6 +48,16 @@ $width = strlen($text_four) * 10;
 if($width > 200)
 	$image_x = $width;
 
+//Create a black image
+$im = @imagecreatetruecolor($image_x, $image_y)
+	or die('Cannot Initialize new GD image stream');
+
+//Set background and text color
+$background = imagecolorallocate($im,0,0,0);
+$text_color = imagecolorallocate($im,50,205,50);
+imagefill($im, 0, 0, $background);
+	
+	
 //Get the text bounding boxes
 $bb_one = imagettfbbox($text_size,0,$font_normal,$text_one);
 $bb_two = imagettfbbox($text_size,0,$font_bold,$text_two);
@@ -64,18 +75,6 @@ $three_x = ($image_x-($bb_three[4]-$bb_three[6]))/2;
 $three_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7]);
 $four_x = ($image_x-($bb_four[4]-$bb_four[6]))/2;
 $four_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y+($bb_four[1]-$bb_four[7]);
-
-
-//Create a black image
-$image_x = 200;
-$image_y = 60;
-$im = @imagecreatetruecolor($image_x, $image_y)
-	or die('Cannot Initialize new GD image stream');
-
-//Set background and text color
-$background = imagecolorallocate($im,0,0,0);
-$text_color = imagecolorallocate($im,50,205,50);
-imagefill($im, 0, 0, $background);
 
 
 //Write the text to the image.
