@@ -45,8 +45,8 @@ $text_three = 'days since the last Death';
 $text_four = "Last: ".$death_name;
 
 $width = strlen($text_four) * 7 + 15;
-//if($width > $image_x)
-//	$image_x = $width;
+if($width > $image_x)
+	$image_x = $width;
 
 //Create a black image
 $im = @imagecreatetruecolor($image_x, $image_y)
