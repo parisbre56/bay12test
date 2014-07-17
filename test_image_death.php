@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: image/png');
 
-$image_x = 210;
+$image_x = 200;
 $image_y = 60;
 
 // Name the font to be used
