@@ -14,8 +14,10 @@ $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
 // Name the font to be used
-$font_bold = './ArialBold.ttf';
-$font_normal = './Arial.ttf';
+//$font_bold = './ArialBold.ttf';
+//$font_normal = './Arial.ttf';
+$font_bold = './InconsolataBold.ttf';
+$font_normal = './Inconsolata.ttf';
 //Font size
 $font_size = 11;
 
@@ -48,7 +50,7 @@ $text_one = 'It has been';
 $text_two = $diff_string;
 //$text_two = 'ONGOING: DO NOT PANIC';
 $text_three = 'days since the last Incident';
-$text_four = "Current: ".$incident_name;
+$text_four = "Last: ".$incident_name;
 
 //Get the text bounding boxes
 $bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
