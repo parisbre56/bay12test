@@ -1,17 +1,11 @@
 <?php
 header('Content-Type: image/png');
 
-//Create a black image
+
 $image_x = 200;
 $image_y = 60;
 
-$im = @imagecreatetruecolor($image_x, $image_y)
-	or die('Cannot Initialize new GD image stream');
 
-//Set background and text color
-$background = imagecolorallocate($im,0,0,0);
-$text_color = imagecolorallocate($im,50,205,50);
-imagefill($im, 0, 0, $background);
 
 // Name the font to be used
 $font_bold = './ArialBold.ttf';
@@ -30,7 +24,7 @@ $incident_date = new DateTime('17-June-2014');
 
 //INCIDENT NAME!!!
 
-$incident_name = 'STAN-9';
+$incident_name = 'STAN-9 (Oh no theres gibberish here too?!?)';
 
 //////////////////////////////////////////////////////////////
 
@@ -51,6 +45,19 @@ $text_two = $diff_string;
 //$text_two = 'ONGOING: DO NOT PANIC';
 $text_three = 'days since the last Incident';
 $text_four = "Last: ".$incident_name;
+
+$width = strlen($text_four) * 7 + 20;
+if($width > $image_x)
+	$image_x = $width;
+
+//Create a black image
+$im = @imagecreatetruecolor($image_x, $image_y)
+	or die('Cannot Initialize new GD image stream');
+
+//Set background and text color
+$background = imagecolorallocate($im,0,0,0);
+$text_color = imagecolorallocate($im,50,205,50);
+imagefill($im, 0, 0, $background);
 
 //Get the text bounding boxes
 $bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
