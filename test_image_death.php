@@ -1,16 +1,7 @@
 <?php
 header('Content-Type: image/png');
 
-//Create a black image
-$image_x = 200;
-$image_y = 60;
-$im = @imagecreatetruecolor($image_x, $image_y)
-	or die('Cannot Initialize new GD image stream');
 
-//Set background and text color
-$background = imagecolorallocate($im,0,0,0);
-$text_color = imagecolorallocate($im,50,205,50);
-imagefill($im, 0, 0, $background);
 
 // Name the font to be used
 $font_bold = './ArialBold.ttf';
@@ -27,7 +18,7 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('17-June-2014');
+$death_date = new DateTime('17-July-2014');
 
 //DEATH NAME!!!
 
@@ -52,6 +43,10 @@ $text_two = $diff_string;
 $text_three = 'days since the last Death';
 $text_four = "Last: ".$death_name;
 
+$width = strlen($text_four) * 10;
+if($width > 200)
+	$image_x = $width;
+
 //Get the text bounding boxes
 $bb_one = imagettfbbox($text_size,0,$font_normal,$text_one);
 $bb_two = imagettfbbox($text_size,0,$font_bold,$text_two);
@@ -69,6 +64,19 @@ $three_x = ($image_x-($bb_three[4]-$bb_three[6]))/2;
 $three_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7]);
 $four_x = ($image_x-($bb_four[4]-$bb_four[6]))/2;
 $four_y = 1*$free_y+($bb_one[1]-$bb_one[7])+$free_y+($bb_two[1]-$bb_two[7])+$free_y+($bb_three[1]-$bb_three[7])+$free_y+($bb_four[1]-$bb_four[7]);
+
+
+//Create a black image
+$image_x = 200;
+$image_y = 60;
+$im = @imagecreatetruecolor($image_x, $image_y)
+	or die('Cannot Initialize new GD image stream');
+
+//Set background and text color
+$background = imagecolorallocate($im,0,0,0);
+$text_color = imagecolorallocate($im,50,205,50);
+imagefill($im, 0, 0, $background);
+
 
 //Write the text to the image.
 imagettftext($im,$text_size,0,$one_x,$one_y,$text_color,$font_normal,$text_one);
