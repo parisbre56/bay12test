@@ -14,9 +14,9 @@ $text_color = imagecolorallocate($im,50,205,50);
 imagefill($im, 0, 0, $background);
 
 // Name the font to be used
-//$font_bold = './ArialBold.ttf';
+$font_bold = './ArialBold.ttf';
 //$font_normal = './Arial.ttf';
-$font_bold = './InconsolataBold.ttf';
+//$font_bold = './InconsolataBold.ttf';
 $font_normal = './Inconsolata.ttf';
 //Font size
 $font_size = 11;
@@ -54,7 +54,7 @@ $text_four = "Last: ".$incident_name;
 
 //Get the text bounding boxes
 $bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
-$bb_two = imagettfbbox($font_size+2,0,$font_bold,$text_two);
+$bb_two = imagettfbbox($font_size,0,$font_bold,$text_two);
 $bb_three = imagettfbbox($font_size,0,$font_normal,$text_three);
 $bb_four = imagettfbbox($font_size,0,$font_normal,$text_four);
 
