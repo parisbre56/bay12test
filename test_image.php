@@ -24,7 +24,7 @@ $incident_date = new DateTime('17-June-2014');
 
 //INCIDENT NAME!!!
 
-$incident_name = 'STAN-9 (Oh no theres gibberish here too?!?)';
+$incident_name = 'STAN-9';
 
 //////////////////////////////////////////////////////////////
 
