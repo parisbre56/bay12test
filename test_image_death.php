@@ -23,7 +23,7 @@ $death_date = new DateTime('17-July-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Morul, chestworms';
+$death_name = 'Moru, chestworms';
 
 //////////////////////////////////////////////////////////////
 
