@@ -53,10 +53,10 @@ $text_three = 'days since the last Incident';
 $text_four = "Last: ".$incident_name;
 
 //Get the text bounding boxes
-$bb_one = imagettfbbox($font_size+2,0,$font_normal,$text_one);
+$bb_one = imagettfbbox($font_size,0,$font_normal,$text_one);
 $bb_two = imagettfbbox($font_size,0,$font_bold,$text_two);
-$bb_three = imagettfbbox($font_size+2,0,$font_normal,$text_three);
-$bb_four = imagettfbbox($font_size+2,0,$font_normal,$text_four);
+$bb_three = imagettfbbox($font_size,0,$font_normal,$text_three);
+$bb_four = imagettfbbox($font_size,0,$font_normal,$text_four);
 
 //Compute their position so that they can be centered in the X and have equal distance in the Y.
 $total_y = ($bb_one[1]-$bb_one[7])+ ($bb_two[1]-$bb_two[7])+ ($bb_three[1]-$bb_three[7])+ ($bb_four[1]-$bb_four[7]);

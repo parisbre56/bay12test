@@ -14,7 +14,9 @@ imagefill($im, 0, 0, $background);
 
 // Name the font to be used
 $font_bold = './ArialBold.ttf';
-$font_normal = './Arial.ttf';
+//$font_normal = './Arial.ttf';
+//$font_bold = './InconsolataBold.ttf';
+$font_normal = './Inconsolata.ttf';
 
 //Text size
 $text_size = 11;
@@ -29,7 +31,7 @@ $death_date = new DateTime('17-June-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Denzel';
+$death_name = 'Morul';
 
 //////////////////////////////////////////////////////////////
 
@@ -48,7 +50,7 @@ $diff_string = sprintf('%03d',$diff_days->days);
 $text_one = 'It has been';
 $text_two = $diff_string;
 $text_three = 'days since the last Death';
-$text_four = "Last Death: ".$death_name;
+$text_four = "Last: ".$death_name;
 
 //Get the text bounding boxes
 $bb_one = imagettfbbox($text_size,0,$font_normal,$text_one);
