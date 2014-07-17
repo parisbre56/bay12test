@@ -2,7 +2,7 @@
 header('Content-Type: image/png');
 
 
-$image_x = 200;
+$image_x = 210;
 $image_y = 60;
 
 
@@ -24,7 +24,7 @@ $incident_date = new DateTime('17-June-2014');
 
 //INCIDENT NAME!!!
 
-$incident_name = 'STAN-9 (the gibberish)';
+$incident_name = 'STAN-9';
 
 //////////////////////////////////////////////////////////////
 
