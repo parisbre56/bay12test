@@ -19,11 +19,11 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('17-July-2014');
+$death_date = new DateTime('17-June-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Morul (Chestworms)';
+$death_name = 'Denzel (Became a Star)';
 
 //////////////////////////////////////////////////////////////
 
