@@ -20,14 +20,12 @@ $font_size = 11;
 
 //INCIDENT DATE!!!
 
-$incident_date = new DateTime('17-June-2014');
-//$incident_date = new DateTime('21-Oct-2014');
+$incident_date = new DateTime('21-October-2014');
 
 
 //INCIDENT NAME!!!
 
-$incident_name = 'STAN-9';
-//$incident_name = 'Inferno Mode';
+$incident_name = 'Inferno Mode';
 
 //////////////////////////////////////////////////////////////
 
