@@ -19,11 +19,11 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('17-November-2014');
+$death_date = new DateTime('17-December-2014');
 
 //DEATH NAME!!!
 
-$death_name = 'Ciel (Pyro)';
+$death_name = 'Jim (Lost his brain)';
 
 //////////////////////////////////////////////////////////////
 
