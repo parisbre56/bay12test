@@ -19,7 +19,7 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('4-January-2015');
+$death_date = new DateTime('5-January-2015');
 
 //DEATH NAME!!!
 
