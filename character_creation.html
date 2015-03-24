@@ -1,11 +1,49 @@
-<h>Character creation test</h>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+<script>
+  //Returns the total skill level based on points allocated and initial skill level
+  function computeSkillLevel(P,I) { //P is points in skill, I is initial level of skill
+    
+  }
+  
+  //Updates a stat on change of its inputs
+  function updateStat(P, I, T, L) { //T is total, L is points left until next level
+    
+  }
+  
+  //Notifies the user of any problem with their skill levels by changing a textbox in the end
+  function writeInitialLevelSkillProblems (S, D, E, C, I, W, F) {
+    //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
+    
+  }
+  
+  //Notifies the user of any problem with their stat levels by changing a textbox in the end
+  function writeInitialLevelStatProblems (I, H, C, U, E, A, M, G) {
+    //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+    
+  }
+</script>
+
+
+<h1>Character creation test</h1>
+<h2>Stats</h2>
+<form oninput="writeInitialLevelStatProblems(StrI,DexI,EndI,CharI,IntelI,WillI,FateI)">
 <table>
   <tr>
-    <td>
-      <input type="text" name="t1">test</input>
-    </td>
-    <td>
-      <input type="number" name="t2">test</input>
-    </td>
+    <td><strong>Name</strong></td>
+    <td><strong>Points assigned</strong></td>
+    <td><strong>Initial level</strong></td>
+    <td><strong>Total level</strong></td>
+    <td><strong>Left for next level</strong></td>
+  </tr>
+  <tr>
+    <form oninput="computeSkillLevel(StrP,StrI,StrT,StrL)">
+      <td>Strength</td>
+      <td><input type="number" name="StrP"></td>
+      <td><input type="number" name="StrI"></td>
+      <td><output name="StrT"></output></td>
+      <td><output name="StrL"></output></td>
+    </form>
   </tr>
 </table>
+</form>
+<h2>Skills</h2>
