@@ -27,7 +27,7 @@
 <h1>Character creation test</h1>
 <h2>Stats</h2>
 <form oninput="writeInitialLevelStatProblems(StrI,DexI,EndI,CharI,IntelI,WillI,FateI)">
-<table>
+<table border="1">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -38,10 +38,10 @@
   <tr>
     <form oninput="computeSkillLevel(StrP,StrI,StrT,StrL)">
       <td>Strength</td>
-      <td><input type="number" name="StrP"></td>
-      <td><input type="number" name="StrI"></td>
-      <td><output name="StrT"></output></td>
-      <td><output name="StrL"></output></td>
+      <td><input type="number" name="StrP" value="0"></td>
+      <td><input type="number" name="StrI" value="0"></td>
+      <td><output name="StrT" value="0"></output></td>
+      <td><output name="StrL" value="5"></output></td>
     </form>
   </tr>
 </table>
