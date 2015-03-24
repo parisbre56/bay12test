@@ -50,8 +50,7 @@
 
 <h1>Character creation test</h1>
 <h2>Stats</h2>
-<form oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');writeStatPointProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');">
-<table border="1">
+<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');writeStatPointProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -59,71 +58,57 @@
     <td><strong>Total level</strong></td>
     <td><strong>Left for next level</strong></td>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('StrP','StrI','StrT','StrL');">
+  <tr oninput="computeSkillLevel('StrP','StrI','StrT','StrL');">
       <td>Strength</td>
       <td><input type="number" id="StrP" value="0"></td>
       <td><input type="number" id="StrI" value="0"></td>
       <td><output id="StrT">0</output></td>
       <td><output id="StrL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('DexP','DexI','DexT','DexL');">
+  <tr oninput="computeSkillLevel('DexP','DexI','DexT','DexL');">
       <td>Dexterity</td>
       <td><input type="number" id="DexP" value="0"></td>
       <td><input type="number" id="DexI" value="0"></td>
       <td><output id="DexT">0</output></td>
       <td><output id="DexL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('EndP','EndI','EndT','EndL');">
+  <tr oninput="computeSkillLevel('EndP','EndI','EndT','EndL');">
       <td>Endurance</td>
       <td><input type="number" id="EndP" value="0"></td>
       <td><input type="number" id="EndI" value="0"></td>
       <td><output id="EndT">0</output></td>
       <td><output id="EndL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('ChaP','ChaI','ChaT','ChaL');">
+  <tr oninput="computeSkillLevel('ChaP','ChaI','ChaT','ChaL');">
       <td>Charisma</td>
       <td><input type="number" id="ChaP" value="0"></td>
       <td><input type="number" id="ChaI" value="0"></td>
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('IntelP,'IntelI','IntelT','IntelL');">
+  <tr oninput="computeSkillLevel('IntelP,'IntelI','IntelT','IntelL');">
       <td>Intelligence</td>
       <td><input type="number" id="IntelP" value="0"></td>
       <td><input type="number" id="IntelI" value="0"></td>
       <td><output id="IntelT">0</output></td>
       <td><output id="IntelL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('WillP','WillI','WillT','WillL');">
+  <tr oninput="computeSkillLevel('WillP','WillI','WillT','WillL');">
       <td>Willlpower</td>
       <td><input type="number" id="WillP" value="0"></td>
       <td><input type="number" id="WillI" value="0"></td>
       <td><output id="WillT">0</output></td>
       <td><output id="WillL">5</output></td>
-    </form>
   </tr>
-  <tr>
-    <form oninput="computeSkillLevel('FateP','FateI','FateT','FateL');">
+  <tr oninput="computeSkillLevel('FateP','FateI','FateT','FateL');">
       <td>Fate</td>
       <td><input type="number" id="FateP" value="0"></td>
       <td><input type="number" id="FateI" value="0"></td>
       <td><output id="FateT">0</output></td>
       <td><output id="FateL">5</output></td>
-    </form>
   </tr>
 </table>
-</form>
+
 <h2>Skills</h2>
 
 </body>
