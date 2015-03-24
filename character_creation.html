@@ -29,9 +29,9 @@
     TE.innerHTML=SkillLevel; //Write total skill level
     
     //Write points left for next level
-    //It is the [the points needed for the next level]-([the points needed for this level] - 
-    // [the points needed for the initial skill level])-[current points]
-    LE.innerHTML=getPDelta(SkillLevel+1)-(getPDelta(SkillLevel)-getPDelta(IN))-PN
+    //It is the ([the points needed for the next level]-[the points needed for this level])-
+    //([current points]-([the points needed for this level] - [the points needed for the initial skill level]))
+    LE.innerHTML=(getPDelta(SkillLevel+1)-getPDelta(SkillLevel))-(PN-(getPDelta(SkillLevel)-getPDelta(IN)));
   }
   
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
