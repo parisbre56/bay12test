@@ -35,13 +35,14 @@
   }
   
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
-  function writeInitialLevelSkillProblems (S, D, E, C, I, W, F) {
+  function writeInitialLevelStatProblems (S, D, E, C, I, W, F) {
     //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
-    
+    //Problems detected with initial stat levels: <output id="StatProblems">None.</output></br>
+    //for all arguments
   }
   
   //Notifies the user of any problem with their stat levels by changing a textbox in the end
-  function writeInitialLevelStatProblems (I, H, C, U, E, A, M, G) {
+  function writeInitialLevelSkillProblems (I, H, C, U, E, A, M, G) {
     //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
     
   }
@@ -49,7 +50,7 @@
   //Compute stat point total and mission total and write them in a text box in the end
   function writeStatPointProblems (S, D, E, C, I, W, F) {
     //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
-    
+    //Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s))</br>
   }
   
   //Compute skill point total and mission total and write them in a text box in the end
@@ -120,6 +121,12 @@
       <td><output id="FateL">5</output></td>
   </tr>
 </table>
+
+</br>
+<p>
+  Problems detected with initial stat levels: <output id="StatProblems">None.</output></br>
+  Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s))</br>
+</p>
 
 <h2>Skills</h2>
 
