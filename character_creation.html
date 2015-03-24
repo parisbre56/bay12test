@@ -4,9 +4,9 @@
   function computeSkillLevel(P,I) { //P is points in skill, I is initial level of skill
     var PDelta = Math.sign(I)*(Math.abs(I)+1)*Math.abs(I)*2.5; // 5/2=2.5
     if(P+PDelta < 0) {
-      return -Math.ceil(-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta))/4.472135955); //2*sqrt(5)
+      return -Math.ceil(-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta+P))/4.472135955); //2*sqrt(5)
     } else {
-      return Math.floor((-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta))/4.472135955)+ 0.00001);
+      return Math.floor((-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta+P))/4.472135955)+ 0.00001);
     }
   }
   
