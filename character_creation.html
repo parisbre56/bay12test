@@ -2,12 +2,20 @@
 <script>
   //Returns the total skill level based on points allocated and initial skill level
   function computeSkillLevel(P,I) { //P is points in skill, I is initial level of skill
-    
+    var PDelta = Math.sign(I)*(Math.abs(I)+1)*Math.abs(I)*2.5; // 5/2=2.5
+    if(P+PDelta < 0) {
+      return -Math.ceil(-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta))/4.472135955); //2*sqrt(5)
+    } else {
+      return Math.floor((-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta))/4.472135955)+ 0.00001);
+    }
   }
   
   //Updates a stat on change of its inputs
   function updateStat(P, I, T, L) { //T is total, L is points left until next level
-    
+    var PN = parseInt(document.getElementById(P).value);
+    var IN = parseInt(document.getElementById(I).value);
+    var TE = document.getElementById(T);
+    TE.innerHTML=computeSkillLevel(PN,IN);
   }
   
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
@@ -38,7 +46,7 @@
 
 <h1>Character creation test</h1>
 <h2>Stats</h2>
-<form oninput="writeInitialLevelStatProblems(StrI,DexI,EndI,CharI,IntelI,WillI,FateI);writeStatPointProblems(StrI,DexI,EndI,CharI,IntelI,WillI,FateI);">
+<form oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');writeStatPointProblems('StrI','DexI','EndI','CharI','IntelI','WillI','FateI');">
 <table border="1">
   <tr>
     <td><strong>Name</strong></td>
@@ -48,7 +56,7 @@
     <td><strong>Left for next level</strong></td>
   </tr>
   <tr>
-    <form oninput="computeSkillLevel(StrP,StrI,StrT,StrL);">
+    <form oninput="computeSkillLevel('StrP','StrI','StrT','StrL');">
       <td>Strength</td>
       <td><input type="number" name="StrP" value="0"></td>
       <td><input type="number" name="StrI" value="0"></td>
@@ -57,7 +65,7 @@
     </form>
   </tr>
   <tr>
-    <form oninput="computeSkillLevel(DexP,DexI,DexT,DexL);">
+    <form oninput="computeSkillLevel('DexP','DexI','DexT','DexL');">
       <td>Dexterity</td>
       <td><input type="number" name="DexP" value="0"></td>
       <td><input type="number" name="DexI" value="0"></td>
@@ -66,7 +74,7 @@
     </form>
   </tr>
   <tr>
-    <form oninput="computeSkillLevel(EndP,EndI,EndT,EndL);">
+    <form oninput="computeSkillLevel('EndP','EndI','EndT','EndL');">
       <td>Endurance</td>
       <td><input type="number" name="EndP" value="0"></td>
       <td><input type="number" name="EndI" value="0"></td>
