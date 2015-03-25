@@ -244,7 +244,7 @@
 </ul>
 
 <h2>Stats</h2>
-<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','IntelI','WillI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','IntelP','WillP','FateP');">
+<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','SmartI','WillI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','SmartP','WillP','FateP');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -280,12 +280,12 @@
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
   </tr>
-  <tr oninput="updateStat('IntelP,'IntelI','IntelT','IntelL');">
+  <tr oninput="updateStat('SmartP,'SmartI','SmartT','SmartL');">
       <td>Intelligence</td>
-      <td><input type="number" id="IntelP" value="0"></td>
-      <td><input type="number" id="IntelI" value="0"></td>
-      <td><output id="IntelT">0</output></td>
-      <td><output id="IntelL">5</output></td>
+      <td><input type="number" id="SmartP" value="0"></td>
+      <td><input type="number" id="SmartI" value="0"></td>
+      <td><output id="SmartT">0</output></td>
+      <td><output id="SmartL">5</output></td>
   </tr>
   <tr oninput="updateStat('WillP','WillI','WillT','WillL');">
       <td>Willlpower</td>
