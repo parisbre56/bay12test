@@ -208,8 +208,41 @@
   }
 </script>
 
+<h1>Stat and Skill Rules</h1>
+<h3>Character creation</h3>
+<ul>
+  <li>Everyone starts with a zero levels and zero points in all stats and skills.</li>
+  <li>You can add positive levels during character creation, but must take a greater penalty each time you do so.</li>
+  <ul>
+    <li>Having a total of +1 positive levels means you must take a total of -1 negative levels.</li>
+    <li>Having a total of +2 positive levels means you must take a total of -3 negative levels.</li>
+    <li>Having a total of +3 positive levels means you must take a total of -6 negative levels.</li>
+    <li>Having a total of +4 positive levels means you must take a total of -10 negative levels.</li>
+  </ul>
+  <li>You can not have a level lower than -2.</li>
+  <li>During character generation <strong>only</strong> you cannot have a level greater than 2.</li>
+</ul>
+<h3>Level up</h3>
+<ul>
+  <li>You get 5 points for stats and 5 for skills at the end of each mission.</li>
+  <ul>
+    <li>Getting from level -2 to level -1 takes 10 points.</li>
+    <li>Getting from level -1 to level 0 takes 5 points.</li>
+    <li>Getting from level 0 to level 1 takes 5 points.</li>
+    <li>Getting from level 1 to level 2 takes 10 points.</li>
+    <li>Getting from level 2 to level 3 takes 15 points.</li>
+    <li>Getting from level 3 to level 4 takes 20. To get to level 4 from level 0, in other words, you'd need to  50 points, or 10 missions worth.</li>
+  </ul>
+</ul>
 
-<h1>Character creation test</h1>
+<h3>Extra rules for old characters</h3>
+<ul>
+  <li>The Anompalous Planetoid mission counts as two missions and thus gives two levelups.</li>
+  <li>Those that got points during the Hephaestus timeskip get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
+  <li>Those that participated in the Hephaestus space battle get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
+  <li>Lars gets a +1 level to Faith without the need to take extra negative levels for it.</li>
+</ul>
+
 <h2>Stats</h2>
 <table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','IntelI','WillI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','IntelP','WillP','FateP');">
   <tr>
@@ -281,6 +314,13 @@
 
 <h2>Skills</h2>
 <table border="1" oninput="writeInitialLevelSkillProblems('IntuI','HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('IntuP','HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Points assigned</strong></td>
+    <td><strong>Initial level</strong></td>
+    <td><strong>Total level</strong></td>
+    <td><strong>Left for next level</strong></td>
+  </tr>
   <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL');">
       <td>Intuition</td>
       <td><input type="number" id="IntuP" value="0"></td>
