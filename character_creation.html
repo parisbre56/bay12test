@@ -61,18 +61,18 @@
     //Find the negative levels needed for the positive levels given
     var negativeNeeded=-triSeq(totalPositive);
     
-    document.getElementById("PositiveStatLevels").value=totalPositive;
-    document.getElementById("NegativeStatLevels").value=totalNegative;
+    document.getElementById("PositiveStatLevels").innerHTML=totalPositive;
+    document.getElementById("NegativeStatLevels").innerHTML=totalNegative;
     if(negativeNeeded-totalNegative<0) { //-5-(-3)=-2 more levels needed
-      document.getElementById("NegativeStatLevelDelta").value="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels needed)";
+      document.getElementById("NegativeStatLevelDelta").innerHTML="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels needed)";
     }
     else if(negativeNeeded-totalNegative>0) { //-5-(-7)=2 more negative levels than necessary
-      document.getElementById("NegativeStatLevelDelta").value="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels than necessary)";
+      document.getElementById("NegativeStatLevelDelta").innerHTML="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels than necessary)";
     }
     else { //if equal, say nothing
-      document.getElementById("NegativeStatLevelDelta").value="";
+      document.getElementById("NegativeStatLevelDelta").innerHTML="";
     }
-    document.getElementById("NegativeStatLevelsNeeded").value=negativeNeeded;
+    document.getElementById("NegativeStatLevelsNeeded").innerHTML=negativeNeeded;
   }
   
   //Notifies the user of any problem with their stat levels by changing a textbox in the end
