@@ -42,6 +42,7 @@
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
   function writeInitialLevelStatProblems (S, D, E, C, I, W, F) {
     //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
+    //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
     //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output></br>
     //Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output></br>
@@ -50,17 +51,37 @@
     var temp=0;
     var totalNegative=0;
     var totalPositive=0;
+    var overLimitPositiveDetected=false;
+    var overLimitNegativeDetected=false;
     for (var i=0; i < arguments.length; i++) {
         temp=parseInt(document.getElementById(arguments[i]).value);
         if(temp<0) {
           totalNegative+=temp;
+          if(temp<-2) {
+            overLimitNegativeDetected=true;
+          }
         } else {
           totalPositive+=temp;
+          if(temp>2) {
+            overLimitPositiveDetected=true;
+          }
         }
     }
     //Find the negative levels needed for the positive levels given
     var negativeNeeded=-triSeq(totalPositive);
     
+    //Display error
+    if(overLimitNegativeDetected) {
+      document.getElementById("StatErrorText").innerHTML="Initial stat levels can't be less than -2";
+    }
+    else if(overLimitPositiveDetected) {
+      document.getElementById("StatErrorText").innerHTML="Initial stat levels can't be more than 2";
+    }
+    else {
+      document.getElementById("StatErrorText").innerHTML="";
+    }
+    
+    //Display statistics 
     document.getElementById("PositiveStatLevels").innerHTML=totalPositive;
     document.getElementById("NegativeStatLevels").innerHTML=totalNegative;
     if(negativeNeeded-totalNegative<0) { //-5-(-3)=-2 more levels needed
@@ -84,8 +105,31 @@
   //Compute stat point total and mission total and write them in a text box in the end
   function writeStatPointProblems (S, D, E, C, I, W, F) {
     //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
-    //Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
+    //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
+    //Point total: <output id="TotalStatPoints">0</output> 
+    //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
     
+    var temp=0;
+    var total=0;
+    var negativeDetected=false;
+    //Get the total points
+    for (var i=0; i < arguments.length; i++) {
+      temp=parseInt(document.getElementById(arguments[i]).value);
+      total+=temp;
+      if(temp<0) {
+        negativeDetected=true;
+      }
+    }
+    
+    //Print error
+    if(negativeDetected) {
+      document.getElementById("StatErrorText").innerHTML="Stat points can't be negative";
+    }
+    
+    //Print statistics
+    document.getElementById("TotalStatPoints").innerHTML=total.toString();
+    document.getElementById("StatMissions").innerHTML=Math.floor(total/5).toString();
+    document.getElementById("StatExtra").innerHTML=(total%5).toString();
   }
   
   //Compute skill point total and mission total and write them in a text box in the end
@@ -158,6 +202,7 @@
 </table>
 
 </br>
+<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
 <p>
   Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
   Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta"></output></br>
