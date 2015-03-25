@@ -100,6 +100,53 @@
   function writeInitialLevelSkillProblems (I, H, C, U, E, A, M, G) {
     //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
     
+    //for all arguments, find the total positive and negative levels
+    var temp=0;
+    var totalNegative=0;
+    var totalPositive=0;
+    var overLimitPositiveDetected=false;
+    var overLimitNegativeDetected=false;
+    for (var i=0; i < arguments.length; i++) {
+        temp=parseInt(document.getElementById(arguments[i]).value);
+        if(temp<0) {
+          totalNegative+=temp;
+          if(temp<-2) {
+            overLimitNegativeDetected=true;
+          }
+        } else {
+          totalPositive+=temp;
+          if(temp>2) {
+            overLimitPositiveDetected=true;
+          }
+        }
+    }
+    //Find the negative levels needed for the positive levels given
+    var negativeNeeded=-triSeq(totalPositive);
+    
+    //Display error
+    if(overLimitNegativeDetected) {
+      document.getElementById("SkillErrorText").innerHTML="Initial Skill levels can't be less than -2";
+    }
+    else if(overLimitPositiveDetected) {
+      document.getElementById("SkillErrorText").innerHTML="Initial Skill levels can't be more than 2";
+    }
+    else {
+      document.getElementById("SkillErrorText").innerHTML="";
+    }
+    
+    //Display Skillistics 
+    document.getElementById("PositiveSkillLevels").innerHTML=totalPositive;
+    document.getElementById("NegativeSkillLevels").innerHTML=totalNegative;
+    if(negativeNeeded-totalNegative<0) { //-5-(-3)=-2 more levels needed
+      document.getElementById("NegativeSkillLevelDelta").innerHTML="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels needed)";
+    }
+    else if(negativeNeeded-totalNegative>0) { //-5-(-7)=2 more negative levels than necessary
+      document.getElementById("NegativeSkillLevelDelta").innerHTML="("+Math.abs(negativeNeeded-totalNegative).toString()+" more negative levels than necessary)";
+    }
+    else { //if equal, say nothing
+      document.getElementById("NegativeSkillLevelDelta").innerHTML="";
+    }
+    document.getElementById("NegativeSkillLevelsNeeded").innerHTML=negativeNeeded;
   }
   
   //Compute stat point total and mission total and write them in a text box in the end
@@ -135,6 +182,28 @@
   //Compute skill point total and mission total and write them in a text box in the end
   function writeSkillPointProblems (I, H, C, U, E, A, M, G) {
     //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+    
+    var temp=0;
+    var total=0;
+    var negativeDetected=false;
+    //Get the total points
+    for (var i=0; i < arguments.length; i++) {
+      temp=parseInt(document.getElementById(arguments[i]).value);
+      total+=temp;
+      if(temp<0) {
+        negativeDetected=true;
+      }
+    }
+    
+    //Print error
+    if(negativeDetected) {
+      document.getElementById("SkillErrorText").innerHTML="Skill points can't be negative";
+    }
+    
+    //Print Skillistics
+    document.getElementById("TotalSkillPoints").innerHTML=total.toString();
+    document.getElementById("SkillMissions").innerHTML=Math.floor(total/5).toString();
+    document.getElementById("SkillExtra").innerHTML=(total%5).toString();
     
   }
 </script>
@@ -211,6 +280,72 @@
 </p>
 
 <h2>Skills</h2>
+<table border="1" oninput="writeInitialLevelSkillProblems('IntuI','HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('IntuP','HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
+  <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL');">
+      <td>Intuition</td>
+      <td><input type="number" id="IntuP" value="0"></td>
+      <td><input type="number" id="IntuI" value="0"></td>
+      <td><output id="IntuT">0</output></td>
+      <td><output id="IntuL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('HanP','HanI','HanT','HanL');">
+      <td>Handiwork</td>
+      <td><input type="number" id="HanP" value="0"></td>
+      <td><input type="number" id="HanI" value="0"></td>
+      <td><output id="HanT">0</output></td>
+      <td><output id="HanL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('ConP','ConI','ConT','ConL');">
+      <td>Conventional</td>
+      <td><input type="number" id="ConP" value="0"></td>
+      <td><input type="number" id="ConI" value="0"></td>
+      <td><output id="ConT">0</output></td>
+      <td><output id="ConL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('UnconP','UnconI','UnconT','UnconL');">
+      <td>Unconventional</td>
+      <td><input type="number" id="UnconP" value="0"></td>
+      <td><input type="number" id="UnconI" value="0"></td>
+      <td><output id="UnconT">0</output></td>
+      <td><output id="UnconL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('ExoP','ExoI','ExoT','ExoL');">
+      <td>Exotic</td>
+      <td><input type="number" id="ExoP" value="0"></td>
+      <td><input type="number" id="ExoI" value="0"></td>
+      <td><output id="ExoT">0</output></td>
+      <td><output id="ExoL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('AuxP','AuxI','AuxT','AuxL');">
+      <td>Auxiliary</td>
+      <td><input type="number" id="AuxP" value="0"></td>
+      <td><input type="number" id="AuxI" value="0"></td>
+      <td><output id="AuxT">0</output></td>
+      <td><output id="AuxL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('MedP','MedI','MedT','MedL');">
+      <td>Medical</td>
+      <td><input type="number" id="MedP" value="0"></td>
+      <td><input type="number" id="MedI" value="0"></td>
+      <td><output id="MedT">0</output></td>
+      <td><output id="MedL">5</output></td>
+  </tr>
+  <tr oninput="updateStat('GenP','GenI','GenT','GenL');">
+      <td>Gen. Knowledge</td>
+      <td><input type="number" id="GenP" value="0"></td>
+      <td><input type="number" id="GenI" value="0"></td>
+      <td><output id="GenT">0</output></td>
+      <td><output id="GenL">5</output></td>
+  </tr>
+</table>
+
+<p style="color: red; font-size:30px"><output id="SkillErrorText"></output></p>
+<p>
+  Total positive initial levels: <output id="PositiveSkillLevels">0</output></br>
+  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta"></output></br>
+  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output></br>
+  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)</br>
+</p>
 
 </body>
 </html>
