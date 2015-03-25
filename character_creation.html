@@ -51,7 +51,7 @@
     var totalNegative=0;
     var totalPositive=0;
     for (var i=0; i < arguments.length; i++) {
-        temp=document.getElementById(arguments[i]).value;
+        temp=parseInt(document.getElementById(arguments[i]).value);
         if(temp<0) {
           totalNegative+=temp;
         } else {
