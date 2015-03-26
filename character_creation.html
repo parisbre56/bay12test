@@ -53,6 +53,7 @@
     var totalPositive=0;
     var overLimitPositiveDetected=false;
     var overLimitNegativeDetected=false;
+	var bonusPlus = false;
     for (var i=0; i < arguments.length; i++) {
         temp=parseInt(document.getElementById(arguments[i]).value);
         if(temp<0) {
@@ -61,6 +62,10 @@
             overLimitNegativeDetected=true;
           }
         } else {
+		  if(temp>0 && !bonusPlus && totalPositive>0){
+			bonusPlus = true;
+			totalPositive-=1;
+		  }
           totalPositive+=temp;
           if(temp>2) {
             overLimitPositiveDetected=true;
@@ -69,7 +74,10 @@
     }
     //Find the negative levels needed for the positive levels given
     var negativeNeeded=-triSeq(totalPositive);
-    
+    if(bonusPlus){
+		negativeNeeded-= 1;
+	}
+	
     //Display error
     if(overLimitNegativeDetected) {
       document.getElementById("StatErrorText").innerHTML="Initial stat levels can't be less than -2";
@@ -106,6 +114,7 @@
     var totalPositive=0;
     var overLimitPositiveDetected=false;
     var overLimitNegativeDetected=false;
+	var bonusPlus = false;
     for (var i=0; i < arguments.length; i++) {
         temp=parseInt(document.getElementById(arguments[i]).value);
         if(temp<0) {
@@ -114,6 +123,10 @@
             overLimitNegativeDetected=true;
           }
         } else {
+		  if(temp>0 && !bonusPlus && totalPositive>0){
+			bonusPlus = true;
+			totalPositive-=1;
+		  }
           totalPositive+=temp;
           if(temp>2) {
             overLimitPositiveDetected=true;
@@ -122,6 +135,9 @@
     }
     //Find the negative levels needed for the positive levels given
     var negativeNeeded=-triSeq(totalPositive);
+	if(bonusPlus){
+		negativeNeeded-= 1;
+	}
     
     //Display error
     if(overLimitNegativeDetected) {
