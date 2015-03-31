@@ -40,8 +40,8 @@
   }
   
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
-  function writeInitialLevelStatProblems (S, D, E, C, I, W, F) {
-    //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
+  function writeInitialLevelStatProblems (S, D, E, C, M, F) {
+    //Strength, Dexterity, Endurance, Charisma, Mind, Fate
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
     //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output></br>
@@ -168,8 +168,8 @@
   }
   
   //Compute stat point total and mission total and write them in a text box in the end
-  function writeStatPointProblems (S, D, E, C, I, W, F) {
-    //Strength, Dexterity, Endurance, Charisma, Intelligence, Will, Fate
+  function writeStatPointProblems (S, D, E, C, M, F) {
+    //Strength, Dexterity, Endurance, Charisma, Mind, Fate
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Point total: <output id="TotalStatPoints">0</output> 
     //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
@@ -269,7 +269,7 @@
 </ul>
 
 <h2>Stats</h2>
-<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','IntelI','WillI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','IntelP','WillP','FateP');">
+<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -305,6 +305,14 @@
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
   </tr>
+  <tr oninput="updateStat('MindP','MindI','MindT','MindL');">
+      <td>Mind</td>
+      <td><input type="number" id="MindP" value="0"></td>
+      <td><input type="number" id="MindI" value="0"></td>
+      <td><output id="MindT">0</output></td>
+      <td><output id="MindL">5</output></td>
+  </tr>
+  <!-- Deprecated Int and Will stats
   <tr oninput="updateStat('IntelP','IntelI','IntelT','IntelL');">
       <td>Intelligence</td>
       <td><input type="number" id="IntelP" value="0"></td>
@@ -319,6 +327,7 @@
       <td><output id="WillT">0</output></td>
       <td><output id="WillL">5</output></td>
   </tr>
+	-->
   <tr oninput="updateStat('FateP','FateI','FateT','FateL');">
       <td>Fate</td>
       <td><input type="number" id="FateP" value="0"></td>
