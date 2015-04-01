@@ -40,8 +40,8 @@
   }
   
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
-  function writeInitialLevelStatProblems (S, D, E, C, M, F) {
-    //Strength, Dexterity, Endurance, Charisma, Mind, Fate
+  function writeInitialLevelStatProblems (S, D, E, C, M, F, I) {
+    //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
     //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output></br>
@@ -106,8 +106,8 @@
   }
   
   //Notifies the user of any problem with their stat levels by changing a textbox in the end
-  function writeInitialLevelSkillProblems (I, H, C, U, E, A, M, G) {
-    //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+  function writeInitialLevelSkillProblems (H, C, U, E, A, M, G) {
+    //Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
     
     //for all arguments, find the total positive and negative levels
     var temp=0;
@@ -168,8 +168,8 @@
   }
   
   //Compute stat point total and mission total and write them in a text box in the end
-  function writeStatPointProblems (S, D, E, C, M, F) {
-    //Strength, Dexterity, Endurance, Charisma, Mind, Fate
+  function writeStatPointProblems (S, D, E, C, M, F, I) {
+    //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Point total: <output id="TotalStatPoints">0</output> 
     //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
@@ -198,8 +198,8 @@
   }
   
   //Compute skill point total and mission total and write them in a text box in the end
-  function writeSkillPointProblems (I, H, C, U, E, A, M, G) {
-    //Intuition, Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+  function writeSkillPointProblems (H, C, U, E, A, M, G) {
+    //Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
     
     var temp=0;
     var total=0;
@@ -269,7 +269,7 @@
 </ul>
 
 <h2>Stats</h2>
-<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI');writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP');">
+<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI',IntuI');writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP','IntuI');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -335,6 +335,13 @@
       <td><output id="FateT">0</output></td>
       <td><output id="FateL">5</output></td>
   </tr>
+  <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL');">
+      <td>Intuition</td>
+      <td><input type="number" id="IntuP" value="0"></td>
+      <td><input type="number" id="IntuI" value="0"></td>
+      <td><output id="IntuT">0</output></td>
+      <td><output id="IntuL">5</output></td>
+  </tr>
 </table>
 
 </br>
@@ -347,20 +354,13 @@
 </p>
 
 <h2>Skills</h2>
-<table border="1" oninput="writeInitialLevelSkillProblems('IntuI','HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('IntuP','HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
+<table border="1" oninput="writeInitialLevelSkillProblems('HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
     <td><strong>Initial level</strong></td>
     <td><strong>Total level</strong></td>
     <td><strong>Left for next level</strong></td>
-  </tr>
-  <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL');">
-      <td>Intuition</td>
-      <td><input type="number" id="IntuP" value="0"></td>
-      <td><input type="number" id="IntuI" value="0"></td>
-      <td><output id="IntuT">0</output></td>
-      <td><output id="IntuL">5</output></td>
   </tr>
   <tr oninput="updateStat('HanP','HanI','HanT','HanL');">
       <td>Handiwork</td>
