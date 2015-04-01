@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="UTF-8">
+	<title>ER Character Calculator</title>
+	<link rel="shortcut icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
+	<style>
+		table, th, td {
+		    border: 1px solid black;
+		}
+	</style>
+</head> 
+
 <body>
 
 <noscript>Sorry, your browser does not support JavaScript!</noscript>
@@ -43,9 +54,9 @@
   function writeInitialLevelStatProblems (S, D, E, C, M, F, I) {
     //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
-    //Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
-    //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output></br>
-    //Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output></br>
+    //Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
+    //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output><br>
+    //Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
     
     //for all arguments, find the total positive and negative levels
     var temp=0;
@@ -172,7 +183,7 @@
     //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
     //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
     //Point total: <output id="TotalStatPoints">0</output> 
-    //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
+    //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
     
     var temp=0;
     var total=0;
@@ -230,46 +241,46 @@
 <h3>Character creation</h3>
 <ul>
   <li>Everyone starts with zero levels and zero points in all stats and skills.</li>
-  <li>You can add positive levels during character creation, but must take a greater penalty each time you do so. These are reffered to as 'Initial levels' in this page.</li>
+  <li>You can add positive levels during character creation, but must take a greater penalty each time you do so. These are reffered to as 'Initial levels' in this page.
   <ul>
     <li>Having a <em>total</em> of +1 positive intial levels means you must take a total of -1 negative intial levels.</li>
     <li>Having a <em>total</em> of +2 positive intial levels means you must take a total of -3 negative intial levels.</li>
     <li>Having a <em>total</em> of +3 positive intial levels means you must take a total of -6 negative intial levels.</li>
     <li>Having a <em>total</em> of +4 positive intial levels means you must take a total of -10 negative intial levels.</li>
-    <li>Note that the total is different between stats and skills. </br>You cannot mix the total initial levels for stats with the total initial levels for skills. </br>You <strong>cannot</strong> have +1 strength and +1 willpower for -2 endurance and -1 conventional.</li>
-  </ul>
-  <li>Your second increase to 1 can be taken at a cost of -1</li>
+    <li>Note that the total is different between stats and skills. <br>You cannot mix the total initial levels for stats with the total initial levels for skills. <br>You <strong>cannot</strong> have +1 strength and +1 willpower for -2 endurance and -1 conventional.</li>
+  </ul></li>
+  <li>Your second increase to 1 can be taken at a cost of -1
   <ul>
     <li>This +1 does not count toward the cummulative total</li>
 	<li>This 1 *can* be increased, using the normal system</li>
-  </ul>
+  </ul></li>
   <li>You can not have an initial level lower than -2.</li>
   <li><strong>Only</strong> during character generation, you cannot have an initial level greater than 2.</li>
 </ul>
 <h3>Level up</h3>
 <ul>
-  <li>You get 5 points for stats and 5 for skills at the end of each mission.</li>
+  <li>You get 5 points for stats and 5 for skills at the end of each mission.
   <ul>
     <li>Getting from level -2 to level -1 takes 10 points.</li>
     <li>Getting from level -1 to level 0 takes 5 points.</li>
     <li>Getting from level 0 to level 1 takes 5 points.</li>
     <li>Getting from level 1 to level 2 takes 10 points.</li>
     <li>Getting from level 2 to level 3 takes 15 points.</li>
-    <li>Getting from level 3 to level 4 takes 20. </br>To get to level 4 from level 0, in other words, you'd need to spend 50 points, or 10 missions worth. </br>On the other hand, if you have an initial level of 2 on a skill, you can reach level 4 with just 35 points or 7 missions worth.</li>
-  </ul>
+    <li>Getting from level 3 to level 4 takes 20. <br>To get to level 4 from level 0, in other words, you'd need to spend 50 points, or 10 missions worth. <br>On the other hand, if you have an initial level of 2 on a skill, you can reach level 4 with just 35 points or 7 missions worth.</li>
+  </ul></li>
   <li>Note that special circumstances (brain damage, genemods, alien parasites, Doctor experimentation, etc.) may change the number of points given or may result in point deduction.</li>
 </ul>
 
 <h3>Extra rules for old characters</h3>
 <ul>
   <li>The Anompalous Planetoid mission counts as two missions and thus gives two levelups instead of one.</li>
-  <li>Those that got points during the Hephaestus timeskip get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. </br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
-  <li>Those that participated in the Hephaestus space battle get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. </br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
+  <li>Those that got points during the Hephaestus timeskip get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. <br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
+  <li>Those that participated in the Hephaestus space battle get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. <br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
   <li>Lars gets a +1 level to Fate without the need to take extra negative levels for it.</li>
 </ul>
 
 <h2>Stats</h2>
-<table border="1" oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI','IntuI');writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP','IntuP');">
+<table oninput="writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI','IntuI');writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP','IntuP');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -344,17 +355,17 @@
   </tr>
 </table>
 
-</br>
+<br>
 <p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
 <p>
-  Total positive initial levels: <output id="PositiveStatLevels">0</output></br>
-  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta"></output></br>
-  Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output></br>
-  Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)</br>
+  Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
+  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta"></output><br>
+  Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
+  Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
 </p>
 
 <h2>Skills</h2>
-<table border="1" oninput="writeInitialLevelSkillProblems('HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
+<table oninput="writeInitialLevelSkillProblems('HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');writeSkillPointProblems('HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');">
   <tr>
     <td><strong>Name</strong></td>
     <td><strong>Points assigned</strong></td>
@@ -415,10 +426,10 @@
 
 <p style="color: red; font-size:30px"><output id="SkillErrorText"></output></p>
 <p>
-  Total positive initial levels: <output id="PositiveSkillLevels">0</output></br>
-  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta"></output></br>
-  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output></br>
-  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)</br>
+  Total positive initial levels: <output id="PositiveSkillLevels">0</output><br>
+  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta"></output><br>
+  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output><br>
+  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)<br>
 </p>
 
 </body>
