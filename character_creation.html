@@ -48,7 +48,7 @@
     var IN = parseInt(document.getElementById(I).value); //Initial level
     var TE = document.getElementById(T); //Total skill (element for output)
     var LE = document.getElementById(L); //Points left for next level (element for output)
-    var RC = document.getElementById(R).value; //Is the stat enhanced?
+    var RC = parseInt(document.getElementById(R).value); //Is the stat enhanced?
     var SkillLevel=computeSkillLevel(PN,IN);
     TE.innerHTML=(SkillLevel+RC).toString(); //Write total skill level
     
