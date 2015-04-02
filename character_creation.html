@@ -13,7 +13,7 @@
 
 <body>
 
-<noscript>Sorry, your browser does not support JavaScript!</noscript>
+<noscript><p style="color: red; font-size:30px">Sorry, your browser does not support JavaScript!</p></noscript>
 <script type="text/javascript">
   //Returns the triangular number sequence (...,-3,-1,0,1,3,6,10,...)
   function triSeq(I) {
@@ -36,13 +36,19 @@
   }
   
   //Updates a stat on change of its inputs
-  function updateStat(P, I, T, L) { //T is total, L is points left until next level
+  function updateStat(P, I, T, L, R) { //T is total, L is points left until next level, R is radio button for enhancement
     var PN = parseInt(document.getElementById(P).value); //Points
     var IN = parseInt(document.getElementById(I).value); //Initial level
     var TE = document.getElementById(T); //Total skill (element for output)
     var LE = document.getElementById(L); //Points left for next level (element for output)
+    var RC = document.getElementById(R).checked; //Is the stat enhanced?
     var SkillLevel=computeSkillLevel(PN,IN);
-    TE.innerHTML=SkillLevel; //Write total skill level
+    if(RC) {//If this skill is enhanced
+    	TE.innerHTML=(SkillLevel+1).toString(); //Write total skill level
+    }
+    else {
+    	TE.innerHTML=SkillLevel.toString()
+    }
     
     //Write points left for next level
     //It is the ([the points needed for the next level]-[the points needed for this level])-
@@ -269,6 +275,7 @@
     <li>Getting from level 3 to level 4 takes 20. <br>To get to level 4 from level 0, in other words, you'd need to spend 50 points, or 10 missions worth. <br>On the other hand, if you have an initial level of 2 on a skill, you can reach level 4 with just 35 points or 7 missions worth.</li>
   </ul></li>
   <li>Note that special circumstances (brain damage, genemods, alien parasites, Doctor experimentation, etc.) may change the number of points given or may result in point deduction.</li>
+  <li>Enhanced Capacity upgrades are addons that can be bought from the armoury and can give you a +1 to <strong>either</strong> 1 stat or 1 skill. You can have only one of them installed at a time.</li>
 </ul>
 
 <h3>Extra rules for old characters</h3>
@@ -287,41 +294,47 @@
     <td><strong>Initial level</strong></td>
     <td><strong>Total level</strong></td>
     <td><strong>Points left for next level</strong></td>
+    <td><strong>Enhanced Capacity</strong></td>
   </tr>
-  <tr oninput="updateStat('StrP','StrI','StrT','StrL');">
+  <tr oninput="updateStat('StrP','StrI','StrT','StrL','StrR');">
       <td>Strength</td>
       <td><input type="number" id="StrP" value="0"></td>
       <td><input type="number" id="StrI" value="0"></td>
       <td><output id="StrT">0</output></td>
       <td><output id="StrL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="StrR"></td>
   </tr>
-  <tr oninput="updateStat('DexP','DexI','DexT','DexL');">
+  <tr oninput="updateStat('DexP','DexI','DexT','DexL','DexR');">
       <td>Dexterity</td>
       <td><input type="number" id="DexP" value="0"></td>
       <td><input type="number" id="DexI" value="0"></td>
       <td><output id="DexT">0</output></td>
       <td><output id="DexL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="DexR"></td>
   </tr>
-  <tr oninput="updateStat('EndP','EndI','EndT','EndL');">
+  <tr oninput="updateStat('EndP','EndI','EndT','EndL','EndR');">
       <td>Endurance</td>
       <td><input type="number" id="EndP" value="0"></td>
       <td><input type="number" id="EndI" value="0"></td>
       <td><output id="EndT">0</output></td>
       <td><output id="EndL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="EndR"></td>
   </tr>
-  <tr oninput="updateStat('ChaP','ChaI','ChaT','ChaL');">
+  <tr oninput="updateStat('ChaP','ChaI','ChaT','ChaL','ChaR');">
       <td>Charisma</td>
       <td><input type="number" id="ChaP" value="0"></td>
       <td><input type="number" id="ChaI" value="0"></td>
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="ChaR"></td>
   </tr>
-  <tr oninput="updateStat('MindP','MindI','MindT','MindL');">
+  <tr oninput="updateStat('MindP','MindI','MindT','MindL','MindR');">
       <td>Mind</td>
       <td><input type="number" id="MindP" value="0"></td>
       <td><input type="number" id="MindI" value="0"></td>
       <td><output id="MindT">0</output></td>
       <td><output id="MindL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="MindR"></td>
   </tr>
   <!-- Deprecated Int and Will stats
   <tr oninput="updateStat('IntelP','IntelI','IntelT','IntelL');">
@@ -339,19 +352,29 @@
       <td><output id="WillL">5</output></td>
   </tr>
 	-->
-  <tr oninput="updateStat('FateP','FateI','FateT','FateL');">
+  <tr oninput="updateStat('FateP','FateI','FateT','FateL','FateR');">
       <td>Fate</td>
       <td><input type="number" id="FateP" value="0"></td>
       <td><input type="number" id="FateI" value="0"></td>
       <td><output id="FateT">0</output></td>
       <td><output id="FateL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="FateR"></td>
   </tr>
-  <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL');">
+  <tr oninput="updateStat('IntuP','IntuI','IntuT','IntuL','IntuR');">
       <td>Intuition</td>
       <td><input type="number" id="IntuP" value="0"></td>
       <td><input type="number" id="IntuI" value="0"></td>
       <td><output id="IntuT">0</output></td>
       <td><output id="IntuL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="IntuR"></td>
+  </tr>
+  <tr><!-- Empty Row for no enhancement, selected by default with checked -->
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td>No enhancement</td>
+  	<td><input type="radio" name="enhancementRadio" id="EmptyRStat" checked></td>
   </tr>
 </table>
 
@@ -372,55 +395,71 @@
     <td><strong>Initial level</strong></td>
     <td><strong>Total level</strong></td>
     <td><strong>Left for next level</strong></td>
+    <td><strong>Enhanced Capacity</strong></td>
   </tr>
-  <tr oninput="updateStat('HanP','HanI','HanT','HanL');">
+  <tr oninput="updateStat('HanP','HanI','HanT','HanL','HanR');">
       <td>Handiwork</td>
       <td><input type="number" id="HanP" value="0"></td>
       <td><input type="number" id="HanI" value="0"></td>
       <td><output id="HanT">0</output></td>
       <td><output id="HanL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="HanR"></td>
   </tr>
-  <tr oninput="updateStat('ConP','ConI','ConT','ConL');">
+  <tr oninput="updateStat('ConP','ConI','ConT','ConL','ConR');">
       <td>Conventional</td>
       <td><input type="number" id="ConP" value="0"></td>
       <td><input type="number" id="ConI" value="0"></td>
       <td><output id="ConT">0</output></td>
       <td><output id="ConL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="ConR"></td>
   </tr>
-  <tr oninput="updateStat('UnconP','UnconI','UnconT','UnconL');">
+  <tr oninput="updateStat('UnconP','UnconI','UnconT','UnconL','UnconR');">
       <td>Unconventional</td>
       <td><input type="number" id="UnconP" value="0"></td>
       <td><input type="number" id="UnconI" value="0"></td>
       <td><output id="UnconT">0</output></td>
       <td><output id="UnconL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="UnconR"></td>
   </tr>
-  <tr oninput="updateStat('ExoP','ExoI','ExoT','ExoL');">
+  <tr oninput="updateStat('ExoP','ExoI','ExoT','ExoL','ExoR');">
       <td>Exotic</td>
       <td><input type="number" id="ExoP" value="0"></td>
       <td><input type="number" id="ExoI" value="0"></td>
       <td><output id="ExoT">0</output></td>
       <td><output id="ExoL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="ExoR"></td>
   </tr>
-  <tr oninput="updateStat('AuxP','AuxI','AuxT','AuxL');">
+  <tr oninput="updateStat('AuxP','AuxI','AuxT','AuxL','AuxR');">
       <td>Auxiliary</td>
       <td><input type="number" id="AuxP" value="0"></td>
       <td><input type="number" id="AuxI" value="0"></td>
       <td><output id="AuxT">0</output></td>
       <td><output id="AuxL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="AuxR"></td>
   </tr>
-  <tr oninput="updateStat('MedP','MedI','MedT','MedL');">
+  <tr oninput="updateStat('MedP','MedI','MedT','MedL','MedR');">
       <td>Medical</td>
       <td><input type="number" id="MedP" value="0"></td>
       <td><input type="number" id="MedI" value="0"></td>
       <td><output id="MedT">0</output></td>
       <td><output id="MedL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="MedR"></td>
   </tr>
-  <tr oninput="updateStat('GenP','GenI','GenT','GenL');">
+  <tr oninput="updateStat('GenP','GenI','GenT','GenL','GenR');">
       <td>Gen. Knowledge</td>
       <td><input type="number" id="GenP" value="0"></td>
       <td><input type="number" id="GenI" value="0"></td>
       <td><output id="GenT">0</output></td>
       <td><output id="GenL">5</output></td>
+      <td><input type="radio" name="enhancementRadio" id="GenR"></td>
+  </tr>
+  <tr><!-- Empty Row for no enhancement, selected by default with checked -->
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td>No enhancement</td>
+  	<td><input type="radio" name="enhancementRadio" id="EmptyRSkill" checked></td>
   </tr>
 </table>
 
