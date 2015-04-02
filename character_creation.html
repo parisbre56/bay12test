@@ -43,19 +43,14 @@
   }
   
   //Updates a stat on change of its inputs
-  function updateStat(P, I, T, L, R) { //T is total, L is points left until next level, R is radio button for enhancement
+  function updateStat(P, I, T, L, R) { //T is total, L is points left until next level, R is extra points for enhancement or similar
     var PN = parseInt(document.getElementById(P).value); //Points
     var IN = parseInt(document.getElementById(I).value); //Initial level
     var TE = document.getElementById(T); //Total skill (element for output)
     var LE = document.getElementById(L); //Points left for next level (element for output)
-    var RC = document.getElementById(R).checked; //Is the stat enhanced?
+    var RC = document.getElementById(R).value; //Is the stat enhanced?
     var SkillLevel=computeSkillLevel(PN,IN);
-    if(RC) {//If this skill is enhanced
-    	TE.innerHTML=(SkillLevel+1).toString(); //Write total skill level
-    }
-    else {
-    	TE.innerHTML=SkillLevel.toString()
-    }
+    TE.innerHTML=(SkillLevel+RC).toString(); //Write total skill level
     
     //Write points left for next level
     //It is the ([the points needed for the next level]-[the points needed for this level])-
@@ -335,7 +330,7 @@
       <td><input type="number" id="StrI" value="0"></td>
       <td><output id="StrT">0</output></td>
       <td><output id="StrL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="StrR" onchange="refreshTables();"></td>
+      <td><input type="number" id="StrR" value="0"></td>
   </tr>
   <tr>
       <td>Dexterity</td>
@@ -343,7 +338,7 @@
       <td><input type="number" id="DexI" value="0"></td>
       <td><output id="DexT">0</output></td>
       <td><output id="DexL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="DexR" onchange="refreshTables();"></td>
+      <td><input type="number" id="DexR" value="0"></td>
   </tr>
   <tr>
       <td>Endurance</td>
@@ -351,7 +346,7 @@
       <td><input type="number" id="EndI" value="0"></td>
       <td><output id="EndT">0</output></td>
       <td><output id="EndL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="EndR" onchange="refreshTables();"></td>
+      <td><input type="number" id="EndR" value="0"></td>
   </tr>
   <tr>
       <td>Charisma</td>
@@ -359,7 +354,7 @@
       <td><input type="number" id="ChaI" value="0"></td>
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="ChaR" onchange="refreshTables();"></td>
+      <td><input type="number" id="ChaR" value="0"></td>
   </tr>
   <tr>
       <td>Mind</td>
@@ -367,7 +362,7 @@
       <td><input type="number" id="MindI" value="0"></td>
       <td><output id="MindT">0</output></td>
       <td><output id="MindL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="MindR" onchange="refreshTables();"></td>
+      <td><input type="number" id="MindR" value="0"></td>
   </tr>
   <!-- Deprecated Int and Will stats
   <tr oninput="updateStat('IntelP','IntelI','IntelT','IntelL');">
@@ -391,7 +386,7 @@
       <td><input type="number" id="FateI" value="0"></td>
       <td><output id="FateT">0</output></td>
       <td><output id="FateL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="FateR" onchange="refreshTables();"></td>
+      <td><input type="number" id="FateR" value="0"></td>
   </tr>
   <tr>
       <td>Intuition</td>
@@ -399,15 +394,7 @@
       <td><input type="number" id="IntuI" value="0"></td>
       <td><output id="IntuT">0</output></td>
       <td><output id="IntuL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="IntuR" onchange="refreshTables();"></td>
-  </tr>
-  <tr><!-- Empty Row for no enhancement, selected by default with checked -->
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td>No enhancement</td>
-  	<td><input type="radio" name="enhancementRadio" id="EmptyRStat" onchange="refreshTables();" checked></td>
+      <td><input type="number" id="IntuR" value="0"></td>
   </tr>
 </table>
 
@@ -436,7 +423,7 @@
       <td><input type="number" id="HanI" value="0"></td>
       <td><output id="HanT">0</output></td>
       <td><output id="HanL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="HanR" onchange="refreshTables();"></td>
+      <td><input type="number" id="HanR" value="0"></td>
   </tr>
   <tr>
       <td>Conventional</td>
@@ -444,7 +431,7 @@
       <td><input type="number" id="ConI" value="0"></td>
       <td><output id="ConT">0</output></td>
       <td><output id="ConL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="ConR" onchange="refreshTables();"></td>
+      <td><input type="number" id="ConR" value="0"></td>
   </tr>
   <tr>
       <td>Unconventional</td>
@@ -452,7 +439,7 @@
       <td><input type="number" id="UnconI" value="0"></td>
       <td><output id="UnconT">0</output></td>
       <td><output id="UnconL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="UnconR" onchange="refreshTables();"></td>
+      <td><input type="number" id="UnconR" value="0"></td>
   </tr>
   <tr>
       <td>Exotic</td>
@@ -460,7 +447,7 @@
       <td><input type="number" id="ExoI" value="0"></td>
       <td><output id="ExoT">0</output></td>
       <td><output id="ExoL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="ExoR" onchange="refreshTables();"></td>
+      <td><input type="number" id="ExoR" value="0"></td>
   </tr>
   <tr>
       <td>Auxiliary</td>
@@ -468,7 +455,7 @@
       <td><input type="number" id="AuxI" value="0"></td>
       <td><output id="AuxT">0</output></td>
       <td><output id="AuxL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="AuxR" onchange="refreshTables();"></td>
+      <td><input type="number" id="AuxR" value="0"></td>
   </tr>
   <tr>
       <td>Medical</td>
@@ -476,7 +463,7 @@
       <td><input type="number" id="MedI" value="0"></td>
       <td><output id="MedT">0</output></td>
       <td><output id="MedL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="MedR" onchange="refreshTables();"></td>
+      <td><input type="number" id="MedR" value="0"></td>
   </tr>
   <tr>
       <td>Gen. Knowledge</td>
@@ -484,15 +471,7 @@
       <td><input type="number" id="GenI" value="0"></td>
       <td><output id="GenT">0</output></td>
       <td><output id="GenL">5</output></td>
-      <td><input type="radio" name="enhancementRadio" id="GenR" onchange="refreshTables();"></td>
-  </tr>
-  <tr><!-- Empty Row for no enhancement, selected by default with checked -->
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td>No enhancement</td>
-  	<td><input type="radio" name="enhancementRadio" id="EmptyRSkill" onchange="refreshTables();"></td>
+      <td><input type="number" id="GenR" value="0"></td>
   </tr>
 </table>
 
