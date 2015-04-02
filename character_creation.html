@@ -15,14 +15,19 @@
 
 <noscript><p style="color: red; font-size:30px">Sorry, your browser does not support JavaScript!</p></noscript>
 <script type="text/javascript">
+  "use strict";
+  
+  //Simple function to compute the sign
+  function sign(x) { return (x > 0) - (x < 0); }
+
   //Returns the triangular number sequence (...,-3,-1,0,1,3,6,10,...)
   function triSeq(I) {
-    return Math.sign(I)*(Math.abs(I)+1)*Math.abs(I)/2;
+    return sign(I)*(Math.abs(I)+1)*Math.abs(I)/2;
   }
 
   //Returns the points needed for the skill level given
   function getPDelta(I) {
-    return Math.sign(I)*(Math.abs(I)+1)*Math.abs(I)*2.5; // 5/2=2.5
+    return sign(I)*(Math.abs(I)+1)*Math.abs(I)*2.5; // 5/2=2.5
   }
 
   //Returns the total skill level based on points allocated and initial skill level
