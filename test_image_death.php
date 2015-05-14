@@ -19,11 +19,11 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('25-April-2015');
+$death_date = new DateTime('13-May-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Irling (Scythed in Half)';
+$death_name = 'Johnothen (Fatality)';
 
 //////////////////////////////////////////////////////////////
 
