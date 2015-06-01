@@ -19,11 +19,11 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('21-May-2015');
+$death_date = new DateTime('1-June-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Mission 19';
+$death_name = 'Yarsikav';
 
 //////////////////////////////////////////////////////////////
 
