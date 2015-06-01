@@ -23,7 +23,7 @@ $death_date = new DateTime('1-June-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Yarsikav';
+$death_name = 'Yaroslav';
 
 //////////////////////////////////////////////////////////////
 
