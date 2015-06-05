@@ -23,7 +23,7 @@ $death_date = new DateTime('5-June-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Xan (Put your helmet on!)';
+$death_name = 'Zoltan (His own arm!)';
 
 //////////////////////////////////////////////////////////////
 
