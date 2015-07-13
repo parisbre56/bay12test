@@ -19,11 +19,11 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('5-June-2015');
+$death_date = new DateTime('13-July-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Zoltan (Poked out his good eye)';
+$death_name = 'Zayne & Anita (Fuel for the flesh)';
 
 //////////////////////////////////////////////////////////////
 
