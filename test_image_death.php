@@ -36,6 +36,13 @@ $current_date = new DateTime('now');
 
 //Get day difference and put it in a string.
 $diff_days =  $death_date->diff($current_date);
+
+// 'Progress bar' calculations
+$deathSS = 5
+$crewTot = 15
+$ttl = $diff_days * ($crewTot - $deathSS) / $deathSS
+$diff_days = $ttl
+
 $diff_string = sprintf('%03d',$diff_days->days);
 
 //Text
