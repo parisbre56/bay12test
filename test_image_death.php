@@ -23,7 +23,7 @@ $death_date = new DateTime('13-July-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Zayne & Anita (Fuel for the flesh)';
+$death_name = '33% of Mission 22 (2 by 2, Hands of Blue)';
 
 //////////////////////////////////////////////////////////////
 
