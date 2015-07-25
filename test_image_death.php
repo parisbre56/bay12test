@@ -23,7 +23,7 @@ $death_date = new DateTime('22-July-2015');
 
 //DEATH NAME!!!
 
-$death_name = '33% of Mission 22 (2 by 2, Hands of Blue)';
+$death_name = 'Mission 22 (2 by 2, Hands of Blue)';
 
 //////////////////////////////////////////////////////////////
 
@@ -41,9 +41,8 @@ $diff_days =  $death_date->diff($current_date);
 $deathSS = 5;
 $crewTot = 15;
 $ttl = $diff_days->days * ($crewTot - $deathSS) / $deathSS;
-$diff_string = sprintf('%03d',$ttl);
-//$diff_days = $ttl;
 
+$diff_string = sprintf('%03d',$ttl);
 //$diff_string = sprintf('%03d',$diff_days->days);
 
 //Text
