@@ -19,11 +19,13 @@ $text_size = 11;
 
 //DEATH DATE!!!
 
-$death_date = new DateTime('6-August-2015');
+$death_date = new DateTime('13-July-2015');
+//$death_date = new DateTime('6-August-2015');
 
 //DEATH NAME!!!
 
-$death_name = 'Lyra (Skylar\'s last hope)';
+$death_name = 'Mission 22 (Catgirl Down!)';
+//$death_name = 'Lyra (Skylar\'s last hope)';
 
 //////////////////////////////////////////////////////////////
 
@@ -38,7 +40,7 @@ $current_date = new DateTime('now');
 $diff_days =  $death_date->diff($current_date);
 
 // 'Progress bar' calculations
-$deathSS = 5;
+$deathSS = 6;
 $crewTot = 15;
 $ttl = $diff_days->days * ($crewTot - $deathSS) / $deathSS;
 
