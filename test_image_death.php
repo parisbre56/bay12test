@@ -36,13 +36,23 @@ $current_date = new DateTime('now');
 
 //Get day difference and put it in a string.
 $diff_days =  $death_date->diff($current_date);
-$diff_string = sprintf('%03d',$diff_days->days);
+
+// 'Progress bar' calculations
+$deathSS = 5;
+$crewTot = 15;
+$ttl = $diff_days->days * ($crewTot - $deathSS) / $deathSS;
+
+$diff_string = sprintf('%03d',$ttl);
+//$diff_string = sprintf('%03d',$diff_days->days);
 
 //Text
-$text_one = 'It has been';
+//$text_one = 'It has been';
+$text_one = 'Process Complete in';
 $text_two = $diff_string;
-$text_three = 'days since the last Death';
-$text_four = "Last: ".$death_name;
+//$text_three = 'days since the last Death';
+$text_three = 'days';
+//$text_four = "Last: ".$death_name;
+$text_four = "Curr: ".$death_name;
 
 $width = strlen($text_four) * 7 + 15;
 if($width > $image_x)
