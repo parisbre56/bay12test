@@ -6,10 +6,10 @@ body {
 input {
     background-color: black;
     color: limegreen;
+    width: 1em;
 }
 
 input.wrong {
-    background-color: black;
     color: red;
 }
 
@@ -20,5 +20,5 @@ table, th, td {
 	 
 .error {
   color: red; 
-  font-size:30px;
+  font-size:3em;
 }
