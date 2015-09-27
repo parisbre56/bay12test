@@ -22,7 +22,7 @@ table.noBorder {
 	border: medium none;
 }
 
-th, td {
+tr, td {
 	border: inherit;
 	border-collapse: inherit;
 	background: inherit;
