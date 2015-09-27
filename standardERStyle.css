@@ -8,27 +8,25 @@ input {
     color: #00ff00;
 }
 
-input.wrong {
-    color: red;
-}
-
-table {
+table, tr, td {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-table.noBorder {
+table.noBorder, table.noBorder tr, table.noBorder tr td {
 	border: medium none;
-}
-
-tr, td {
-	border: inherit;
-	border-collapse: inherit;
-	background: inherit;
 }
 	 
 .error {
-  color: red; 
-  font-size:3em;
+	color: red; 
+	font-size:3em;
+}
+
+.warning {
+	color: yellow;	
+}
+
+.wrong {
+    color: red;
 }
