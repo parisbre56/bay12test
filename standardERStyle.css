@@ -8,20 +8,18 @@ input {
 	color: #00ff00;
 }
 
-table {
+table, tr, td, th {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-table.noBorder {
-	border: medium none;
+.stats {
+	float: left;
 }
 
-tbody, thead, tfoot, tr, td, th {
-	border: inherit
-	border-collapse: inherit;
-	background: inherit;
+.skills {
+	float: right;
 }
 	 
 .error {
