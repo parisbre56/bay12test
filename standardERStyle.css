@@ -8,13 +8,13 @@ input {
 	color: #00ff00;
 }
 
-table, tr, td {
+table {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-table.noBorder, table.noBorder>tr, table.noBorder>tr>td {
+table.noBorder {
 	border: medium none;
 }
 	 
