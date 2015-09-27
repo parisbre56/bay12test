@@ -16,10 +16,12 @@ table, tr, td, th {
 
 .stats {
 	float: left;
+	width: 50%;
 }
 
 .skills {
 	float: right;
+	width: 50%;
 }
 
 .container::after {
