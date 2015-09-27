@@ -21,6 +21,12 @@ table, tr, td, th {
 .skills {
 	float: right;
 }
+
+.container::after {
+	content:"";
+	display:table;
+	clear:both;
+}
 	 
 .error {
 	color: red; 
