@@ -6,21 +6,27 @@ body {
 input {
     background-color: black;
     color: #00ff00;
+    size: 2;
 }
 
 input.wrong {
     color: red;
-    width: 2ch;
 }
 
-table, th, td {
+table {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-table.noBorder, th.noBorder, td.noBorder {
+table.noBorder {
 	border: medium none;
+}
+
+th, td {
+	border: inherit;
+	border-collapse: inherit;
+	background: inherit;
 }
 	 
 .error {
