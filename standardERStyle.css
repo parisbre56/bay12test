@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    color: limegreen;
+}
+
+table, th, td {
+	   border: 1px solid limegreen;
+	   background: black;
+	 }
+	 
+.error {
+  color: red; 
+  font-size:30px;
+}
