@@ -1,11 +1,11 @@
 body {
-    background-color: black;
-    color: #00ff00;
+	background-color: black;
+	color: #00ff00;
 }
 
 input {
-    background-color: black;
-    color: #00ff00;
+	background-color: black;
+	color: #00ff00;
 }
 
 table, tr, td {
@@ -14,7 +14,7 @@ table, tr, td {
 	background: black;
 }
 
-table.noBorder, table.noBorder tr, table.noBorder tr td {
+table.noBorder, table.noBorder>tr, table.noBorder>tr>td {
 	border: medium none;
 }
 	 
@@ -28,5 +28,5 @@ table.noBorder, table.noBorder tr, table.noBorder tr td {
 }
 
 .wrong {
-    color: red;
+	color: red;
 }
