@@ -8,7 +8,7 @@ input {
     color: limegreen;
 }
 
-input {
+input.wrong {
     background-color: black;
     color: red;
 }
