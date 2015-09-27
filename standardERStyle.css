@@ -3,6 +3,16 @@ body {
     color: limegreen;
 }
 
+input {
+    background-color: black;
+    color: limegreen;
+}
+
+input {
+    background-color: black;
+    color: red;
+}
+
 table, th, td {
 	   border: 1px solid limegreen;
 	   background: black;
