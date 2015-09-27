@@ -3,17 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ER Character Calculator</title>
-	<link rel="shortcut icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
-	<style>
-		table, th, td {
-		    border: 1px solid black;
-		}
-	</style>
+	<link rel="shortcut icon" type="image/x-icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
+	<link rel="icon" type="image/x-icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://parisbre56-phpexperiment.rhcloud.com/standardERStyle.css">
 </head> 
 
 <body>
 
-<noscript><p style="color: red; font-size:30px">Sorry, your browser does not support JavaScript!</p></noscript>
+<noscript><p class="error">Sorry, your browser does not support JavaScript!</p></noscript>
 <script type="text/javascript">
   "use strict";
   
@@ -61,7 +58,7 @@
   //Notifies the user of any problem with their skill levels by changing a textbox in the end
   function writeInitialLevelStatProblems (S, D, E, C, M, F, I) {
     //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
-    //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
+    //<p class="error"><output id="StatErrorText"></output></p>
     //Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
     //Total negative initial levels: <output id="NegativeStatLevels">0</output> <output id="NegativeStatLevelDelta"></output><br>
     //Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
@@ -189,7 +186,7 @@
   //Compute stat point total and mission total and write them in a text box in the end
   function writeStatPointProblems (S, D, E, C, M, F, I) {
     //Strength, Dexterity, Endurance, Charisma, Mind, Fate, Intuition
-    //<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
+    //<p class="error"><output id="StatErrorText"></output></p>
     //Point total: <output id="TotalStatPoints">0</output> 
     //(<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
     
@@ -399,7 +396,7 @@
 </table>
 
 <br>
-<p style="color: red; font-size:30px"><output id="StatErrorText"></output></p>
+<p class="error"><output id="StatErrorText"></output></p>
 <p>
   Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
   Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta"></output><br>
@@ -475,7 +472,7 @@
   </tr>
 </table>
 
-<p style="color: red; font-size:30px"><output id="SkillErrorText"></output></p>
+<p class="error"><output id="SkillErrorText"></output></p>
 <p>
   Total positive initial levels: <output id="PositiveSkillLevels">0</output><br>
   Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta"></output><br>
