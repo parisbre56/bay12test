@@ -17,6 +17,12 @@ table {
 table.noBorder {
 	border: medium none;
 }
+
+tbody, thead, tfoot, tr, td, th {
+	border: inherit
+	border-collapse: inherit;
+	background: inherit;
+}
 	 
 .error {
 	color: red; 
