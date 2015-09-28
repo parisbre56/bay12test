@@ -22,6 +22,10 @@ tr {
 	color: yellow;
 }
 
+th {
+	color: #00FF00;
+}
+
 .stats {
 	float: left;
 	width: 50%;
