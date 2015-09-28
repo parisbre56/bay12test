@@ -24,6 +24,7 @@ tr {
 
 .tableTitle {
 	color: #00FF00;
+	width: 49.5%;
 }
 
 .colTitle {
@@ -32,12 +33,12 @@ tr {
 
 .stats {
 	float: left;
-	width: 50%;
+	width: 49.5%;
 }
 
 .skills {
 	float: right;
-	width: 50%;
+	width: 49.5%;
 }
 
 .container::after {
