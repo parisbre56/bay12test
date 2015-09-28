@@ -40,14 +40,28 @@
   }
   
   //Updates a stat on change of its inputs
-  function updateStat(P, I, T, L, R) { //T is total, L is points left until next level, R is extra points for enhancement or similar
+  function updateStat(P, I, T, L, R, TR) { 
+    //T is total, L is points left until next level, R is extra points for enhancement or similar
     var PN = parseInt(document.getElementById(P).value); //Points
     var IN = parseInt(document.getElementById(I).value); //Initial level
     var TE = document.getElementById(T); //Total skill (element for output)
     var LE = document.getElementById(L); //Points left for next level (element for output)
     var RC = parseInt(document.getElementById(R).value); //Is the stat enhanced?
+    var TRE = document.getElementById(TR); //The row the data is stored
     var SkillLevel=computeSkillLevel(PN,IN);
-    TE.innerHTML=(SkillLevel+RC).toString(); //Write total skill level
+    var totalLevel = SkillLevel+RC;
+    TE.innerHTML=(totalLevel).toString(); //Write total skill level
+    
+    //Change colour of the row
+    if(totalLevel==0) {
+    	TRE.style.color='yellow';
+    } 
+    else if (totalLevel > 0) {
+    	TRE.style.color='green';
+    }
+    else {
+    	TRE.style.color='red';
+    }
     
     //Write points left for next level
     //It is the ([the points needed for the next level]-[the points needed for this level])-
@@ -245,24 +259,24 @@
     writeInitialLevelStatProblems('StrI','DexI','EndI','ChaI','MindI','FateI','IntuI');
     writeStatPointProblems('StrP','DexP','EndP','ChaP','MindP','FateP','IntuP');
     
-    updateStat('StrP','StrI','StrT','StrL','StrR');
-    updateStat('DexP','DexI','DexT','DexL','DexR');
-    updateStat('EndP','EndI','EndT','EndL','EndR');
-    updateStat('ChaP','ChaI','ChaT','ChaL','ChaR');
-    updateStat('MindP','MindI','MindT','MindL','MindR');
-    updateStat('FateP','FateI','FateT','FateL','FateR');
-    updateStat('IntuP','IntuI','IntuT','IntuL','IntuR');
+    updateStat('StrP','StrI','StrT','StrL','StrR','StrTR');
+    updateStat('DexP','DexI','DexT','DexL','DexR','DexTR');
+    updateStat('EndP','EndI','EndT','EndL','EndR','EndTR');
+    updateStat('ChaP','ChaI','ChaT','ChaL','ChaR','ChaTR');
+    updateStat('MindP','MindI','MindT','MindL','MindR','MindTR');
+    updateStat('FateP','FateI','FateT','FateL','FateR','FateTR');
+    updateStat('IntuP','IntuI','IntuT','IntuL','IntuR','IntuTR');
     
     writeInitialLevelSkillProblems('HanI','ConI','UnconI','ExoI','AuxI','MedI','GenI');
     writeSkillPointProblems('HanP','ConP','UnconP','ExoP','AuxP','MedP','GenP');
     
-    updateStat('HanP','HanI','HanT','HanL','HanR');
-    updateStat('ConP','ConI','ConT','ConL','ConR');
-    updateStat('UnconP','UnconI','UnconT','UnconL','UnconR');
-    updateStat('ExoP','ExoI','ExoT','ExoL','ExoR');
-    updateStat('AuxP','AuxI','AuxT','AuxL','AuxR');
-    updateStat('MedP','MedI','MedT','MedL','MedR');
-    updateStat('GenP','GenI','GenT','GenL','GenR');
+    updateStat('HanP','HanI','HanT','HanL','HanR','HanTR');
+    updateStat('ConP','ConI','ConT','ConL','ConR','ConTR');
+    updateStat('UnconP','UnconI','UnconT','UnconL','UnconR','UnconTR');
+    updateStat('ExoP','ExoI','ExoT','ExoL','ExoR','ExoTR');
+    updateStat('AuxP','AuxI','AuxT','AuxL','AuxR','AuxTR');
+    updateStat('MedP','MedI','MedT','MedL','MedR','MedTR');
+    updateStat('GenP','GenI','GenT','GenL','GenR','GenTR');
   }
   
   window.onload = refreshTables;
@@ -315,48 +329,48 @@
 <div class="stats">
 <h2>Stats</h2>
 <table oninput="refreshTables();">
-  <tr>
-    <td><strong>Name</strong></td>
-    <td><strong>Points assigned</strong></td>
-    <td><strong>Initial level</strong></td>
-    <td><strong>Total level</strong></td>
-    <td><strong>Points left for next level</strong></td>
-    <td><strong>Enhanced Capacity</strong></td>
+  <tr class="tableTitle">
+    <th>Name</th>
+    <th>Points assigned</th>
+    <th>Initial level</th>
+    <th>Total level</th>
+    <th>Points left for next level</th>
+    <th>Enhanced Capacity</th>
   </tr>
-  <tr>
-      <td>Strength</td>
+  <tr id="StrTR">
+      <th>Strength</th>
       <td><input type="number" id="StrP" value="0"></td>
       <td><input type="number" id="StrI" value="0"></td>
       <td><output id="StrT">0</output></td>
       <td><output id="StrL">5</output></td>
       <td><input type="number" id="StrR" value="0"></td>
   </tr>
-  <tr>
-      <td>Dexterity</td>
+  <tr id="DexTR">
+      <th>Dexterity</th>
       <td><input type="number" id="DexP" value="0"></td>
       <td><input type="number" id="DexI" value="0"></td>
       <td><output id="DexT">0</output></td>
       <td><output id="DexL">5</output></td>
       <td><input type="number" id="DexR" value="0"></td>
   </tr>
-  <tr>
-      <td>Endurance</td>
+  <tr id="EndTR">
+      <th>Endurance</th>
       <td><input type="number" id="EndP" value="0"></td>
       <td><input type="number" id="EndI" value="0"></td>
       <td><output id="EndT">0</output></td>
       <td><output id="EndL">5</output></td>
       <td><input type="number" id="EndR" value="0"></td>
   </tr>
-  <tr>
-      <td>Charisma</td>
+  <tr id="ChaTR">
+      <th>Charisma</th>
       <td><input type="number" id="ChaP" value="0"></td>
       <td><input type="number" id="ChaI" value="0"></td>
       <td><output id="ChaT">0</output></td>
       <td><output id="ChaL">5</output></td>
       <td><input type="number" id="ChaR" value="0"></td>
   </tr>
-  <tr>
-      <td>Mind</td>
+  <tr id="MindTR">
+      <th>Mind</th>
       <td><input type="number" id="MindP" value="0"></td>
       <td><input type="number" id="MindI" value="0"></td>
       <td><output id="MindT">0</output></td>
@@ -379,16 +393,16 @@
       <td><output id="WillL">5</output></td>
   </tr>
 	-->
-  <tr>
-      <td>Fate</td>
+  <tr id="FateTR">
+      <th>Fate</th>
       <td><input type="number" id="FateP" value="0"></td>
       <td><input type="number" id="FateI" value="0"></td>
       <td><output id="FateT">0</output></td>
       <td><output id="FateL">5</output></td>
       <td><input type="number" id="FateR" value="0"></td>
   </tr>
-  <tr>
-      <td>Intuition</td>
+  <tr id="IntuTR">
+      <th>Intuition</th>
       <td><input type="number" id="IntuP" value="0"></td>
       <td><input type="number" id="IntuI" value="0"></td>
       <td><output id="IntuT">0</output></td>
@@ -401,64 +415,64 @@
 <div class="skills">
 <h2>Skills</h2>
 <table oninput="refreshTables();">
-  <tr>
-    <td><strong>Name</strong></td>
-    <td><strong>Points assigned</strong></td>
-    <td><strong>Initial level</strong></td>
-    <td><strong>Total level</strong></td>
-    <td><strong>Points left for next level</strong></td>
-    <td><strong>Enhanced Capacity</strong></td>
+  <tr class="tableTitle">
+    <th>Name</th>
+    <th>Points assigned</th>
+    <th>Initial level</th>
+    <th>Total level</th>
+    <th>Points left for next level</th>
+    <th>Enhanced Capacity</th>
   </tr>
-  <tr>
-      <td>Handiwork</td>
+  <tr id="HanTR">
+      <th>Handiwork</th>
       <td><input type="number" id="HanP" value="0"></td>
       <td><input type="number" id="HanI" value="0"></td>
       <td><output id="HanT">0</output></td>
       <td><output id="HanL">5</output></td>
       <td><input type="number" id="HanR" value="0"></td>
   </tr>
-  <tr>
-      <td>Conventional</td>
+  <tr id="ConTR">
+      <th>Conventional</th>
       <td><input type="number" id="ConP" value="0"></td>
       <td><input type="number" id="ConI" value="0"></td>
       <td><output id="ConT">0</output></td>
       <td><output id="ConL">5</output></td>
       <td><input type="number" id="ConR" value="0"></td>
   </tr>
-  <tr>
-      <td>Unconventional</td>
+  <tr id="UnconTR">
+      <th>Unconventional</th>
       <td><input type="number" id="UnconP" value="0"></td>
       <td><input type="number" id="UnconI" value="0"></td>
       <td><output id="UnconT">0</output></td>
       <td><output id="UnconL">5</output></td>
       <td><input type="number" id="UnconR" value="0"></td>
   </tr>
-  <tr>
-      <td>Exotic</td>
+  <tr id="ExoTR">
+      <th>Exotic</th>
       <td><input type="number" id="ExoP" value="0"></td>
       <td><input type="number" id="ExoI" value="0"></td>
       <td><output id="ExoT">0</output></td>
       <td><output id="ExoL">5</output></td>
       <td><input type="number" id="ExoR" value="0"></td>
   </tr>
-  <tr>
-      <td>Auxiliary</td>
+  <tr id="AuxTR">
+      <th>Auxiliary</th>
       <td><input type="number" id="AuxP" value="0"></td>
       <td><input type="number" id="AuxI" value="0"></td>
       <td><output id="AuxT">0</output></td>
       <td><output id="AuxL">5</output></td>
       <td><input type="number" id="AuxR" value="0"></td>
   </tr>
-  <tr>
-      <td>Medical</td>
+  <tr id="MedTR">
+      <th>Medical</th>
       <td><input type="number" id="MedP" value="0"></td>
       <td><input type="number" id="MedI" value="0"></td>
       <td><output id="MedT">0</output></td>
       <td><output id="MedL">5</output></td>
       <td><input type="number" id="MedR" value="0"></td>
   </tr>
-  <tr>
-      <td>Gen. Knowledge</td>
+  <tr id="GenTR">
+      <th>Gen. Knowledge</th>
       <td><input type="number" id="GenP" value="0"></td>
       <td><input type="number" id="GenI" value="0"></td>
       <td><output id="GenT">0</output></td>
@@ -473,7 +487,7 @@
 <div class="stats">
 <p>
   Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
-  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta"></output><br>
+  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta" class="warning"></output><br>
   Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
   Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
 </p>
@@ -482,7 +496,7 @@
 <div class="skills">
 <p>
   Total positive initial levels: <output id="PositiveSkillLevels">0</output><br>
-  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta"></output><br>
+  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta" class="warning"></output><br>
   Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output><br>
   Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)<br>
 </p>
