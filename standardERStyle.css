@@ -8,6 +8,10 @@ input {
 	color: #00ff00;
 }
 
+input[type="number"] {
+	width: 4em;
+}
+
 table, tr, td, th {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
