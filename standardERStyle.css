@@ -26,6 +26,10 @@ tr.tableTitle {
 	color: #00FF00;
 }
 
+tr.colTitle {
+	color: #00FF00;
+}
+
 .stats {
 	float: left;
 	width: 50%;
