@@ -47,21 +47,27 @@
     var TE = document.getElementById(T); //Total skill (element for output)
     var LE = document.getElementById(L); //Points left for next level (element for output)
     var RC = parseInt(document.getElementById(R).value); //Is the stat enhanced?
-    var TRE = document.getElementById(TR); //The row the data is stored
+    var TableRowElements = document.getElementsByClassName(TR); //The row the data is stored
     var SkillLevel=computeSkillLevel(PN,IN);
     var totalLevel = SkillLevel+RC;
     TE.innerHTML=(totalLevel).toString(); //Write total skill level
     
     //Change colour of the row
+	//First select the colour
+	var newColor='yellow';
     if(totalLevel==0) {
-    	TRE.style.color='yellow';
+    	newColor='yellow';
     } 
     else if (totalLevel > 0) {
-    	TRE.style.color='green';
+    	newColor='limegreen';
     }
     else {
-    	TRE.style.color='red';
+    	newColor='red';
     }
+	//And then apply it to each member of the class
+	for(var curTRElem = 0 ; curTRElem < TableRowElements.length ; curTRElem++) {
+		TableRowElements[curTRElem].style.color=newColor;
+	}
     
     //Write points left for next level
     //It is the ([the points needed for the next level]-[the points needed for this level])-
@@ -328,172 +334,128 @@
 <div id="SNSData" class="container">
 <table oninput="refreshTables();">
 <tr>
-	<th colspan="6" class="tableTitle"><h2>Stats</h2></th>
+		<th colspan="6" class="tableTitle"><h2>Stats</h2></th>
 	<td class="separator">&nbsp;</td>
-	<th colspan="6" class="tableTitle"><h2>Skills</h2></th>
+		<th colspan="6" class="tableTitle"><h2>Skills</h2></th>
 </tr>
   <tr class="colTitle">
-    <th>Name</th>
-    <th>Points assigned</th>
-    <th>Initial level</th>
-    <th>Total level</th>
-    <th>Points left for next level</th>
-    <th>Enhanced Capacity</th>
-    <td class="separator">&nbsp;</td>
-    <th>Name</th>
-    <th>Points assigned</th>
-    <th>Initial level</th>
-    <th>Total level</th>
-    <th>Points left for next level</th>
-    <th>Enhanced Capacity</th>
+		<th>Name</th>
+		<th>Points assigned</th>
+		<th>Initial level</th>
+		<th>Total level</th>
+		<th>Points left for next level</th>
+		<th>Enhanced Capacity</th>
+	<td class="separator">&nbsp;</td>
+		<th>Name</th>
+		<th>Points assigned</th>
+		<th>Initial level</th>
+		<th>Total level</th>
+		<th>Points left for next level</th>
+		<th>Enhanced Capacity</th>
   </tr>
   <tr>
-  	<div id="StrTR">
-	      <th>Strength</th>
-	      <td><input type="number" id="StrP" value="0"></td>
-	      <td><input type="number" id="StrI" value="0"></td>
-	      <td><output id="StrT">0</output></td>
-	      <td><output id="StrL">5</output></td>
-	      <td><input type="number" id="StrR" value="0"></td>
-  	</div>
+		<th class="StrTR">Strength</th>
+		<td class="StrTR"><input type="number" id="StrP" value="0"></td>
+		<td class="StrTR"><input type="number" id="StrI" value="0"></td>
+		<td class="StrTR"><output id="StrT">0</output></td>
+		<td class="StrTR"><output id="StrL">5</output></td>
+		<td class="StrTR"><input type="number" id="StrR" value="0"></td>
   	<td class="separator">&nbsp;</td>
-  	<div id="HanTR">
-	      <th>Handiwork</th>
-	      <td><input type="number" id="HanP" value="0"></td>
-	      <td><input type="number" id="HanI" value="0"></td>
-	      <td><output id="HanT">0</output></td>
-	      <td><output id="HanL">5</output></td>
-	      <td><input type="number" id="HanR" value="0"></td>
-	</div>
+		<th class="HanTR">Handiwork</th>
+		<td class="HanTR"><input type="number" id="HanP" value="0"></td>
+		<td class="HanTR"><input type="number" id="HanI" value="0"></td>
+		<td class="HanTR"><output id="HanT">0</output></td>
+		<td class="HanTR"><output id="HanL">5</output></td>
+		<td class="HanTR"><input type="number" id="HanR" value="0"></td>
   </tr>
   <tr>
-	<div id="DexTR">
-	      <th>Dexterity</th>
-	      <td><input type="number" id="DexP" value="0"></td>
-	      <td><input type="number" id="DexI" value="0"></td>
-	      <td><output id="DexT">0</output></td>
-	      <td><output id="DexL">5</output></td>
-	      <td><input type="number" id="DexR" value="0"></td>
-	</div>
+		<th class="DexTR">Dexterity</th>
+		<td class="DexTR"><input type="number" id="DexP" value="0"></td>
+		<td class="DexTR"><input type="number" id="DexI" value="0"></td>
+		<td class="DexTR"><output id="DexT">0</output></td>
+		<td class="DexTR"><output id="DexL">5</output></td>
+		<td class="DexTR"><input type="number" id="DexR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-	<div id="ConTR">
-	      <th>Conventional</th>
-	      <td><input type="number" id="ConP" value="0"></td>
-	      <td><input type="number" id="ConI" value="0"></td>
-	      <td><output id="ConT">0</output></td>
-	      <td><output id="ConL">5</output></td>
-	      <td><input type="number" id="ConR" value="0"></td>
-	</div>
+		<th class="ConTR">Conventional</th>
+		<td class="ConTR"><input type="number" id="ConP" value="0"></td>
+		<td class="ConTR"><input type="number" id="ConI" value="0"></td>
+		<td class="ConTR"><output id="ConT">0</output></td>
+		<td class="ConTR"><output id="ConL">5</output></td>
+		<td class="ConTR"><input type="number" id="ConR" value="0"></td>
   </tr>
-	<div id="EndTR">
-	      <th>Endurance</th>
-	      <td><input type="number" id="EndP" value="0"></td>
-	      <td><input type="number" id="EndI" value="0"></td>
-	      <td><output id="EndT">0</output></td>
-	      <td><output id="EndL">5</output></td>
-	      <td><input type="number" id="EndR" value="0"></td>
-	</div>
+	    <th class="EndTR">Endurance</th>
+	    <td class="EndTR"><input type="number" id="EndP" value="0"></td>
+	    <td class="EndTR"><input type="number" id="EndI" value="0"></td>
+	    <td class="EndTR"><output id="EndT">0</output></td>
+	    <td class="EndTR"><output id="EndL">5</output></td>
+	    <td class="EndTR"><input type="number" id="EndR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-	<div id="UnconTR">
-	      <th>Unconventional</th>
-	      <td><input type="number" id="UnconP" value="0"></td>
-	      <td><input type="number" id="UnconI" value="0"></td>
-	      <td><output id="UnconT">0</output></td>
-	      <td><output id="UnconL">5</output></td>
-	      <td><input type="number" id="UnconR" value="0"></td>
-	</div>
+		<th class="UnconTR">Unconventional</th>
+		<td class="UnconTR"><input type="number" id="UnconP" value="0"></td>
+		<td class="UnconTR"><input type="number" id="UnconI" value="0"></td>
+		<td class="UnconTR"><output id="UnconT">0</output></td>
+		<td class="UnconTR"><output id="UnconL">5</output></td>
+		<td class="UnconTR"><input type="number" id="UnconR" value="0"></td>
   </tr>
   <tr>
-	<div id="ChaTR">
-	      <th>Charisma</th>
-	      <td><input type="number" id="ChaP" value="0"></td>
-	      <td><input type="number" id="ChaI" value="0"></td>
-	      <td><output id="ChaT">0</output></td>
-	      <td><output id="ChaL">5</output></td>
-	      <td><input type="number" id="ChaR" value="0"></td>
-	</div>
+		<th class="ChaTR">Charisma</th>
+		<td class="ChaTR"><input type="number" id="ChaP" value="0"></td>
+		<td class="ChaTR"><input type="number" id="ChaI" value="0"></td>
+		<td class="ChaTR"><output id="ChaT">0</output></td>
+		<td class="ChaTR"><output id="ChaL">5</output></td>
+		<td class="ChaTR"><input type="number" id="ChaR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-	<div id="ExoTR">
-	      <th>Exotic</th>
-	      <td><input type="number" id="ExoP" value="0"></td>
-	      <td><input type="number" id="ExoI" value="0"></td>
-	      <td><output id="ExoT">0</output></td>
-	      <td><output id="ExoL">5</output></td>
-	      <td><input type="number" id="ExoR" value="0"></td>
-	</div>
+		<th class="ExoTR">Exotic</th>
+		<td class="ExoTR"><input type="number" id="ExoP" value="0"></td>
+		<td class="ExoTR"><input type="number" id="ExoI" value="0"></td>
+		<td class="ExoTR"><output id="ExoT">0</output></td>
+		<td class="ExoTR"><output id="ExoL">5</output></td>
+		<td class="ExoTR"><input type="number" id="ExoR" value="0"></td>
   </tr>
   <tr>
-  	<div id="MindTR">
-	      <th>Mind</th>
-	      <td><input type="number" id="MindP" value="0"></td>
-	      <td><input type="number" id="MindI" value="0"></td>
-	      <td><output id="MindT">0</output></td>
-	      <td><output id="MindL">5</output></td>
-	      <td><input type="number" id="MindR" value="0"></td>
-	</div>
+		<th class="MindTR">Mind</th>
+		<td class="MindTR"><input type="number" id="MindP" value="0"></td>
+		<td class="MindTR"><input type="number" id="MindI" value="0"></td>
+		<td class="MindTR"><output id="MindT">0</output></td>
+		<td class="MindTR"><output id="MindL">5</output></td>
+		<td class="MindTR"><input type="number" id="MindR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-	<div id="AuxTR">
-	      <th>Auxiliary</th>
-	      <td><input type="number" id="AuxP" value="0"></td>
-	      <td><input type="number" id="AuxI" value="0"></td>
-	      <td><output id="AuxT">0</output></td>
-	      <td><output id="AuxL">5</output></td>
-	      <td><input type="number" id="AuxR" value="0"></td>
-	</div>
-  </tr>
-  <!-- Deprecated Int and Will stats
-  <tr oninput="updateStat('IntelP','IntelI','IntelT','IntelL');">
-      <td>Intelligence</td>
-      <td><input type="number" id="IntelP" value="0"></td>
-      <td><input type="number" id="IntelI" value="0"></td>
-      <td><output id="IntelT">0</output></td>
-      <td><output id="IntelL">5</output></td>
-  </tr>
-  <tr oninput="updateStat('WillP','WillI','WillT','WillL');">
-      <td>Willlpower</td>
-      <td><input type="number" id="WillP" value="0"></td>
-      <td><input type="number" id="WillI" value="0"></td>
-      <td><output id="WillT">0</output></td>
-      <td><output id="WillL">5</output></td>
-  </tr>
-	-->
-  <tr>
-  	<div id="FateTR">
-	      <th>Fate</th>
-	      <td><input type="number" id="FateP" value="0"></td>
-	      <td><input type="number" id="FateI" value="0"></td>
-	      <td><output id="FateT">0</output></td>
-	      <td><output id="FateL">5</output></td>
-	      <td><input type="number" id="FateR" value="0"></td>
-	</div>
-      	<td class="separator">&nbsp;</td>
-      	<div id="MedTR">
-	      <th>Medical</th>
-	      <td><input type="number" id="MedP" value="0"></td>
-	      <td><input type="number" id="MedI" value="0"></td>
-	      <td><output id="MedT">0</output></td>
-	      <td><output id="MedL">5</output></td>
-	      <td><input type="number" id="MedR" value="0"></td>
-  	</div>
+		<th class="AuxTR">Auxiliary</th>
+		<td class="AuxTR"><input type="number" id="AuxP" value="0"></td>
+		<td class="AuxTR"><input type="number" id="AuxI" value="0"></td>
+		<td class="AuxTR"><output id="AuxT">0</output></td>
+		<td class="AuxTR"><output id="AuxL">5</output></td>
+		<td class="AuxTR"><input type="number" id="AuxR" value="0"></td>
   </tr>
   <tr>
-  	<div id="IntuTR">
-      	      <th>Intuition</th>
-	      <td><input type="number" id="IntuP" value="0"></td>
-	      <td><input type="number" id="IntuI" value="0"></td>
-	      <td><output id="IntuT">0</output></td>
-	      <td><output id="IntuL">5</output></td>
-	      <td><input type="number" id="IntuR" value="0"></td>
-	</div>
-      	<td class="separator">&nbsp;</td>
-	<div id="GenTR">
-	      <th>Gen. Knowledge</th>
-	      <td><input type="number" id="GenP" value="0"></td>
-	      <td><input type="number" id="GenI" value="0"></td>
-	      <td><output id="GenT">0</output></td>
-	      <td><output id="GenL">5</output></td>
-	      <td><input type="number" id="GenR" value="0"></td>
-	</div>
+		<th class="FateTR">Fate</th>
+		<td class="FateTR"><input type="number" id="FateP" value="0"></td>
+		<td class="FateTR"><input type="number" id="FateI" value="0"></td>
+		<td class="FateTR"><output id="FateT">0</output></td>
+		<td class="FateTR"><output id="FateL">5</output></td>
+		<td class="FateTR"><input type="number" id="FateR" value="0"></td>
+	<td class="separator">&nbsp;</td>
+		<th class="MedTR">Medical</th>
+		<td class="MedTR"><input type="number" id="MedP" value="0"></td>
+		<td class="MedTR"><input type="number" id="MedI" value="0"></td>
+		<td class="MedTR"><output id="MedT">0</output></td>
+		<td class="MedTR"><output id="MedL">5</output></td>
+		<td class="MedTR"><input type="number" id="MedR" value="0"></td>
+  </tr>
+  <tr>
+		<th class="IntuTR">Intuition</th>
+		<td class="IntuTR"><input type="number" id="IntuP" value="0"></td>
+		<td class="IntuTR"><input type="number" id="IntuI" value="0"></td>
+		<td class="IntuTR"><output id="IntuT">0</output></td>
+		<td class="IntuTR"><output id="IntuL">5</output></td>
+		<td class="IntuTR"><input type="number" id="IntuR" value="0"></td>
+	<td class="separator">&nbsp;</td>
+		<th class="GenTR">Gen. Knowledge</th>
+		<td class="GenTR"><input type="number" id="GenP" value="0"></td>
+		<td class="GenTR"><input type="number" id="GenI" value="0"></td>
+		<td class="GenTR"><output id="GenT">0</output></td>
+		<td class="GenTR"><output id="GenL">5</output></td>
+		<td class="GenTR"><input type="number" id="GenR" value="0"></td>
   </tr>
 </table>
 </div>
