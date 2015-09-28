@@ -22,7 +22,7 @@ tr {
 	color: yellow;
 }
 
-th {
+tr.tableTitle {
 	color: #00FF00;
 }
 
