@@ -22,11 +22,11 @@ tr {
 	color: yellow;
 }
 
-tr.tableTitle {
+.tableTitle {
 	color: #00FF00;
 }
 
-tr.colTitle {
+.colTitle {
 	color: #00FF00;
 }
 
