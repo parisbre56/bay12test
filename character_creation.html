@@ -334,6 +334,40 @@
   <li>Lars gets a +1 level to Fate without the need to take extra negative levels for it.</li>
 </ul>
 
+<h3>Explanation of the Level System</h3>
+<p>Levels do not offer direct bonuses to rolls. Instead, they affect how the results of a roll will be interpreted. Generally, when your level is higher, you can succeed on a lower roll and the results of failure are not so severe. However, note that all levels are situational, so even someone with a +4 might fail something very hard.</p>
+<ul>
+	<li>
+		<h4>-2: Disaster</h4>
+		<p>This character is so bad with this skill that it's like they have some sort of curse. 1 is basically an automatic death, maybe permanently. 6 will kill people around you. Anything other then a 5 will fail to some degree, and even 5's will usually have you complete the action in an unorthodox and perhaps not great manner.</p>
+	</li>
+	<li>
+		<h4>-1: Hazard</h4>
+		<p>This is one level below Complete Novice. This is someone who thinks they know what they're doing, but is actually dangerously, often fatally, mistaken. 1's will be reality bending disastrous, 6's will be monkey's paws in which the thing gets done, but I as the GM take near fetishistic pleasure in twisting your desires toward some horrible end. Other rolls will generally be varying levels of failure and minor success, with 5's being succeeding through dumb luck.</p>
+	</li>
+	<li>
+		<h4>+0: Complete Novice</h4>
+		<p>This is someone who has no idea what they're doing, but at least they realize they have no idea what they're doing. They can only guess their way through things, but their unbiased ignorance will cause less problems.</p>
+	</li>
+	<li>
+		<h4>+1: Experienced</h4>
+		<p>This is someone who has some knowledge of what they're doing. They're not an expert or anything, but they know the ins and outs of standard actions and can get by fairly well in normal circumstances. Most people could be considered “Experienced” when it comes to driving a car: They probably know a bit about how it works, and can operate it effectively under normal conditions basically without fail. This is when rolls start getting a bit more situational: Standard un-stressed stuff will still get a roll, but 1's will basically act like 2's and 6's like 5's. In other words un-stressed rolls will usually succeed to some degree. Stressed things will be much the same as a novice's rolls, but with somewhat lessened consequences for 1's and 6's. </p>
+	</li>
+	<li>
+		<h4>+2: Professional</h4>
+		<p>This is someone who knows what they're doing even in stressful or novel situations. A well trained soldier would usually be considered a professional with their weapon. In unstressful and known situations, professionals will always succeed. Rolls will still be used, they'll just be used to see the level of success. In other cases, unfamiliar circumstances or stressful situations, it will be rolls as usual, but for the most part 1's and 6's won't be considered much more then just straight failures or successes with no consequences. The only time there might be consequences is when extenuating circumstances (Bad equipment, for instance) give a good reason for it. </p>
+	</li>
+	<li>
+		<h4>+3: Specialist</h4>
+		<p>Someone who is beyond a professional. Someone who is a specialist is highly trained with whatever they're doing. They're much like the professional, with the same auto succeeds, but they are also simply better at their actions. At this point, every roll except 1 is a success, with 5-6's being better then 4-3-2, but still. At least in most circumstances. Again, it becomes situational; A Con specialist should be able to accurately hit stationary targets very reliably. However, if you throw him onto a moving truck and tell him to snipe a guy moving perpendicular to him on a train car, the success rate starts getting lower. Basically, this is success baring extenuating circumstances.</p>
+	</li>
+	<li>
+		<h4>+4 and on: Maste</h4>
+		<p>Remember pai mei from Kill bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanichally equivelant to always rolling 5s.</p>
+		<p>Note that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled stat or skill by 1 level. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.</p>
+	</li>
+</ul>
+
 <div id="SNSData" class="container">
 	<small>Note: You can hover over parts of the table to see more info about them.</small>
 <table oninput="refreshTables();">
@@ -370,14 +404,22 @@
 			Enhanced Capacity</th>
   </tr>
   <tr>
-		<th class="StrTR">Strength</th>
+		<th class="StrTR" title="How good you are at lifting heavy things and then putting them down. Useful for wielding certain weapons. 
+		
+Useful in hand to hand combat, for throwing things and for lifting things (including some weapons or weapons you'd normally be unable to lift). Note that this stat doesn't describe your actual amount of strength; Instead it controls how well you control what strength you have. A giant robot with -2 strength will accidentally crush things it meant to lightly tap, and lightly tap things which it mean to crush.
+
+This stat is required to wield some weapons (most notably gauss rifles) and heavy equipment. This stat is rolled for hand to hand combat, melee weapons that don't use unconventional and other similar things.">
+			Strength</th>
 		<td class="StrTR"><input type="number" id="StrP" value="0"></td>
 		<td class="StrTR"><input type="number" id="StrI" value="0"></td>
 		<td class="StrTR"><output id="StrT">0</output></td>
 		<td class="StrTR"><output id="StrL">5</output></td>
 		<td class="StrTR"><input type="number" id="StrR" value="0"></td>
-  	<td class="separator">&nbsp;</td>
-		<th class="HanTR">Handiwork</th>
+ 	<td class="separator">&nbsp;</td>
+		<th class="HanTR" title="Making things, breaking things, and otherwise turning stuff from X into laserguided, thermonuclear Y.
+		
+People with a high level of this skill can construct almost anything provided they have the right parts. Very useful if you are going to be working with tinker and custom equipment in general and don't want to pay someone else to construct your prototypes. Also very useful in those situations when you are trapped somewhere with limited resources and need to construct something to survive and/or escape and generally building your own spare parts. Overshoots may cause you to weld yourself to what you are building or cause it to explode prematurely or overload.">
+			Handiwork</th>
 		<td class="HanTR"><input type="number" id="HanP" value="0"></td>
 		<td class="HanTR"><input type="number" id="HanI" value="0"></td>
 		<td class="HanTR"><output id="HanT">0</output></td>
@@ -385,28 +427,44 @@
 		<td class="HanTR"><input type="number" id="HanR" value="0"></td>
   </tr>
   <tr>
-		<th class="DexTR">Dexterity</th>
+		<th class="DexTR" title="Not tripping over your big stupid feet.
+		
+Useful in hand to hand combat, acting quickly, running, dodging and generally doing things that require speed, accuracy and coordination. Its usefulness in dodging makes this stat a must have for all characters.
+
+This stat is required to wield some melee weapons (most notably, Monoatomic Razors).
+
+This stat is rolled for for hand to hand combat, melee weapons that don't use unconventional and other similar things ">
+			Dexterity</th>
 		<td class="DexTR"><input type="number" id="DexP" value="0"></td>
 		<td class="DexTR"><input type="number" id="DexI" value="0"></td>
 		<td class="DexTR"><output id="DexT">0</output></td>
 		<td class="DexTR"><output id="DexL">5</output></td>
 		<td class="DexTR"><input type="number" id="DexR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="ConTR">Conventional</th>
+		<th class="ConTR" title="By conventional weapons we mean anything that follows the general concept of &quot;A metal tube which you point at things and potentially lethal somethings shoot out&quot;. 
+
+This is used for firing weapons that look like guns. That means weapons that have an end that you point to things that you want to stop existing and some kind of trigger. Overshoots tend to destroy your target with some bad side effects (for example, overkill, wasting ammo, friendly fire or structural damage) while critfails may cause you to shoot yourself.">
+			Conventional</th>
 		<td class="ConTR"><input type="number" id="ConP" value="0"></td>
 		<td class="ConTR"><input type="number" id="ConI" value="0"></td>
 		<td class="ConTR"><output id="ConT">0</output></td>
 		<td class="ConTR"><output id="ConL">5</output></td>
 		<td class="ConTR"><input type="number" id="ConR" value="0"></td>
   </tr>
-	    <th class="EndTR">Endurance</th>
-	    <td class="EndTR"><input type="number" id="EndP" value="0"></td>
-	    <td class="EndTR"><input type="number" id="EndI" value="0"></td>
-	    <td class="EndTR"><output id="EndT">0</output></td>
-	    <td class="EndTR"><output id="EndL">5</output></td>
-	    <td class="EndTR"><input type="number" id="EndR" value="0"></td>
+		<th class="EndTR" title="Being able to run more then 10 feet before your heart explodes and not passing out from a paper cut.
+
+Useful for surviving damage and enduring effects such as poison, overmedication, drunkenness and tiredness. This stat is also used for surviving lethal area of effect damage like explosions and massive amounts of gunfire. Some times the weapon that hit you might be so powerful (or your failure so great) that endurance will do nothing more than dictate whether or not your brain will remain intact enough to be revived.">
+			Endurance</th>
+		<td class="EndTR"><input type="number" id="EndP" value="0"></td>
+		<td class="EndTR"><input type="number" id="EndI" value="0"></td>
+		<td class="EndTR"><output id="EndT">0</output></td>
+		<td class="EndTR"><output id="EndL">5</output></td>
+		<td class="EndTR"><input type="number" id="EndR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="UnconTR">Unconventional</th>
+		<th class="UnconTR" title="Covers your non-death-tube armaments. Explosives, hand to hand weapons, field manipulators, etc.
+
+This is used for melee weapons sold in the armory, most explosives and for manipulators (&quot;magic&quot; calculators that can break physics). Also used for ranged weapons that don't belong in the other weapon categories (Conventional,Exotic,Auxiliary). Overshoots and critfails tend to have effects similar with those that happen with conventional weapons. Special mention should be made to manipulator critfails, since they can have very nasty effects (like making your blood boil or causing the manipulator to explode like a grenade). ">
+			Unconventional</th>
 		<td class="UnconTR"><input type="number" id="UnconP" value="0"></td>
 		<td class="UnconTR"><input type="number" id="UnconI" value="0"></td>
 		<td class="UnconTR"><output id="UnconT">0</output></td>
@@ -414,14 +472,22 @@
 		<td class="UnconTR"><input type="number" id="UnconR" value="0"></td>
   </tr>
   <tr>
-		<th class="ChaTR">Charisma</th>
+		<th class="ChaTR" title="Are you a cool dude? A handy skill for when you want to talk a bullet out of embedding itself in your faceplate. Handles all aspects of interpersonal communications. Probably not used very much.
+
+Can be used to look cool, beautiful and generally make a good impression on people or conversely infiltrate locations and move amongst them unnoticed, hiding in plain sight. People with low level of skill and no decompensators can use it to terrorize civilians, cause misunderstandings and speak in the most hilarious of ways. People who are competent with speech however should be able to fool enemies, persuade civilians to do things, make inspiring speeches and increase the effectiveness of their mind control amps.
+
+This stat is required to use the mind control kind of Psychokinetic Amplifiers. It can also be useful when combined with equipment like the Black Halo.">
+			Charisma</th>
 		<td class="ChaTR"><input type="number" id="ChaP" value="0"></td>
 		<td class="ChaTR"><input type="number" id="ChaI" value="0"></td>
 		<td class="ChaTR"><output id="ChaT">0</output></td>
 		<td class="ChaTR"><output id="ChaL">5</output></td>
 		<td class="ChaTR"><input type="number" id="ChaR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="ExoTR">Exotic</th>
+		<th class="ExoTR" title="Things which blur the line between weapon, augment and supernatural force. Includes various psychokinetic amps, implants, genetic augmentation and most alien weaponry.
+
+This is used for using alien stuff or otherwise weird weapons that don't look like conventional weapons. Also used for Psychokinetic Amplifiers ("magic" brain implants that can break physics). Overshoots and critfails tend to have effects similar with those of Unconventional weapons, with the added danger that some of those may mess with your body or mind in &quot;supernatural&quot; ways.">
+			Exotic</th>
 		<td class="ExoTR"><input type="number" id="ExoP" value="0"></td>
 		<td class="ExoTR"><input type="number" id="ExoI" value="0"></td>
 		<td class="ExoTR"><output id="ExoT">0</output></td>
@@ -429,14 +495,22 @@
 		<td class="ExoTR"><input type="number" id="ExoR" value="0"></td>
   </tr>
   <tr>
-		<th class="MindTR">Mind</th>
+		<th class="MindTR" title="Bending spoons and (usually) not losing your mind. Also helps you not be a god damn idiot (sometimes).
+
+Useful for resisting alien influences and the usage of space magic like amps and manipulators on you. Also useful for gaining data by analyzing a situation and finding useful intel on the internet.
+
+This stat also gives you mind points that are used up when using amps to do something hard, resisting mindfuck or otherwise straining your mind (usually while doing something supernatural).">
+			Mind</th>
 		<td class="MindTR"><input type="number" id="MindP" value="0"></td>
 		<td class="MindTR"><input type="number" id="MindI" value="0"></td>
 		<td class="MindTR"><output id="MindT">0</output></td>
 		<td class="MindTR"><output id="MindL">5</output></td>
 		<td class="MindTR"><input type="number" id="MindR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="AuxTR">Auxiliary</th>
+		<th class="AuxTR" title="The operation of things that are not purely weapons, or of weapons that are part of large systems. Includes mecha, exosuits, space ships and other vehicles, as well as computer controlled weapons, drones and etc. 
+
+This is used for using, maintaining and repairing machines. Includes things such as piloting shuttles or jetpacks, hacking computers, bypassing doors, using computer-targeted weapons, ordering robotic attack drones around, etc. Also very useful for helping your robotic or exosuit-wearing teammates. Can also be useful when you're trying to use tools like welders as weapons. Overshoots and critfails may leave you welded on your robotic teammates or piloting your shuttle into a building or through the closed hangar doors.">
+			Auxiliary</th>
 		<td class="AuxTR"><input type="number" id="AuxP" value="0"></td>
 		<td class="AuxTR"><input type="number" id="AuxI" value="0"></td>
 		<td class="AuxTR"><output id="AuxT">0</output></td>
@@ -444,14 +518,19 @@
 		<td class="AuxTR"><input type="number" id="AuxR" value="0"></td>
   </tr>
   <tr>
-		<th class="FateTR">Fate</th>
+		<th class="FateTR" title="Do you feel lucky, punk?
+		
+It's fate. We don't really have anything more to say about this, as Piecewise is being intentionally cagey about it. Our working assumption is that it governs semi-random events, such as who gets hit by AA lasers during a drop, how badly things go wrong, and how interactions with the Gods go.">Fate</th>
 		<td class="FateTR"><input type="number" id="FateP" value="0"></td>
 		<td class="FateTR"><input type="number" id="FateI" value="0"></td>
 		<td class="FateTR"><output id="FateT">0</output></td>
 		<td class="FateTR"><output id="FateL">5</output></td>
 		<td class="FateTR"><input type="number" id="FateR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="MedTR">Medical</th>
+		<th class="MedTR" title="A mechanic both for people and the systems that keep people from dying in various ways. 
+
+Used for being a good medic and helping your teammates. Can also be used to identify what's wrong with a teammate. Overshoots and critfails may leave you overmedicating your teammates, identifying their ailments as "space worms in the brain" or trying to cure said ailments via kicking.">
+			Medical</th>
 		<td class="MedTR"><input type="number" id="MedP" value="0"></td>
 		<td class="MedTR"><input type="number" id="MedI" value="0"></td>
 		<td class="MedTR"><output id="MedT">0</output></td>
@@ -459,14 +538,22 @@
 		<td class="MedTR"><input type="number" id="MedR" value="0"></td>
   </tr>
   <tr>
-		<th class="IntuTR">Intuition</th>
+		<th class="IntuTR" title="That sixth sense, that tingly feeling in the back of your neck that lets you know that the meatloaf is bad or that someone's just lobbed a microton grenade into your latrine. Helpful for guessing your way through defusing a H-bomb or finding your way back to your bunk after a half dozen to many drinks.
+
+Your gut feeling. Are your guts feeling well? No? Time to dive into trench because something bad is about to happen.
+
+People with a high level of this stat might be able to sense ambushes or teammates trying to cause them harm (intentionally or unintentionally), guess the position of snipers or mines, sense the evil intentions of alien artifacts and generally pull information out of nowhere. However, information provided by this stat tend to be a bit more vague and untrustworthy then information provided by the Mind stat.">
+			Intuition</th>
 		<td class="IntuTR"><input type="number" id="IntuP" value="0"></td>
 		<td class="IntuTR"><input type="number" id="IntuI" value="0"></td>
 		<td class="IntuTR"><output id="IntuT">0</output></td>
 		<td class="IntuTR"><output id="IntuL">5</output></td>
 		<td class="IntuTR"><input type="number" id="IntuR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="GenTR">Gen. Knowledge</th>
+		<th class="GenTR" title="You know about the thing at the place? Yeah, of course you do.
+
+Used for figuring out how much you know about the world, in character. Note that this also includes doing things, as well as knowing things. Do you want to play the banjo? General Knowledge roll. Do you want to judge the quality of that cheese? General Knowledge roll. Do you want to know what piece of equipment your enemy is using that is making him immune to your attacks? General Knowledge roll. Generally, it's the stat you roll when no other stat fits what you are trying to do.">
+			Gen. Knowledge</th>
 		<td class="GenTR"><input type="number" id="GenP" value="0"></td>
 		<td class="GenTR"><input type="number" id="GenI" value="0"></td>
 		<td class="GenTR"><output id="GenT">0</output></td>
@@ -477,32 +564,32 @@
 </div>
 
 <div id="SNSInfo" class="container">
-<div class="stats">
-<p>
-  Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
-  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta" class="warning"></output><br>
-  Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
-  Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
-</p>
-</div>
+	<div class="stats">
+		<p>
+		  Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
+		  Total negative initial levels: <output id="NegativeStatLevels">0</output>  <output id="NegativeStatLevelDelta" class="warning"></output><br>
+		  Total negative initial levels needed: <output id="NegativeStatLevelsNeeded">0</output><br>
+		  Point total: <output id="TotalStatPoints">0</output> (<output id="StatMissions">0</output> Mission(s), <output id="StatExtra">0</output> extra points)<br>
+		</p>
+	</div>
 
-<div class="skills">
-<p>
-  Total positive initial levels: <output id="PositiveSkillLevels">0</output><br>
-  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta" class="warning"></output><br>
-  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output><br>
-  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)<br>
-</p>
-</div>
+	<div class="skills">
+		<p>
+		  Total positive initial levels: <output id="PositiveSkillLevels">0</output><br>
+		  Total negative initial levels: <output id="NegativeSkillLevels">0</output>  <output id="NegativeSkillLevelDelta" class="warning"></output><br>
+		  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output><br>
+		  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)<br>
+		</p>
+	</div>
 </div>
 
 <div id="SNSError" class="container">
-<div class="stats">
-<p class="error"><output id="StatErrorText"></output></p>
-</div>
-<div class="skills">
-<p class="error"><output id="SkillErrorText"></output></p>
-</div>
+	<div class="stats">
+		<p class="error"><output id="StatErrorText"></output></p>
+	</div>
+	<div class="skills">
+		<p class="error"><output id="SkillErrorText"></output></p>
+	</div>
 </div>
 
 
