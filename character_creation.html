@@ -2,6 +2,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="A page used to calculate stat and skill levels for characters of the Einsteinian Roulette forum RTD game of the Bay12 Forums.">
+	<meta name="keywords" content="Einsteinian Roulette, Level Up, Character Calculator">
+	<meta name="author" content="Parisbre56">
 	<title>ER Character Calculator</title>
 	<link rel="shortcut icon" type="image/x-icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
 	<link rel="icon" type="image/x-icon" href="http://parisbre56-phpexperiment.rhcloud.com/favicon.ico"/>
@@ -332,6 +335,7 @@
 </ul>
 
 <div id="SNSData" class="container">
+	<small>Note: You can hover over parts of the table to see more info about them.</small>
 <table oninput="refreshTables();">
 <tr>
 		<th colspan="6" class="tableTitle"><h2>Stats</h2></th>
@@ -339,19 +343,31 @@
 		<th colspan="6" class="tableTitle"><h2>Skills</h2></th>
 </tr>
   <tr class="colTitle">
-		<th>Name</th>
-		<th>Points assigned</th>
-		<th>Initial level</th>
-		<th>Total level</th>
-		<th>Points left for next level</th>
-		<th>Enhanced Capacity</th>
+		<th title="The name of the Stat. Hover over it for more info">
+			Name</th>
+		<th title="The points assigned to that Stat">
+			Points assigned</th>
+		<th title="The level of the Stat during character creation">
+			Initial level</th>
+		<th title="The level of the Stat after all points and bonuses are applied">
+			Total level</th>
+		<th title="How many more points you must put to that Stat to reach the next level">
+			Points for next level</th>
+		<th title="Whether or not you have any extra levels in this Stat due to other reasons, such as genemods, the deathcube or doctor modifiactions">
+			Enhanced Capacity</th>
 	<td class="separator">&nbsp;</td>
-		<th>Name</th>
-		<th>Points assigned</th>
-		<th>Initial level</th>
-		<th>Total level</th>
-		<th>Points left for next level</th>
-		<th>Enhanced Capacity</th>
+		<th title="The name of the Skill. Hover over it for more info">
+			Name</th>
+		<th title="The level of the Skill during character creation">
+			Points assigned</th>
+		<th title="The level of the Skill after all points and bonuses are applied">
+			Initial level</th>
+		<th title="The level of the Skill after all points and bonuses are applied">
+			Total level</th>
+		<th title="How many more points you must put to that Skill to reach the next level">
+			Points for next level</th>
+		<th title="Whether or not you have any extra levels in this Skill due to other reasons, such as genemods, the deathcube or doctor modifiactions">
+			Enhanced Capacity</th>
   </tr>
   <tr>
 		<th class="StrTR">Strength</th>
