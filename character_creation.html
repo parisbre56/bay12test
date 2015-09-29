@@ -369,8 +369,9 @@
 </ul>
 
 <div id="SNSData" class="container">
+	<h1>Character Calculator</h1>
 	<small>Note: You can hover over parts of the table to see more info about them.</small>
-<table oninput="refreshTables();">
+<table oninput="refreshTables();" id="mainTable">
 <tr>
 		<th colspan="6" class="tableTitle"><h2>Stats</h2></th>
 	<td class="separator">&nbsp;</td>
@@ -563,7 +564,18 @@ Used for figuring out how much you know about the world, in character. Note that
 </table>
 </div>
 
+<div id="SNSError" class="container">
+	<h4>Errors:</h3>
+	<div class="stats">
+		<p class="error"><output id="StatErrorText"></output></p>
+	</div>
+	<div class="skills">
+		<p class="error"><output id="SkillErrorText"></output></p>
+	</div>
+</div>
+
 <div id="SNSInfo" class="container">
+	<h4>Further info:</h3>
 	<div class="stats">
 		<p>
 		  Total positive initial levels: <output id="PositiveStatLevels">0</output><br>
@@ -580,15 +592,6 @@ Used for figuring out how much you know about the world, in character. Note that
 		  Total negative initial levels needed: <output id="NegativeSkillLevelsNeeded">0</output><br>
 		  Point total: <output id="TotalSkillPoints">0</output> (<output id="SkillMissions">0</output> Mission(s), <output id="SkillExtra">0</output> extra points)<br>
 		</p>
-	</div>
-</div>
-
-<div id="SNSError" class="container">
-	<div class="stats">
-		<p class="error"><output id="StatErrorText"></output></p>
-	</div>
-	<div class="skills">
-		<p class="error"><output id="SkillErrorText"></output></p>
 	</div>
 </div>
 
