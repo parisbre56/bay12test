@@ -1,10 +1,15 @@
-body {
+body.blackStyle {
 	background-color: black;
 	color: #00ff00;
 }
 
+body.whiteStyle {
+	background-color: initial;
+	color: initial;
+}
+
 input {
-	background-color: black;
+	background-color: inherit;
 	color: inherit;
 }
 
