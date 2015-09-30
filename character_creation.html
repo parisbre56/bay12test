@@ -371,6 +371,7 @@
   function toggleStyle() {
   	//Find the style we need to change to (styles stored in global variable)
   	var changeTo;
+  	var changeFrom;
   	if(currStyle=='whiteStyle') {
   		changeFrom='whiteStyle';
   		changeTo='blackStyle';
@@ -380,8 +381,12 @@
   		changeTo='whiteStyle';
   	}
   	
+  	//Switch style
   	changeStyle(changeFrom,changeTo);
+  	
+  	//Store in cookie and in global variable
   	setCookie('currStyle',changeTo,365);
+  	currStyle=changeTo;
   }
   
   function changeStyle(changeFrom,changeTo) {
@@ -491,7 +496,7 @@
 	</li>
 </ul>
 
-<div id="SNSData" class="container">
+<div id="SNSData" class="container whiteStyle">
 	<h1>Character Calculator</h1>
 	<small>Note: You can hover over parts of the table to see more info about them.</small>
 <table oninput="refreshTables();" id="mainTable">
