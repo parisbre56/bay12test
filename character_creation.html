@@ -368,7 +368,7 @@
   
   var currStyle; 
   
-  function changeStyle() {
+  function toggleStyle() {
   	//Find the style we need to change to (styles stored in global variable)
   	var changeTo;
   	if(currStyle=='whiteStyle') {
@@ -407,7 +407,7 @@
   window.onload = refreshTables;
 </script>
 
-<button id="changeStyleButton" class="whiteStyle" onclick="changeStyle();">Change Style</button>
+<button id="changeStyleButton" class="whiteStyle" onclick="toggleStyle();">Change Style</button>
 
 <h1>Stat and Skill Rules</h1>
 <h3>Character creation</h3>
