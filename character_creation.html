@@ -11,11 +11,27 @@
 	<link rel="stylesheet" type="text/css" href="http://parisbre56-phpexperiment.rhcloud.com/standardERStyle.css">
 </head> 
 
-<body>
+<body id="body" class="whiteStyle">
 
 <noscript><p class="error">Sorry, your browser does not support JavaScript!</p></noscript>
 <script type="text/javascript">
   "use strict";
+ 
+  //For onload functions
+  function addLoadEvent(func) {
+	var oldonload = window.onload;
+  	if (typeof window.onload != 'function') {
+    		window.onload = func;
+  	} else {
+	   	window.onload = function() {
+	      		if (oldonload) {
+	        		oldonload();
+	      		}
+	      		func();
+	    	}
+  	}
+  }
+
   
   //Simple function to compute the sign
   function sign(x) {
@@ -328,8 +344,69 @@
     updateStat('GenP','GenI','GenT','GenL','GenR','GenTR');
   }
   
+  function hasClass(element, cls) {
+	return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+  }
+  
+  function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+  }
+  
+  function getCookie(cname) {
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1);
+		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	}
+	return "";
+  } 
+  
+  var currStyle; 
+  
+  function changeStyle() {
+  	//Find the style we need to change to (styles stored in global variable)
+  	var changeTo;
+  	if(currStyle=='whiteStyle') {
+  		changeFrom='whiteStyle';
+  		changeTo='blackStyle';
+  	}
+  	else {
+  		changeFrom='blackStyle';
+  		changeTo='whiteStyle';
+  	}
+  	
+  	changeStyle(changeFrom,changeTo);
+  }
+  
+  function changeStyle(changeFrom,changeTo) {
+  	var toChange = document.getElementsByClassName(changeFrom);
+  	for(var elemTCIndex = 0 ; elemTCIndex < toChange.length ; elemTCIndex++) {
+  		toChange[elemTCIndex].className= 
+  			(' '+toChange[elemTCIndex].className+' ').replace(' '+changeFrom+' ',' '+changeTo+' ');
+  	}
+  }
+  
+  addLoadEvent(function() {
+	currStyle = getCookie('currStyle');
+	if(currStyle=="") {
+		setCookie('currStyle','whiteStyle',365)
+	  	currStyle = 'whiteStyle';
+	}
+	if(currStyle == 'blackStyle') {
+	  	changeStyle('whiteStyle','blackStyle');
+	}
+  });
+  addLoadEvent(refreshTables);
+  
   window.onload = refreshTables;
 </script>
+
+<button id="changeStyleButton" class="whiteStyle" onclick="changeStyle(this);">Change Style</button>
 
 <h1>Stat and Skill Rules</h1>
 <h3>Character creation</h3>
