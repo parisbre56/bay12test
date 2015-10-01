@@ -406,13 +406,15 @@
   	//Find the style we need to change to (styles stored in global variable)
   	var changeTo;
   	var changeFrom;
-  	if(currStyle=='whiteStyle') {
-  		changeFrom='whiteStyle';
-  		changeTo='blackStyle';
-  	}
-  	else {
-  		changeFrom='blackStyle';
-  		changeTo='whiteStyle';
+  	switch(currStyle){
+    		case 'whiteStyle':
+    			changeFrom='whiteStyle';
+  			changeTo='blackStyle';
+    		break;
+    		case 'blackStyle':
+    			changeFrom='blackStyle';
+  			changeTo='whiteStyle';
+    		break;
   	}
   	
   	//Switch style
