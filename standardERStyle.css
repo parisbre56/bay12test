@@ -17,13 +17,13 @@ input[type="number"] {
 	width: 3em;
 }
 
-.blackStyle table, tr, td, th {
+.blackStyle table, .blackStyle tr, .blackStyle td, .blackStyle th {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-.whiteStyle table, tr, td, th {
+.whiteStyle table, .whiteStyle tr, .whiteStyle td, .whiteStyle th {
 	border: 0.13em solid black;
 	border-collapse: collapse;
 	background: none;
