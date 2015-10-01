@@ -4,8 +4,8 @@ body.blackStyle {
 }
 
 body.whiteStyle {
-	background-color: initial;
-	color: initial;
+	background-color: #E5E5E8;
+	color: black;
 }
 
 input {
