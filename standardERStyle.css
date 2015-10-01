@@ -29,27 +29,27 @@ input[type="number"] {
 	background: none;
 }
 
-.darkStyle tr.lowRating {
+.darkStyle .lowRating {
 	color: red;
 }
 
-.whiteStyle tr.lowRating {
+.whiteStyle .lowRating {
 	color: darkred;
 }
 
-.darkStyle tr.mediumRating {
+.darkStyle .mediumRating {
 	color: yellow;
 }
 
-.whiteStyle tr.mediumRating {
+.whiteStyle .mediumRating {
 	color: darkorange;
 }
 
-.darkStyle tr.highRating {
+.darkStyle .highRating {
 	color: limegreen;
 }
 
-.whiteStyle tr.highRating {
+.whiteStyle .highRating {
 	color: darkgreen;
 }
 
