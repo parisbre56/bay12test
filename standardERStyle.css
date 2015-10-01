@@ -17,7 +17,7 @@ input[type="number"] {
 	width: 3em;
 }
 
-.darkStyle table, tr, td, th {
+.blackStyle table, tr, td, th {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
@@ -29,7 +29,7 @@ input[type="number"] {
 	background: none;
 }
 
-.darkStyle .lowRating {
+.blackStyle .lowRating {
 	color: red;
 }
 
@@ -37,7 +37,7 @@ input[type="number"] {
 	color: darkred;
 }
 
-.darkStyle .mediumRating {
+.blackStyle .mediumRating {
 	color: yellow;
 }
 
@@ -45,7 +45,7 @@ input[type="number"] {
 	color: darkorange;
 }
 
-.darkStyle .highRating {
+.blackStyle .highRating {
 	color: limegreen;
 }
 
@@ -65,7 +65,7 @@ p {
 	margin: 0.2em 0.2em 0.7em;
 }
 
-.darkStyle .tableTitle {
+.blackStyle .tableTitle {
 	color: #00FF00;
 }
 
@@ -73,7 +73,7 @@ p {
 	color: initial;
 }
 
-.darkStyle .colTitle {
+.blackStyle .colTitle {
 	color: #00FF00;
 }
 
