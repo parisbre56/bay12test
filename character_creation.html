@@ -17,7 +17,7 @@
 <script type="text/javascript">
   "use strict";
  
-  //For onload functions
+  //For onload functions, essentially adds them at the end of a queue
   function addLoadEvent(func) {
 	var oldonload = window.onload;
   	if (typeof window.onload != 'function') {
@@ -31,7 +31,30 @@
 	    	}
   	}
   }
-
+  
+  //Check if the element contains class cls
+  function hasClass(element, cls) {
+	return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+  }
+  
+  //Replaces the class changeFrom with class changeTo in the given element
+  function replaceClass(element,changeFrom,changeTo) {
+  	element.className= 
+  		(' '+element.className+' ').replace(' '+changeFrom+' ',' '+changeTo+' ');
+  }
+  
+  //Removes class cls from the element
+  function removeClass(element,cls) {
+  	element.className=
+  		(' '+element.className+' ').replace(' '+cls+' ',' ');
+  }
+  
+  //Adds class cls to the element
+  function addClass(element,cls) {
+  	if(!hasClass(element,cls)) {
+	  	element.className=element.className+' '+cls+' ';
+  	}
+  }
   
   //Simple function to compute the sign
   function sign(x) {
@@ -72,20 +95,35 @@
     TE.innerHTML=(totalLevel).toString(); //Write total skill level
     
     //Change colour of the row
-	//First select the colour
-	var newColor='yellow';
+	//First select the rating
+	var newRating;
     if(totalLevel==0) {
-    	newColor='yellow';
+    	newRating='mediumRating';
     } 
     else if (totalLevel > 0) {
-    	newColor='limegreen';
+    	newRating='highRating';
     }
     else {
-    	newColor='red';
+    	newRating='lowRating';
     }
-	//And then apply it to each member of the class
-	for(var curTRElem = 0 ; curTRElem < TableRowElements.length ; curTRElem++) {
-		TableRowElements[curTRElem].style.color=newColor;
+    
+	//And then apply it to each member of the class if it is not already applied
+	if( tableRowElements.length > 0 && !hasClass(TableRowElements[0],newRating) ) {
+		//Find the old rating class
+		var oldRating;
+		if(hasClass(TableRowElements[0],'mediumRating')) {
+			oldRating='mediumRating';
+		} else if (hasClass(TableRowElements[0],'highRating')) {
+			oldRating='highRating';
+		} else {
+			oldRating='lowRating';
+		}
+		
+		//For each memeber of the class
+		for(var curTRElem = 0 ; curTRElem < TableRowElements.length ; curTRElem++) {
+			//Replace old rating class with new one
+			replaceClass(TableRowElements[curTRElem],oldRating, newRating);
+		}
 	}
     
     //Write points left for next level
@@ -344,10 +382,6 @@
     updateStat('GenP','GenI','GenT','GenL','GenR','GenTR');
   }
   
-  function hasClass(element, cls) {
-	return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-  }
-  
   function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -392,8 +426,7 @@
   function changeStyle(changeFrom,changeTo) {
   	var toChange = document.getElementsByClassName(changeFrom);
   	for(var elemTCIndex = 0 ; elemTCIndex < toChange.length ; elemTCIndex++) {
-  		toChange[elemTCIndex].className= 
-  			(' '+toChange[elemTCIndex].className+' ').replace(' '+changeFrom+' ',' '+changeTo+' ');
+  		replaceClass(toChange[elemTCIndex],changeFrom,changeTo);
   	}
   }
   
