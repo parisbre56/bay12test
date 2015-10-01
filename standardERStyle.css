@@ -17,14 +17,40 @@ input[type="number"] {
 	width: 3em;
 }
 
-table, tr, td, th {
+.darkStyle table, tr, td, th {
 	border: 0.13em solid darkgreen;
 	border-collapse: collapse;
 	background: black;
 }
 
-tr {
+.whiteStyle table, tr, td, th {
+	border: 0.13em solid black;
+	border-collapse: collapse;
+	background: none;
+}
+
+.darkStyle tr.lowRating {
+	color: red;
+}
+
+.whiteStyle tr.lowRating {
+	color: darkred;
+}
+
+.darkStyle tr.mediumRating {
 	color: yellow;
+}
+
+.whiteStyle tr.mediumRating {
+	color: darkorange;
+}
+
+.darkStyle tr.highRating {
+	color: limegreen;
+}
+
+.whiteStyle tr.highRating {
+	color: darkgreen;
 }
 
 h1 {
@@ -39,12 +65,20 @@ p {
 	margin: 0.2em 0.2em 0.7em;
 }
 
-.tableTitle {
+.darkStyle .tableTitle {
 	color: #00FF00;
 }
 
-.colTitle {
+.whiteStyle .tableTitle {
+	color: initial;
+}
+
+.darkStyle .colTitle {
 	color: #00FF00;
+}
+
+.whiteStyle .colTitle {
+	color: initial;
 }
 
 .stats {
