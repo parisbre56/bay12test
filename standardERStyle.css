@@ -102,8 +102,12 @@ p {
 	font-size:3em;
 }
 
-.warning {
+.blackStyle .warning {
 	color: yellow;	
+}
+
+.whiteStyle .warning {
+	color: #D47400;	
 }
 
 .wrong {
