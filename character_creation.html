@@ -405,20 +405,20 @@
   function toggleStyle() {
   	//Find the style we need to change to (styles stored in global variable)
   	var changeTo;
-  	var changeFrom;
   	switch(currStyle){
     		case 'whiteStyle':
-    			changeFrom='whiteStyle';
-  			changeTo='blackStyle';
+  			changeTo='darklingStyle';
+    		break;
+    		case 'darklingStyle':
+    			changeTo='blackStyle';
     		break;
     		case 'blackStyle':
-    			changeFrom='blackStyle';
   			changeTo='whiteStyle';
     		break;
   	}
   	
   	//Switch style
-  	changeStyle(changeFrom,changeTo);
+  	changeStyle(currStyle,changeTo);
   	
   	//Store in cookie and in global variable
   	setCookie('currStyle',changeTo,365);
