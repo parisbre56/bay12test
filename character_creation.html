@@ -433,15 +433,20 @@
   }
   
   addLoadEvent(function() {
+  	//Get the saved style from the cookie
 	currStyle = getCookie('currStyle');
+	//If there is no saved style, revert to the default
 	if(currStyle=="") {
 		setCookie('currStyle','whiteStyle',365)
 	  	currStyle = 'whiteStyle';
 	}
-	if(currStyle == 'blackStyle') {
-	  	changeStyle('whiteStyle','blackStyle');
+	//If the current style is not the default one, 
+	//change from the default style to the current style when the page is loaded
+	if(currStyle != 'whiteStyle') {
+	  	changeStyle('whiteStyle',currStyle);
 	}
   });
+  //Refresh the tables on load to give them proper colours
   addLoadEvent(refreshTables);
 </script>
 
