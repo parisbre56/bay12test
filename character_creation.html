@@ -158,7 +158,7 @@
     			levelTitle=totalLevel+": INVALID: LEVEL CANNOT BE LOWER THAN TWO";
     		}
     		else if (totalLevel>=4) {
-    			levelTitle="+"+totalLevel+": Master: Remember pai mei from Kill Bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanichally equivelant to always rolling 5s.";
+    			levelTitle="+"+totalLevel+": Master: Remember Pai Mei from Kill Bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanically equivalent to always rolling 5s.";
     			if(totalLevel>4) {
     				levelTitle+="\n\nNote that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled stat or skill by 1 level for the rest of the mission. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.";
     			}
@@ -240,7 +240,7 @@
   
   //Notifies the user of any problem with their stat levels by changing a textbox in the end
   function writeInitialLevelSkillProblems (H, C, U, E, A, M, G) {
-    //Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+    //Handiwork, Conventional, Unconventional, Exotic, Auxiliary, Medical, Gen.Knowledge
     
     //for all arguments, find the total positive and negative levels
     var temp=0;
@@ -332,7 +332,7 @@
   
   //Compute skill point total and mission total and write them in a text box in the end
   function writeSkillPointProblems (H, C, U, E, A, M, G) {
-    //Handiwork, Conventional, Unconventional, Exotic, Auxilliary, Medical, Gen.Knowledge
+    //Handiwork, Conventional, Unconventional, Exotic, Auxiliary, Medical, Gen.Knowledge
     
     var temp=0;
     var total=0;
@@ -451,17 +451,17 @@
 <h3>Character creation</h3>
 <ul>
   <li>Everyone starts with zero levels and zero points in all stats and skills.</li>
-  <li>You can add positive levels during character creation, but must take a greater penalty each time you do so. These are reffered to as 'Initial levels' in this page.
+  <li>You can add positive levels during character creation, but must take a greater penalty each time you do so. These are referred to as 'Initial levels' in this page.
   <ul>
-    <li>Having a <em>total</em> of +1 positive intial levels means you must take a total of -1 negative intial levels.</li>
-    <li>Having a <em>total</em> of +2 positive intial levels means you must take a total of -3 negative intial levels.</li>
-    <li>Having a <em>total</em> of +3 positive intial levels means you must take a total of -6 negative intial levels.</li>
-    <li>Having a <em>total</em> of +4 positive intial levels means you must take a total of -10 negative intial levels.</li>
+    <li>Having a <em>total</em> of +1 positive initial levels means you must take a total of -1 negative initial levels.</li>
+    <li>Having a <em>total</em> of +2 positive initial levels means you must take a total of -3 negative initial levels.</li>
+    <li>Having a <em>total</em> of +3 positive initial levels means you must take a total of -6 negative initial levels.</li>
+    <li>Having a <em>total</em> of +4 positive initial levels means you must take a total of -10 negative initial levels.</li>
     <li>Note that the total is different between stats and skills. <br>You cannot mix the total initial levels for stats with the total initial levels for skills. <br>You <strong>cannot</strong> have +1 strength and +1 willpower for -2 endurance and -1 conventional.</li>
   </ul></li>
   <li>Your second increase to 1 can be taken at a cost of -1
   <ul>
-    <li>This +1 does not count toward the cummulative total</li>
+    <li>This +1 does not count toward the cumulative total</li>
 	<li>This 1 *can* be increased, using the normal system</li>
   </ul></li>
   <li>You can not have an initial level lower than -2.</li>
@@ -480,17 +480,17 @@
     	Getting from level 3 to level 4 takes 20. <br>
     	To get to level 4 from level 0, in other words, you'd need to spend 50 points, or 10 missions worth. <br>
     	On the other hand, if you have an initial level of 2 on a skill, you can reach level 4 with just 35 points or 7 missions worth. <br>
-    	And with the enhanced capacity genemod, you can shorten this to just 15 points or 3 missions worth. 
+    	And with the enhanced capacity gene-mod, you can shorten this to just 15 points or 3 missions worth. 
     </li>
   </ul></li>
-  <li>Note that special circumstances (brain damage, genemods, alien parasites, Doctor experimentation, etc.) may change the number of points given or may result in point deduction.</li>
-  <li>Enhanced Capacity upgrades are addons that can be bought from the armoury and can give you a +1 to <strong>either</strong> 1 stat or 1 skill. You can have only one of them installed at a time.</li>
+  <li>Note that special circumstances (brain damage, gene-mods, alien parasites, Doctor experimentation, etc.) may change the number of points given or may result in point deduction.</li>
+  <li>Enhanced Capacity upgrades are add-ons that can be bought from the armoury and can give you a +1 to <strong>either</strong> 1 stat or 1 skill. You can have only one of them installed at a time.</li>
 </ul>
 
 <h3>Extra rules for old characters</h3>
 <ul>
-  <li>The Anompalous Planetoid mission counts as two missions and thus gives two levelups instead of one.</li>
-  <li>Those that got points during the Hephaestus timeskip get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. <br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
+  <li>The Anomalous Planetoid mission counts as two missions and thus gives two level-ups instead of one.</li>
+  <li>Those that got points during the Hephaestus time-skip get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. <br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
   <li>Those that participated in the Hephaestus space battle get 5 extra points to put in <strong>either</strong> stats or skills or a combination of the two. <br>That means that they can put 2 points in strength and 3 points in intuition, for example.</li>
   <li>Lars gets a +1 level to Fate without the need to take extra negative levels for it.</li>
 </ul>
@@ -524,7 +524,7 @@
 	</li>
 	<li>
 		<h4>+4 and on: Master</h4>
-		<p>Remember pai mei from Kill bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanichally equivelant to always rolling 5s.</p>
+		<p>Remember Pai Mei from Kill bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanically equivalent to always rolling 5s.</p>
 		<p>Note that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled stat or skill by 1 level. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.</p>
 	</li>
 </ul>
@@ -549,7 +549,7 @@
 			Total level</th>
 		<th title="How many more points you must put to that Stat to reach the next level">
 			Points for next level</th>
-		<th title="Whether or not you have any extra levels in this Stat due to other reasons, such as genemods, the deathcube or doctor modifiactions">
+		<th title="Whether or not you have any extra levels in this Stat due to other reasons, such as gene-mods, the deathcube or doctor modifications">
 			Enhanced Capacity</th>
 	<td class="separator">&nbsp;</td>
 		<th title="The name of the Skill. Hover over it for more info">
@@ -562,7 +562,7 @@
 			Total level</th>
 		<th title="How many more points you must put to that Skill to reach the next level">
 			Points for next level</th>
-		<th title="Whether or not you have any extra levels in this Skill due to other reasons, such as genemods, the deathcube or doctor modifiactions">
+		<th title="Whether or not you have any extra levels in this Skill due to other reasons, such as gene-mods, the deathcube or doctor modifications">
 			Enhanced Capacity</th>
   </tr>
   <tr>
@@ -578,7 +578,7 @@ This stat is required to wield some weapons (most notably gauss rifles) and heav
 		<td class="StrTR mediumRating"><output id="StrL">5</output></td>
 		<td class="StrTR mediumRating"><input type="number" id="StrR" value="0"></td>
  	<td class="separator">&nbsp;</td>
-		<th class="HanTR mediumRating" title="Making things, breaking things, and otherwise turning stuff from X into laserguided, thermonuclear Y.
+		<th class="HanTR mediumRating" title="Making things, breaking things, and otherwise turning stuff from X into laser-guided, thermonuclear Y.
 		
 People with a high level of this skill can construct almost anything provided they have the right parts. Very useful if you are going to be working with tinker and custom equipment in general and don't want to pay someone else to construct your prototypes. Also very useful in those situations when you are trapped somewhere with limited resources and need to construct something to survive and/or escape and generally building your own spare parts. Overshoots may cause you to weld yourself to what you are building or cause it to explode prematurely or overload.">
 			Handiwork</th>
@@ -603,7 +603,7 @@ This stat is rolled for for hand to hand combat, melee weapons that don't use un
 		<td class="DexTR mediumRating"><output id="DexL">5</output></td>
 		<td class="DexTR mediumRating"><input type="number" id="DexR" value="0"></td>
 	<td class="separator">&nbsp;</td>
-		<th class="ConTR mediumRating" title="By conventional weapons we mean anything that follows the general concept of &quot;A metal tube which you point at things and potentially lethal somethings shoot out&quot;. 
+		<th class="ConTR mediumRating" title="By conventional weapons we mean anything that follows the general concept of &quot;A metal tube which you point at things and a potentially lethal something shoot out&quot;. 
 
 This is used for firing weapons that look like guns. That means weapons that have an end that you point to things that you want to stop existing and some kind of trigger. Overshoots tend to destroy your target with some bad side effects (for example, overkill, wasting ammo, friendly fire or structural damage) while critfails may cause you to shoot yourself.">
 			Conventional</th>
@@ -615,7 +615,7 @@ This is used for firing weapons that look like guns. That means weapons that hav
   </tr>
 		<th class="EndTR mediumRating" title="Being able to run more then 10 feet before your heart explodes and not passing out from a paper cut.
 
-Useful for surviving damage and enduring effects such as poison, overmedication, drunkenness and tiredness. This stat is also used for surviving lethal area of effect damage like explosions and massive amounts of gunfire. Some times the weapon that hit you might be so powerful (or your failure so great) that endurance will do nothing more than dictate whether or not your brain will remain intact enough to be revived.">
+Useful for surviving damage and enduring effects such as poison, over-medication, drunkenness and tiredness. This stat is also used for surviving lethal area of effect damage like explosions and massive amounts of gunfire. Some times the weapon that hit you might be so powerful (or your failure so great) that endurance will do nothing more than dictate whether or not your brain will remain intact enough to be revived.">
 			Endurance</th>
 		<td class="EndTR mediumRating"><input type="number" id="EndP" value="0"></td>
 		<td class="EndTR mediumRating"><input type="number" id="EndI" value="0"></td>
@@ -625,7 +625,7 @@ Useful for surviving damage and enduring effects such as poison, overmedication,
 	<td class="separator">&nbsp;</td>
 		<th class="UnconTR mediumRating" title="Covers your non-death-tube armaments. Explosives, hand to hand weapons, field manipulators, etc.
 
-This is used for melee weapons sold in the armory, most explosives and for manipulators (&quot;magic&quot; calculators that can break physics). Also used for ranged weapons that don't belong in the other weapon categories (Conventional,Exotic,Auxiliary). Overshoots and critfails tend to have effects similar with those that happen with conventional weapons. Special mention should be made to manipulator critfails, since they can have very nasty effects (like making your blood boil or causing the manipulator to explode like a grenade). ">
+This is used for melee weapons sold in the armoury, most explosives and for manipulators (&quot;magic&quot; calculators that can break physics). Also used for ranged weapons that don't belong in the other weapon categories (Conventional,Exotic,Auxiliary). Overshoots and critfails tend to have effects similar with those that happen with conventional weapons. Special mention should be made to manipulator critfails, since they can have very nasty effects (like making your blood boil or causing the manipulator to explode like a grenade). ">
 			Unconventional</th>
 		<td class="UnconTR mediumRating"><input type="number" id="UnconP" value="0"></td>
 		<td class="UnconTR mediumRating"><input type="number" id="UnconI" value="0"></td>
@@ -636,7 +636,7 @@ This is used for melee weapons sold in the armory, most explosives and for manip
   <tr>
 		<th class="ChaTR mediumRating" title="Are you a cool dude? A handy skill for when you want to talk a bullet out of embedding itself in your faceplate. Handles all aspects of interpersonal communications. Probably not used very much.
 
-Can be used to look cool, beautiful and generally make a good impression on people or conversely infiltrate locations and move amongst them unnoticed, hiding in plain sight. People with low level of skill and no decompensators can use it to terrorize civilians, cause misunderstandings and speak in the most hilarious of ways. People who are competent with speech however should be able to fool enemies, persuade civilians to do things, make inspiring speeches and increase the effectiveness of their mind control amps.
+Can be used to look cool, beautiful and generally make a good impression on people or conversely infiltrate locations and move amongst them unnoticed, hiding in plain sight. People with low level of skill can use it to terrorize civilians, cause misunderstandings and speak in the most hilarious of ways. People who are competent with speech however should be able to fool enemies, persuade civilians to do things, make inspiring speeches and increase the effectiveness of their mind control amps.
 
 This stat is required to use the mind control kind of Psychokinetic Amplifiers. It can also be useful when combined with equipment like the Black Halo.">
 			Charisma</th>
@@ -659,7 +659,7 @@ This is used for using alien stuff or otherwise weird weapons that don't look li
   <tr>
 		<th class="MindTR mediumRating" title="Bending spoons and (usually) not losing your mind. Also helps you not be a god damn idiot (sometimes).
 
-Useful for resisting alien influences and the usage of space magic like amps and manipulators on you. Also useful for gaining data by analyzing a situation and finding useful intel on the internet.
+Useful for resisting alien influences and the usage of space magic like amps and manipulators on you. Also useful for gaining data by analysing a situation and finding useful intel on the internet.
 
 This stat also gives you mind points that are used up when using amps to do something hard, resisting mindfuck or otherwise straining your mind (usually while doing something supernatural).">
 			Mind</th>
@@ -691,7 +691,7 @@ It's fate. We don't really have anything more to say about this, as Piecewise is
 	<td class="separator">&nbsp;</td>
 		<th class="MedTR mediumRating" title="A mechanic both for people and the systems that keep people from dying in various ways. 
 
-Used for being a good medic and helping your teammates. Can also be used to identify what's wrong with a teammate. Overshoots and critfails may leave you overmedicating your teammates, identifying their ailments as &quot;space worms in the brain&quot; or trying to cure said ailments via kicking.">
+Used for being a good medic and helping your teammates. Can also be used to identify what's wrong with a teammate. Overshoots and critfails may leave you over-medicating your teammates, identifying their ailments as &quot;space worms in the brain&quot; or trying to cure said ailments via kicking.">
 			Medical</th>
 		<td class="MedTR mediumRating"><input type="number" id="MedP" value="0"></td>
 		<td class="MedTR mediumRating"><input type="number" id="MedI" value="0"></td>
@@ -704,7 +704,7 @@ Used for being a good medic and helping your teammates. Can also be used to iden
 
 Your gut feeling. Are your guts feeling well? No? Time to dive into trench because something bad is about to happen.
 
-People with a high level of this stat might be able to sense ambushes or teammates trying to cause them harm (intentionally or unintentionally), guess the position of snipers or mines, sense the evil intentions of alien artifacts and generally pull information out of nowhere. However, information provided by this stat tend to be a bit more vague and untrustworthy then information provided by the Mind stat.">
+People with a high level of this stat might be able to sense ambushes or teammates trying to cause them harm (intentionally or unintentionally), guess the position of snipers or mines, sense the evil intentions of alien artefacts and generally pull information out of nowhere. However, information provided by this stat tend to be a bit more vague and untrustworthy then information provided by the Mind stat.">
 			Intuition</th>
 		<td class="IntuTR mediumRating"><input type="number" id="IntuP" value="0"></td>
 		<td class="IntuTR mediumRating"><input type="number" id="IntuI" value="0"></td>
