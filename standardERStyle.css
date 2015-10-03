@@ -30,6 +30,10 @@ input {
 	
 }
 
+input[type=text]::after {
+	
+}
+
 .blackStyle fieldset {
 	border-color: green;
 }
