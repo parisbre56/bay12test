@@ -18,6 +18,30 @@ input {
 	color: inherit;
 }
 
+.blackStyle input {
+	border-color: green;
+}
+
+.darklingStyle input {
+	
+}
+
+.whiteStyle input {
+	
+}
+
+.blackStyle fieldset {
+	border-color: green;
+}
+
+.darklingStyle fieldset {
+	
+}
+
+.whiteStyle fieldset {
+	
+}
+
 input[type="number"] {
 	width: 3em;
 }
