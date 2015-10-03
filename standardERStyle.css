@@ -133,3 +133,39 @@ p {
 .wrong {
 	color: red;
 }
+
+.blackStyle a:link.navigationLink {
+	color: green;
+}
+
+.blackStyle a:visited.navigationLink {
+	color: darkgreen;
+}
+
+.blackStyle a:hover.navigationLink {
+	color: #0F0;
+}
+
+.darklingStyle a:link.navigationLink {
+	color: #E0D960;
+}
+
+.darklingStyle a:visited.navigationLink {
+	color: #C09040;
+}
+
+.darklingStyle a:hover.navigationLink {
+	color: #EFDF7F;
+}
+
+.whiteStyle a:link.navigationLink {
+	color: initial;
+}
+
+.whiteStyle a:visited.navigationLink {
+	color: initial;
+}
+
+.whiteStyle a:hover.navigationLink {
+	color: initial;
+}
