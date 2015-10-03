@@ -135,7 +135,7 @@ p {
 }
 
 .blackStyle a:link.navigationLink {
-	color: green;
+	color: limegreen;
 }
 
 .blackStyle a:visited.navigationLink {
