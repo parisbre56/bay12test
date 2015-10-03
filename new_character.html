@@ -31,5 +31,62 @@
     
     <h1>New Character</h1>
     
+    <form oninput="processInput();">
+      <fieldset name="IDInfo">
+        <legend>Identification Data (required):</legend>
+        <label for="username">User Name:</label> <input type="text" name="username" id="username" placeholder="Your forum name">
+        <label for="charname">Character Name:</label> <input type="text" name="charname" id="charname" placeholder="The name of your character">
+      </fieldset>
+      <fieldset name="detailedInfo">
+        <legend>Detailed Personal Information (optional):</legend>
+        <label for="gender">Gender:</label> <input type="text" name="gender" id="gender" placeholder="Your character's gender">
+        <label for="description">Physical Description:</label> <input type="text" name="description" id="description" placeholder="What your character looks like">
+        <label for="bio">Bio:</label> <input type="text" name="bio" id="bio" placeholder="Info you deem important about your character's life and character">
+      </fieldset>
+      <fieldset name="statsandskills">
+        <legend>Starting stat and skill levels:</legend>
+        <table id="mainTable">
+          <tr>
+              <th colspan="4" class="tableTitle"><h2>Stats</h2></th>
+            <td class="separator">&nbsp;</td>
+              <th colspan="4" class="tableTitle"><h2>Skills</h2></th>
+          </tr>
+          <tr class="colTitle">
+              <th title="The name of the Stat. Hover over it for more info">
+                Name</th>
+              <th colspan="2" title="The level of the Stat during character creation. Hover over its name for more info">
+                Level</th>
+              <th title="How many more points you must put to that Skill to reach the next level">
+                Left for next level</th>
+            <td class="separator">&nbsp;</td>
+              <th title="The name of the Skill. Hover over it for more info">
+                Name</th>
+              <th colspan="2" title="The level of the Skill during character creation. Hover over its name for more info">
+                Level</th>
+              <th title="How many more points you must put to that Skill to reach the next level">
+                Left for next level</th>
+          </tr>
+          <tr>
+              <th class="StrTR mediumRating" title="How good you are at lifting heavy things and then putting them down. Useful for wielding certain weapons. 
+  		
+  Useful in hand to hand combat, for throwing things and for lifting things (including some weapons or weapons you'd normally be unable to lift). Note that this stat doesn't describe your actual amount of strength; Instead it controls how well you control what strength you have. A giant robot with -2 strength will accidentally crush things it meant to lightly tap, and lightly tap things which it mean to crush.
+  This stat is required to wield some weapons (most notably gauss rifles) and heavy equipment. This stat is rolled for hand to hand combat, melee weapons that don't use unconventional and other similar things.">
+                Strength</th>
+              <td class="StrTR mediumRating"><input type="number" id="StrI" value="0" min="-2" max="2"></td>
+              <td class="StrTR mediumRating"><output id="StrR">Novice</output></td>
+              <td class="StrTR mediumRating"><output id="StrL">5</output></td>
+            <td class="separator">&nbsp;</td>
+              <th class="HanTR mediumRating" title="Making things, breaking things, and otherwise turning stuff from X into laser-guided, thermonuclear Y.
+		
+People with a high level of this skill can construct almost anything provided they have the right parts. Very useful if you are going to be working with tinker and custom equipment in general and don't want to pay someone else to construct your prototypes. Also very useful in those situations when you are trapped somewhere with limited resources and need to construct something to survive and/or escape and generally building your own spare parts. Overshoots may cause you to weld yourself to what you are building or cause it to explode prematurely or overload.">
+                Handiwork</th>
+              <td class="HanTR mediumRating"><input type="number" id="HanI" value="0" min="-2" max="2"></td>
+              <td class="HanTR mediumRating"><output id="HanR">Novice</output></td>
+              <td class="HanTR mediumRating"><output id="HanL">5</output></td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+    
   </body>
 </html>
