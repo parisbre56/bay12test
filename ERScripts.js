@@ -63,3 +63,68 @@ function computeSkillLevel(P,I) { //P is points in skill, I is initial level of 
     return Math.floor((-0.5 + Math.sqrt(5 + 8*Math.abs(PDelta+P))/4.472135955)+ 0.00001);
   }
 }
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+  
+function getCookie(cname) {
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1);
+		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+	}
+	return "";
+} 
+  
+var currStyle; 
+  
+function toggleStyle() {
+	//Find the style we need to change to (styles stored in global variable)
+	var changeTo;
+	switch(currStyle){
+		case 'whiteStyle':
+			changeTo='darklingStyle';
+		break;
+		case 'darklingStyle':
+			changeTo='blackStyle';
+		break;
+		case 'blackStyle':
+			changeTo='whiteStyle';
+		break;
+	}
+
+	//Switch style
+	changeStyle(currStyle,changeTo);
+	
+	//Store in cookie and in global variable
+	setCookie('currStyle',changeTo,365);
+	currStyle=changeTo;
+}
+  
+function changeStyle(changeFrom,changeTo) {
+	var toChange = document.getElementsByClassName(changeFrom);
+	for(var elemTCIndex = 0 ; elemTCIndex < toChange.length ; elemTCIndex++) {
+		replaceClass(toChange[elemTCIndex],changeFrom,changeTo);
+	}
+}
+
+function onloadStyleFunction() {
+	//Get the saved style from the cookie
+	currStyle = getCookie('currStyle');
+	//If there is no saved style, revert to the default
+	if(currStyle=="") {
+		setCookie('currStyle','whiteStyle',365)
+		currStyle = 'whiteStyle';
+	}
+	//If the current style is not the default one, 
+	//change from the default style to the current style when the page is loaded
+	if(currStyle != 'whiteStyle') {
+		changeStyle('whiteStyle',currStyle);
+	}
+}
