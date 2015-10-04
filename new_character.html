@@ -27,6 +27,10 @@
       var skills = ['Han','Con','Uncon','Exo','Aux','Med','Gen'];
       var sns = stats.concat(skills);
       
+      //The length a reason assigned to HMRC should be before it is 
+      //removed from the infobox and put in the personal info section.
+      var reasonLength = 30;
+      
       //Main function. Does everything
       function processInput() {
       	//First, initialise the outputs
@@ -73,13 +77,69 @@
       	forumOutString+="]\n";
       	
       	//Check for gender and age
+      	//Get the values
+      	var gender = document.getElementById("gender").value;
+      	var age = document.getElementById("age").value; 
+      	//If the gender is not empty
+      	if(/\S/.test(gender)) {
+      		forumOutString+="Gender: "+gender+"\n";
+      		wikiOutString+="|gender="+gender+"\n";
+      	}
+      	//If the age is not empty
+      	if(/\S/.test(age)) {
+      		forumOutString+="Age: "+age+"\n";
+      		wikiOutString+="|age="+age+"\n";
+      	}
       	
+      	//Profession and role left blank for now
+      	
+      	//First mission is set to None and number of missions participated is set to 0
+      	wikiOutString+="|firstmission="+"None"+"\n";
+      	wikiOutString+="|missionsparticipated="+"0"+"\n";
+
       	//Check if reason assigned to HMRC is small. If yes, put it in the PC template. Else put it in the page.
+      	var reason = document.getElementById("reason").value;
+      	if(/\S/.test(reason) && reason.length<=reasonLength) {
+      		wikiOutString+="|reasonassingedtohmrc="+reason+"\n"
+      	}
       	
       	//Close the template tag
       	wikiOutString+="}}\n";
       	
-      	//Check for description and bio. Also add reason assigned to bio if it is large enough.
+      	//Add wiki headers
+      	wikiOutString+="\n==Appearance==\n";
+      	wikiOutString+="\n===At Character Creation===\n";
+      	
+      	//Check for description 
+      	var description = document.getElementById("description").value;
+      	if(/\S/.test(description)) {
+      		forumOutString+="Physical Description: "+description+"\n";
+      		wikiOutString+=description+"\n";
+      	} else { //If no physical description was given
+      		wikiOutString+="No physical description given.\n";
+      	}
+      	
+      	//Add extra wiki headers
+      	wikiOutString+="\n===Current, Out of Armor===\n"
+      	wikiOutString+="Same as above.\n";
+      	wikiOutString+="\n===In Armor===\n"
+      	wikiOutString+="Same as above, in a standard [[MCP-I]].\n";
+      	wikiOutString+="\n==Personal Information==\n";
+      	
+      	//Check for bio
+      	var bio = document.getElementById("bio").value;
+      	if(/\S/.test(bio)) {
+      		forumOutString+="Personal Information:"+bio+"\n";
+      		wikiOutString+=bio+"\n";
+      	} else {//If no personal information has been given
+      		wikiOutString+="No personal information given.\n";
+      	}
+      	
+      	//Also add reason assigned to bio if it is large enough.
+      	if(/\S/.test(reason) && reason.length>reasonLength) {
+      		wikiOutString+="\n===Reason Assigned to HMRC/Reason for joining ARM===\n"
+      		wikiOutString+=reason+"\n"
+      	}
       	
       	//Check stats and skills.
       	
