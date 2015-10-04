@@ -128,3 +128,9 @@ function onloadStyleFunction() {
 		changeStyle('whiteStyle',currStyle);
 	}
 }
+
+//Appends text to elem and then adds a <br>
+function writeTextAndBr(elem, text) {
+	elem.appendChild(document.createTextNode(text));
+      	elem.appendChild(document.createElement("br"));
+}
