@@ -199,3 +199,7 @@ p {
 .outTextBox {
 	width:100%;
 }
+
+legend { /*For internet explorer*/
+	color: inherit;
+}
