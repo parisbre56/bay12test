@@ -88,12 +88,15 @@
       	
       	//Write the output strings in the two textBoxes
       	//Write forum string
-      	document.getElementById('forumOut').value = outForumString;
+      	document.getElementById('forumOut').value = forumOutString;
       	//Write wiki string
-      	document.getElementById('wikiOut').value = outWikiString;
+      	document.getElementById('wikiOut').value = wikiOutString;
       }
       
+      //Apply the style based on cookie (or apply the default style)
       addLoadEvent(onloadStyleFunction);
+      //Run on load to apply styles and write output
+      addLoadEvent(processInput);
     </script>
     
     <button id="changeStyleButton" onclick="toggleStyle();">Change Style</button>
