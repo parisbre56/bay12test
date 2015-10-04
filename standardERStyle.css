@@ -25,7 +25,7 @@ input[type=text], textarea {
 textarea {
 	resize: both;
 	overflow: auto;
-	height: 3em;
+	height: 6em;
 }
 
 .formline {
