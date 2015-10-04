@@ -40,8 +40,8 @@
       <fieldset name="detailedInfo">
         <legend>Detailed Personal Information (optional):</legend>
         <div class="formline"><label for="gender">Gender:</label> <input type="text" name="gender" id="gender" placeholder="Your character's gender"></div>
-        <div class="formline"><label for="description">Physical Description:</label> <input type="text" name="description" id="description" placeholder="What your character looks like"></div>
-        <div class="formline"><label for="bio">Bio:</label> <input type="text" name="bio" id="bio" placeholder="Info you deem important about your character's life and character"></div>
+        <div class="formline"><label for="description">Physical Description:</label> <textarea name="description" id="description" placeholder="What your character looks like"></div>
+        <div class="formline"><label for="bio">Bio:</label> <textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and character"></div>
       </fieldset>
       <fieldset name="statsandskills">
         <legend>Starting stat and skill levels:</legend>
@@ -85,6 +85,12 @@ People with a high level of this skill can construct almost anything provided th
               <td class="HanTR mediumRating"><output id="HanL">5</output></td>
           </tr>
         </table>
+      </fieldset>
+      <fieldset>
+      	<legend>Output:</legend>
+      	<div class="error"></div>
+      	<textarea readonly name="forumOut" id="forumOut"></textarea>
+      	<textarea readonly name="wikiOut" id="wikiOut"></textarea>
       </fieldset>
     </form>
     
