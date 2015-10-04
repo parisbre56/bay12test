@@ -22,6 +22,12 @@ input[type=text] {
 	flex-grow: 1;
 }
 
+#description, #bio, #forumOut, #wikiOut { /*Style for large text boxes*/ 
+	resize: both;
+	overflow: auto;
+	height: 3em;
+}
+
 .formline {
 	display: flex;	
 }
