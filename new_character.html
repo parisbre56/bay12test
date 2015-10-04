@@ -92,11 +92,18 @@ People with a high level of this skill can construct almost anything provided th
       </fieldset>
       <fieldset>
       	<legend>Output:</legend>
-      	<div class="error"></div>
-      	<label for="forumOut">Forum Output:</label>
-      	<textarea readonly class="outTextBox" name="forumOut" id="forumOut"></textarea></div>
-      	<label for="wikiOut">Wiki Out:</label>
-      	<textarea readonly class="outTextBox" name="wikiOut" id="wikiOut"></textarea></div>
+      	<div class="formline" title="Any errors will appear here in big red letters">
+      		Error:<span class="error" id="formErrors"></span>
+      	</div>
+      	<div class="formline" title="This output can be posted on the on ship thread to apply for your character">
+	      	<label for="forumOut">Forum Output (to be posted on the <a href="http://www.bay12forums.com/smf/index.php?topic=108083.0" class="navigationLink">On Ship Thread</a>):</label>
+	      	<textarea readonly class="outTextBox" name="forumOut" id="forumOut"></textarea>
+      	</div>
+      	<div class="formline" title="">
+	      	<label for="wikiOut">Wiki Output (to be added to the <a href="http://einsteinianroulette.wikia.com/wiki/Einsteinian_Roulette_Wiki" class="navigationLink">Einsteinian Roulette Wiki</a> <s>in triplicate</s>):</label>
+	      	<textarea readonly class="outTextBox" name="wikiOut" id="wikiOut"></textarea>
+	      	<div class="warning">Note: It is not necessary to add the character to the wiki yourself. If you do not, someone else will do it for you.</div>
+	</div>
       </fieldset>
     </form>
     
