@@ -31,7 +31,11 @@ input {
 }
 
 input[type=text]::after {
-	
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }
 
 .blackStyle fieldset {
