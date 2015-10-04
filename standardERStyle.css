@@ -13,7 +13,7 @@ body.darklingStyle {
 	color: #F0F0F0;
 }
 
-input {
+input, textarea {
 	background-color: inherit;
 	color: inherit;
 }
