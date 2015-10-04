@@ -32,27 +32,15 @@ textarea {
 	display: flex;	
 }
 
-.blackStyle input {
+.blackStyle input, .blackStyle textarea, .blackStyle fieldset {
 	border-color: green;
 }
 
-.darklingStyle input {
+.darklingStyle input,.darklingStyle textarea, .darklingStyle fieldset{
 	
 }
 
-.whiteStyle input {
-	
-}
-
-.blackStyle fieldset {
-	border-color: green;
-}
-
-.darklingStyle fieldset {
-	
-}
-
-.whiteStyle fieldset {
+.whiteStyle input, .whiteStyle textarea, .whiteStyle fieldset{
 	
 }
 
