@@ -29,7 +29,8 @@ textarea {
 }
 
 .formline {
-	display: flex;	
+	display: flex;
+	flex-flow: row wrap;
 }
 
 .blackStyle input, .blackStyle textarea, .blackStyle fieldset {
