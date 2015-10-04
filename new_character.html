@@ -22,7 +22,78 @@
     <script type="text/javascript">
       "use strict";
       
-       addLoadEvent(onloadStyleFunction);
+      //Stats, skills, statted skills, statted skills with spam, spam skills statted skills with spam, spam spam spam spam...
+      var stats = ['Str','Dex','End','Cha','Mind','Fate','Intu'];
+      var skills = ['Han','Con','Uncon','Exo','Aux','Med','Gen'];
+      var sns = stats.concat(skills);
+      
+      //Main function. Does everything
+      function processInput() {
+      	//First, initialise the outputs
+      	//Error Element starts empty
+      	var errorElement = document.getElementById("formErrors");
+      	while (errorElement.firstChild) {
+		errorElement.removeChild(errorElement.firstChild);
+	}
+      	//Start by opening a spoiler for the forum
+      	var forumOutString = "[spoiler=";
+      	//Start by opening a PC template for the wiki
+      	var wikiOutString = "{{PC\n";
+      	
+      	//Start by checking if there is a username and a player name
+      	//Get the two names
+      	var username = document.getElementById("username").value;
+      	var charname = document.getElementById("charname").value; 
+      	//If character name is not empty (/S is regex for non-whitespace character)
+      	if(/\S/.test(charname)) {
+      		//Write it in the forum output
+      		forumOutString+=charname;
+      		//Write it in the wiki output
+      		wikiOutString+="|name="+charname+"\n";
+      	} else { //If no player name was provided
+      		//Write an error in the forum output
+      		forumOutString+="ERROR: CHARACTER NAME MISSING";
+      		//Write an error in the wiki output
+      		wikiOutString+="|name=ERROR: CHARACTER NAME MISSING\n";
+      		//Write an error in the error element
+      		writeTextAndBr(errorElement,"ERROR: CHARACTER NAME IS MISSING!");
+      	}
+      	//If user name is not empty
+      	if(/\S/.test(username)) {
+      		//Write it in the wiki output
+      		wikiOutString+="|user="+username+"\n";
+      	} else {//If no user name was provided
+      		//Write an error in the wiki output
+      		wikiOutString+="|user=ERROR: USER NAME IS MISSING\n";
+      		//Write an error in the error element
+      		writeTextAndBr(errorElement,"ERROR: USER NAME IS MISSING!");
+      	}
+      	
+      	//Close the spoiler parentheses
+      	forumOutString+="]\n";
+      	
+      	//Check for gender and age
+      	
+      	//Check if reason assigned to HMRC is small. If yes, put it in the PC template. Else put it in the page.
+      	
+      	//Close the template tag
+      	wikiOutString+="}}\n";
+      	
+      	//Check for description and bio. Also add reason assigned to bio if it is large enough.
+      	
+      	//Check stats and skills.
+      	
+      	//Close the spoiler tag. This should be the end of the forum output string
+      	forumOutString+="[/spoiler]";
+      	
+      	//Write the output strings in the two textBoxes
+      	//Write forum string
+      	document.getElementById('forumOut').value = outForumString;
+      	//Write wiki string
+      	document.getElementById('wikiOut').value = outWikiString;
+      }
+      
+      addLoadEvent(onloadStyleFunction);
     </script>
     
     <button id="changeStyleButton" onclick="toggleStyle();">Change Style</button>
@@ -201,7 +272,7 @@ Used for figuring out how much you know about the world, in character. Note that
           </tr>
         </table>
       </fieldset>
-      <fieldset>
+      <fieldset name="output">
       	<legend>Output:</legend>
       	<div class="formline" title="Any errors will appear here in big red letters">
       		<span>Error: </span> <span class="error" id="formErrors"></span>
