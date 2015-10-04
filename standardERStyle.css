@@ -18,6 +18,14 @@ input {
 	color: inherit;
 }
 
+input[type=text] {
+	flex-grow: 1;
+}
+
+.formline {
+	display: flex;	
+}
+
 .blackStyle input {
 	border-color: green;
 }
