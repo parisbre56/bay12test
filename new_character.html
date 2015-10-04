@@ -31,18 +31,21 @@
     
     <h1>New Character</h1>
     
+    <p><small>Remember, you can hover over things to gain more info about them.</small></p>
+    
     <form oninput="processInput();">
       <fieldset name="IDInfo">
         <legend>Identification Data (required):</legend>
-        <div class="formline"><label for="username">User Name:</label> <input required type="text" name="username" id="username" placeholder="Your forum name"></div>
-        <div class="formline"><label for="charname">Character Name:</label> <input required type="text" name="charname" id="charname" placeholder="The name of your character"></div>
+        <div class="formline" title="Your forum name"><label for="username">User Name:</label> <input required type="text" name="username" id="username" placeholder="Your forum name"></div>
+        <div class="formline" title="The name of your character"><label for="charname">Character Name:</label> <input required type="text" name="charname" id="charname" placeholder="The name of your character"></div>
       </fieldset>
       <fieldset name="detailedInfo">
         <legend>Detailed Personal Information (optional):</legend>
-        <div class="formline"><label for="gender">Gender:</label> <input type="text" name="gender" id="gender" placeholder="Your character's gender"></div>
-        <div class="formline"><label for="age">Age:</label> <input type="text" name="age" id="age" placeholder="Your character's age. Try to not make it absurd. Children may not be accepted."></div>
-        <div class="formline"><label for="description">Physical Description:</label> <textarea name="description" id="description" placeholder="What your character looks like"></textarea></div>
-        <div class="formline"><label for="bio">Bio:</label> <textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and character"></textarea></div>
+        <div class="formline" title="Your character's gender"><label for="gender">Gender:</label> <input type="text" name="gender" id="gender" placeholder="Your character's gender"></div>
+        <div class="formline" title="Your character's age. Try to not make it absurd. Children may not be accepted."><label for="age">Age:</label> <input type="text" name="age" id="age" placeholder="Your character's age. Try to not make it absurd. Children may not be accepted."></div>
+        <div class="formline" title="What your character looks like"><label for="description">Physical Description:</label> <textarea name="description" id="description" placeholder="What your character looks like"></textarea></div>
+        <div class="formline" title="Info you deem important about your character's life and personality"><label for="bio">Bio:</label> <textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and personality"></textarea></div>
+        <div class="formline" title="The reason you ended up with the HMRC prisoner unit or decided to join ARM's revolution against the UWM. Note that if you were sent to the HMRC, then that happened about 200-400 years ago in objective time, while if you decided to join ARM then it should had happened in the few years that the rebellion has been active. If your history does not agree with in-game lore, then that will be attributed to stasis dementia, brain damage caused by flaws in the stasis pods."><label for="reason">Reason assigned to HMRC/Reason for joining ARM:</label><textarea name="reason" id="reason" placeholder="The reason you ended up with the HMRC prisoner unit or decided to join ARM's revolution against the UWM. Note that if you were sent to the HMRC, then that happened about 200-400 years ago in objective time, while if you decided to join ARM then it should had happened in the few years that the rebellion has been active. If your history does not agree with in-game lore, then that will be attributed to stasis dementia, brain damage caused by flaws in the stasis pods."></textarea></div>
       </fieldset>
       <fieldset name="statsandskills">
         <legend>Starting stat and skill levels:</legend>
@@ -90,8 +93,8 @@ People with a high level of this skill can construct almost anything provided th
       <fieldset>
       	<legend>Output:</legend>
       	<div class="error"></div>
-      	<textarea readonly name="forumOut" id="forumOut"></textarea>
-      	<textarea readonly name="wikiOut" id="wikiOut"></textarea>
+      	<textarea readonly class="outTextBox" name="forumOut" id="forumOut"></textarea>
+      	<textarea readonly class="outTextBox" name="wikiOut" id="wikiOut"></textarea>
       </fieldset>
     </form>
     
