@@ -34,14 +34,15 @@
     <form oninput="processInput();">
       <fieldset name="IDInfo">
         <legend>Identification Data (required):</legend>
-        <div class="formline"><label for="username">User Name:</label> <input type="text" name="username" id="username" placeholder="Your forum name"></div>
-        <div class="formline"><label for="charname">Character Name:</label> <input type="text" name="charname" id="charname" placeholder="The name of your character"></div>
+        <div class="formline"><label for="username">User Name:</label> <input required type="text" name="username" id="username" placeholder="Your forum name"></div>
+        <div class="formline"><label for="charname">Character Name:</label> <input required type="text" name="charname" id="charname" placeholder="The name of your character"></div>
       </fieldset>
       <fieldset name="detailedInfo">
         <legend>Detailed Personal Information (optional):</legend>
         <div class="formline"><label for="gender">Gender:</label> <input type="text" name="gender" id="gender" placeholder="Your character's gender"></div>
-        <div class="formline"><label for="description">Physical Description:</label> <textarea name="description" id="description" placeholder="What your character looks like"></div>
-        <div class="formline"><label for="bio">Bio:</label> <textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and character"></div>
+        <div class="formline"><label for="age">Age:</label> <input type="text" name="age" id="age" placeholder="Your character's age. Try to not make it absurd. Children may not be accepted."></div>
+        <div class="formline"><label for="description">Physical Description:</label> <textarea name="description" id="description" placeholder="What your character looks like"></textarea></div>
+        <div class="formline"><label for="bio">Bio:</label> <textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and character"></textarea></div>
       </fieldset>
       <fieldset name="statsandskills">
         <legend>Starting stat and skill levels:</legend>
