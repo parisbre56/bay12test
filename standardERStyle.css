@@ -18,11 +18,11 @@ input {
 	color: inherit;
 }
 
-input[type=text] {
+input[type=text], textarea {
 	flex-grow: 1;
 }
 
-#description, #bio, #forumOut, #wikiOut { /*Style for large text boxes*/ 
+textarea {
 	resize: both;
 	overflow: auto;
 	height: 3em;
