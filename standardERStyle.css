@@ -146,7 +146,7 @@ p {
 	 
 .error {
 	color: red; 
-	font-size:3em;
+	/*font-size:3em;*/
 }
 
 .blackStyle .warning, .darklingStyle .warning {
