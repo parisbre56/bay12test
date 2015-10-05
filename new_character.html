@@ -210,8 +210,8 @@
       		//Get the name of the stat
       		var statName = document.getElementById(statCode+"N").textContent;
       		//Get the level of the stat
-      		var statLvlText = document.getElementById(statCode+"I").textContent;
-      		var statLvl = parseInt(statLvlText,10);
+      		var statLevelText = document.getElementById(statCode+"I").textContent;
+      		var statLevel = parseInt(statLevelText,10);
       		//Add the level to the total and select the rating to change to
       		var newRating;
       		if (statLevel>0) {
@@ -223,7 +223,7 @@
       				//and mark the bonus as given
       				bonusPlus = true;
       			}
-      			posLvlTotal+=statLvl;
+      			posLvlTotal+=statLevel;
       			//Check for over limit
       			if(statLevel>2) {
       				writeTextAndBr(errorElement,"ERROR: Invalid input for stat '"+statName+"': Stats can't have an initial level greater than 2");
@@ -233,7 +233,7 @@
       			}
       		} else if (statLevel<0) {
       			newRating='lowRating';
-      			negLvlTotal+=statLvl;
+      			negLvlTotal+=statLevel;
       			//Check for under limit
       			if(statLevel<-2) {
       				writeTextAndBr(errorElement,"ERROR: Invalid input for stat '"+statName+"': Stats can't have an initial level less than 2");
@@ -368,8 +368,8 @@
       		//Get the name of the skill
       		var statName = document.getElementById(statCode+"N").textContent;
       		//Get the level of the skill
-      		var statLvlText = document.getElementById(statCode+"I").textContent;
-      		var statLvl = parseInt(statLvlText,10);
+      		var statLevelText = document.getElementById(statCode+"I").textContent;
+      		var statLevel = parseInt(statLevelText,10);
       		//Add the level to the total and select the rating to change to
       		var newRating;
       		if (statLevel>0) {
@@ -381,7 +381,7 @@
       				//and mark the bonus as given
       				bonusPlus = true;
       			}
-      			posLvlTotal+=statLvl;
+      			posLvlTotal+=statLevel;
       			//Check for over limit
       			if(statLevel>2) {
       				writeTextAndBr(errorElement,"ERROR: Invalid input for skill '"+statName+"': Skills can't have an initial level greater than 2");
@@ -391,7 +391,7 @@
       			}
       		} else if (statLevel<0) {
       			newRating='lowRating';
-      			negLvlTotal+=statLvl;
+      			negLvlTotal+=statLevel;
       			//Check for under limit
       			if(statLevel<-2) {
       				writeTextAndBr(errorElement,"ERROR: Invalid input for skill '"+statName+"': Skills can't have an initial level less than 2");
