@@ -44,8 +44,11 @@
     else if (totalLevel > 0) {
     	newRating='highRating';
     }
-    else {
+    else if (totalLevel < 0) {
     	newRating='lowRating';
+    }
+    else if (isNaN(totalLevel)) {
+    	newRating='wrong';
     }
     
 	//And then apply it to each member of the class if it is not already applied
@@ -56,8 +59,10 @@
 			oldRating='mediumRating';
 		} else if (hasClass(TableRowElements[0],'highRating')) {
 			oldRating='highRating';
-		} else {
+		} else if (hasClass(TableRowElements[0],'lowRating')) {
 			oldRating='lowRating';
+		} else if (hasClass(TableRowElements[0],'wrong')) {
+			oldRating='wrong';
 		}
 		
 		//For each memeber of the class
