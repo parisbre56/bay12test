@@ -217,9 +217,9 @@
       		if (statLevel>0) {
       			//If we already have positive points but we have not yet applied the bonus
       			//that reduces the price of the second +1 on another stat
-      			if(!bonusPlus && totalPositive>0) {
+      			if(!bonusPlus && posLvlTotal>0) {
       				//Reduce the price of the second +1 on another stat
-      				totalPositive-=1;
+      				posLvlTotal-=1;
       				//and mark the bonus as given
       				bonusPlus = true;
       			}
@@ -342,13 +342,13 @@
       	
       	//Check if the initial level balance is fine
       	//Find the negative levels needed for the positive levels given
-    	var negativeNeeded=-triSeq(totalPositive);
+    	var negativeNeeded=-triSeq(posLvlTotal);
 	if(bonusPlus){
 		negativeNeeded-= 1;
-		totalPositive += 1;
+		posLvlTotal += 1;
 	}
 	//Write an error message if necessary
-	var negativeDelta=negativeNeeded-totalNegative;
+	var negativeDelta=negativeNeeded-negLvlTotal;
 	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
 		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
 	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
@@ -375,9 +375,9 @@
       		if (statLevel>0) {
       			//If we already have positive points but we have not yet applied the bonus
       			//that reduces the price of the second +1 on another stat
-      			if(!bonusPlus && totalPositive>0) {
+      			if(!bonusPlus && posLvlTotal>0) {
       				//Reduce the price of the second +1 on another stat
-      				totalPositive-=1;
+      				posLvlTotal-=1;
       				//and mark the bonus as given
       				bonusPlus = true;
       			}
@@ -503,13 +503,13 @@
       	
       	//Check if the initial level balance is fine
       	//Find the negative levels needed for the positive levels given
-    	var negativeNeeded=-triSeq(totalPositive);
+    	negativeNeeded=-triSeq(posLvlTotal);
 	if(bonusPlus){
 		negativeNeeded-= 1;
-		totalPositive += 1;
+		posLvlTotal += 1;
 	}
 	//Write an error message if necessary
-	var negativeDelta=negativeNeeded-totalNegative;
+	negativeDelta=negativeNeeded-negLvlTotal;
 	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
 		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
 	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
