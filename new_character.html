@@ -16,16 +16,22 @@
   	<style>
   		/*Style for making the form table-like*/
   		fieldset {/*Fieldset is like a table*/
-  			
+  			display: table;
+  			border-collapse: collapse;
   		}
   		.formline {/*Formline is like a table row*/
-  			
+  			display: table-row;
+  			border-collapse: collapse;
   		}
   		label, select {/*Label is like a table collumn, small width*/
+  			display: table-column;
   			width: 25%;
+  			border-collapse: collapse;
   		}
   		input[type=text], textarea {/*Text is like a table collumn, large width*/
+  			display: table-column;
   			width: 75%;
+  			border-collapse: collapse;
   		}
   	</style>
   </head>
@@ -39,7 +45,7 @@
       
       //Stats, skills, statted skills, statted skills with spam, spam skills statted skills with spam, spam spam spam spam...
       var stats = ['Str','Dex','End','Cha','Mind','Fate','Intu'];
-      var skills = ['Han','Con','Uncon','Exo','Aux','Med','Gen'];
+      var skills = ['Hand','Con','Uncon','Exo','Aux','Med','Gen'];
       var sns = stats.concat(skills);
       
       //The length a reason assigned to HMRC should be before it is 
@@ -190,17 +196,19 @@
       		}
       	}
       	
-      	//Open SNS template
+      	//Open Stats template
       	wikiOutString+="\n==Attributes==\n";
 	wikiOutString+="<section begin=sns />\n";
 	wikiOutString+="{{NStats\n";
       	
       	var posLvlTotal;
       	var negLvlTotal;
+      	var bonusPlus;
       	//Check stats
       	forumOutString+="\n[b]Stats:[/b] \n";
       	posLvlTotal=0;
       	negLvlTotal=0;
+      	bonusPlus=false;
       	for(var selStat=0 ; setStat < stats.length ; selStat++) {
       		var statCode = stats[selStat];
       		//Get the name of the stat
@@ -211,11 +219,32 @@
       		//Add the level to the total and select the rating to change to
       		var newRating;
       		if (statLevel>0) {
-      			newRating='highRating';
+      			//If we already have positive points but we have not yet applied the bonus
+      			//that reduces the price of the second +1 on another stat
+      			if(!bonusPlus && totalPositive>0) {
+      				//Reduce the price of the second +1 on another stat
+      				totalPositive-=1;
+      				//and mark the bonus as given
+      				bonusPlus = true;
+      			}
       			posLvlTotal+=statLvl;
+      			//Check for over limit
+      			if(statLevel>2) {
+      				writeTextAndBr(errorElement,"ERROR: Invalid input for stat '"+statName+"': Stats can't have an initial level greater than 2");
+      				newRating='wrong';
+      			} else {
+      				newRating='highRating';
+      			}
       		} else if (statLevel<0) {
       			newRating='lowRating';
-      			negLvlTotal-=statLvl;
+      			negLvlTotal+=statLvl;
+      			//Check for under limit
+      			if(statLevel<-2) {
+      				writeTextAndBr(errorElement,"ERROR: Invalid input for stat '"+statName+"': Stats can't have an initial level less than 2");
+      				newRating='wrong';
+      			} else {
+      				newRating='lowRating';
+      			}
       		} else if (statLevel==0) {
       			newRating='mediumRating';
       		} else if(isNaN(statLevel)) {	
@@ -303,20 +332,193 @@
 		//Find points left for next level
 		//It is the ([the points needed for the next level]-[the points needed for this level])
 		var pointsLeft = (getPDelta(statLevel+1)-getPDelta(statLevel));
+		var pointsLeftElement = document.getElementById(statCode+'L');
+		pointsLefElement.textContent = pointsLeft;
+		pointsLefElement.title = "You need "+pointsLeft+" more points ("+(pointsLeft/5)+" missions worth) to reach level "+(statLevel+1);
 		
+		//Write the wiki output
+		wikiOutString+="|P"+statCode+"=0"+"|I"+statCode+"="+statLevel+"\n";
+		wikiOutString+="|Enhanced"+statCode+"=0\n";
+		
+		//Write the forum output
+		forumOutString+=statName+": "+statLevel+"\n";
       	}
+      	
+      	//Check if the initial level balance is fine
+      	//Find the negative levels needed for the positive levels given
+    	var negativeNeeded=-triSeq(totalPositive);
+	if(bonusPlus){
+		negativeNeeded-= 1;
+		totalPositive += 1;
+	}
+	//Write an error message if necessary
+	var negativeDelta=negativeNeeded-totalNegative;
+	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
+		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
+	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
+		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative stat levels.");
+	}
+      	
+      	//Close stats and open skills
+      	wikiOutString+="}}{{NSkills\n";
       	
       	//Check skills
       	forumOutString+="\n[b]Skills:[/b] \n";
       	posLvlTotal=0;
       	negLvlTotal=0;
+      	bonusPlus=false;
       	for(var selStat=0 ; setStat < skills.length ; selStat++) {
       		var statCode = skills[selStat];
+      		//Get the name of the skill
+      		var statName = document.getElementById(statCode+"N").textContent;
+      		//Get the level of the skill
+      		var statLvlText = document.getElementById(statCode+"I").textContent;
+      		var statLvl = parseInt(statLvlText,10);
+      		//Add the level to the total and select the rating to change to
+      		var newRating;
+      		if (statLevel>0) {
+      			//If we already have positive points but we have not yet applied the bonus
+      			//that reduces the price of the second +1 on another stat
+      			if(!bonusPlus && totalPositive>0) {
+      				//Reduce the price of the second +1 on another stat
+      				totalPositive-=1;
+      				//and mark the bonus as given
+      				bonusPlus = true;
+      			}
+      			posLvlTotal+=statLvl;
+      			//Check for over limit
+      			if(statLevel>2) {
+      				writeTextAndBr(errorElement,"ERROR: Invalid input for skill '"+statName+"': Skills can't have an initial level greater than 2");
+      				newRating='wrong';
+      			} else {
+      				newRating='highRating';
+      			}
+      		} else if (statLevel<0) {
+      			newRating='lowRating';
+      			negLvlTotal+=statLvl;
+      			//Check for under limit
+      			if(statLevel<-2) {
+      				writeTextAndBr(errorElement,"ERROR: Invalid input for skill '"+statName+"': Skills can't have an initial level less than 2");
+      				newRating='wrong';
+      			} else {
+      				newRating='lowRating';
+      			}
+      		} else if (statLevel==0) {
+      			newRating='mediumRating';
+      		} else if(isNaN(statLevel)) {	
+      			newRating='wrong';
+      			//Write error and put NaNs everywhere
+      			posLvlTotal=NaN;
+      			negLvlTotal=NaN;
+      			writeTextAndBr(errorElement,"ERROR: Invalid input '"+statLevelText+"' for skill '"+statName+"'");
+      		}  
+      		//Change rating
+      		var TableRowElements = document.getElementsByClassName(statCode+"TR");
+		if( TableRowElements.length > 0 && !hasClass(TableRowElements[0],newRating) ) {
+			//Find the old rating class
+			var oldRating;
+			if(hasClass(TableRowElements[0],'mediumRating')) {
+				oldRating='mediumRating';
+			} else if (hasClass(TableRowElements[0],'highRating')) {
+				oldRating='highRating';
+			} else if (hasClass(TableRowElements[0],'lowRating')) {
+				oldRating='lowRating';
+			} else if (hasClass(TableRowElements[0],'wrong')) {
+				oldRating='wrong';
+			}
+			
+			//For each memeber of the class
+			for(var curTRElem = 0 ; curTRElem < TableRowElements.length ; curTRElem++) {
+				//Replace old rating class with new one
+				replaceClass(TableRowElements[curTRElem],oldRating, newRating);
+			}
+		}
       		
-      	}
+      		//Change name of rank and title of rank
+      		//First find them
+		var levelTitle;
+		var levelName;
+		switch(statLevel){
+		    case -2:
+		    	levelName="Disaster";
+		    	levelTitle="-2: Disaster: This character is so bad with this skill that it's like they have some sort of curse. 1 is basically an automatic death, maybe permanently. 6 will kill people around you. Anything other then a 5 will fail to some degree, and even 5's will usually have you complete the action in an unorthodox and perhaps not great manner.";
+		    break;
+		    case -1:
+		    	levelName="Hazard";
+		    	levelTitle="-1: Hazard: This is one level below Complete Novice. This is someone who thinks they know what they're doing, but is actually dangerously, often fatally, mistaken. 1's will be reality bending disastrous, 6's will be monkey's paws in which the thing gets done, but I as the GM take near fetishistic pleasure in twisting your desires toward some horrible end. Other rolls will generally be varying levels of failure and minor success, with 5's being succeeding through dumb luck.";
+		    break;
+		    case 0:
+		    	levelName="Novice";
+		    	levelTitle="+0: Complete Novice: This is someone who has no idea what they're doing, but at least they realize they have no idea what they're doing. They can only guess their way through things, but their unbiased ignorance will cause less problems.";
+		    break;
+		    case 1:
+		    	levelName="Experienced";
+		    	levelTitle="+1: Experienced: This is someone who has some knowledge of what they're doing. They're not an expert or anything, but they know the ins and outs of standard actions and can get by fairly well in normal circumstances. Most people could be considered “Experienced” when it comes to driving a car: They probably know a bit about how it works, and can operate it effectively under normal conditions basically without fail. This is when rolls start getting a bit more situational: Standard un-stressed stuff will still get a roll, but 1's will basically act like 2's and 6's like 5's. In other words un-stressed rolls will usually succeed to some degree. Stressed things will be much the same as a novice's rolls, but with somewhat lessened consequences for 1's and 6's.";
+		    break;
+		    case 2:
+		    	levelName="Professional";
+		    	levelTitle="+2: Professional: This is someone who knows what they're doing even in stressful or novel situations. A well trained soldier would usually be considered a professional with their weapon. In unstressful and known situations, professionals will always succeed. Rolls will still be used, they'll just be used to see the level of success. In other cases, unfamiliar circumstances or stressful situations, it will be rolls as usual, but for the most part 1's and 6's won't be considered much more then just straight failures or successes with no consequences. The only time there might be consequences is when extenuating circumstances (Bad equipment, for instance) give a good reason for it.";
+		    break;
+		    case 3:
+		    	levelName="Specialist";
+		    	levelTitle="+3: Specialist: Someone who is beyond a professional. Someone who is a specialist is highly trained with whatever they're doing. They're much like the professional, with the same auto succeeds, but they are also simply better at their actions. At this point, every roll except 1 is a success, with 5-6's being better then 4-3-2, but still. At least in most circumstances. Again, it becomes situational; A Con specialist should be able to accurately hit stationary targets very reliably. However, if you throw him onto a moving truck and tell him to snipe a guy moving perpendicular to him on a train car, the success rate starts getting lower. Basically, this is success baring extenuating circumstances";
+		    break;
+		    default:
+		    	if(statLevel<2) {
+		    		levelName="Invalid";
+		    		levelTitle=statLevel+": INVALID: LEVEL CANNOT BE LOWER THAN TWO";
+		    	}
+		    	else if (statLevel>=4) {
+		    		levelName="Master";
+		    		levelTitle="+"+statLevel+": Master: Remember Pai Mei from Kill Bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanically equivalent to always rolling 5s.";
+		    		if(statLevel>4) {
+		    			levelTitle+="\n\nNote that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled stat or skill by 1 level for the rest of the mission. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.";
+		    		}
+		    	}
+		    	else {
+		    		levelName="Impossible";
+		    		levelTitle=statLevel+": UNKNOWN/IMPOSSIBLE LEVEL";
+		    	}
+		    break;
+		}
+      		//Then change the name and title
+      		var rank=document.getElementById(statCode+"R");
+      		rank.textContent=levelName;
+      		rank.title=levelTitle;
+      		
+      		//Change points left and title of points left
+		//Find points left for next level
+		//It is the ([the points needed for the next level]-[the points needed for this level])
+		var pointsLeft = (getPDelta(statLevel+1)-getPDelta(statLevel));
+		var pointsLeftElement = document.getElementById(statCode+'L');
+		pointsLefElement.textContent = pointsLeft;
+		pointsLefElement.title = "You need "+pointsLeft+" more points ("+(pointsLeft/5)+" missions worth) to reach level "+(statLevel+1);
+		
+		//Write the wiki output
+		wikiOutString+="|P"+statCode+"=0"+"|I"+statCode+"="+statLevel+"\n";
+		wikiOutString+="|Enhanced"+statCode+"=0\n";
+		
+		//Write the forum output
+		forumOutString+=statName+": "+statLevel+"\n";
+	}
       	
       	//Close SNS template
       	wikiOutString+="<section end=sns />}}\n";
+      	
+      	//Check if the initial level balance is fine
+      	//Find the negative levels needed for the positive levels given
+    	var negativeNeeded=-triSeq(totalPositive);
+	if(bonusPlus){
+		negativeNeeded-= 1;
+		totalPositive += 1;
+	}
+	//Write an error message if necessary
+	var negativeDelta=negativeNeeded-totalNegative;
+	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
+		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
+	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
+		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative stat levels.");
+	}
       	
       	//Add status section
       	wikiOutString+="<section begin=status />\n";
@@ -415,13 +617,13 @@
               <td class="StrTR mediumRating"><output id="StrR">Novice</output></td>
               <td class="StrTR mediumRating"><output id="StrL">5</output></td>
             <td class="separator">&nbsp;</td>
-              <th class="HanTR mediumRating" id="HanN" title="Making things, breaking things, and otherwise turning stuff from X into laser-guided, thermonuclear Y.
+              <th class="HandTR mediumRating" id="HandN" title="Making things, breaking things, and otherwise turning stuff from X into laser-guided, thermonuclear Y.
 		
 People with a high level of this skill can construct almost anything provided they have the right parts. Very useful if you are going to be working with tinker and custom equipment in general and don't want to pay someone else to construct your prototypes. Also very useful in those situations when you are trapped somewhere with limited resources and need to construct something to survive and/or escape and generally building your own spare parts. Overshoots may cause you to weld yourself to what you are building or cause it to explode prematurely or overload.">
                 Handiwork</th>
-              <td class="HanTR mediumRating"><input type="number" id="HanI" value="0" min="-2" max="2"></td>
-              <td class="HanTR mediumRating"><output id="HanR">Novice</output></td>
-              <td class="HanTR mediumRating"><output id="HanL">5</output></td>
+              <td class="HandTR mediumRating"><input type="number" id="HandI" value="0" min="-2" max="2"></td>
+              <td class="HandTR mediumRating"><output id="HandR">Novice</output></td>
+              <td class="HandTR mediumRating"><output id="HandL">5</output></td>
           </tr>
           <tr> 
           	<th class="DexTR mediumRating" id="DexN" title="Not tripping over your big stupid feet.
