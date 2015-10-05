@@ -18,9 +18,9 @@ input, textarea {
 	color: inherit;
 }
 
-input[type=text], textarea {
+/*input[type=text], textarea {
 	flex-grow: 1;
-}
+}*/
 
 textarea {
 	resize: vertical;
@@ -28,7 +28,7 @@ textarea {
 	height: 6em;
 }
 
-.formline {
+.flexline {
 	display: flex;
 	flex-flow: row wrap;
 }
@@ -47,7 +47,7 @@ textarea {
 
 input[type="number"] {
 	width: 3em;
-}
+}f
 
 .blackStyle table, .blackStyle tr, .blackStyle td, .blackStyle th {
 	border: 0.13em solid darkgreen;
