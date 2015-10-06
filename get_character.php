@@ -20,7 +20,7 @@ $status = curl_getinfo($c, CURLINFO_HTTP_CODE);
 
 curl_close($c);
 
-echo '<!--Got output for: '.$pageName.'-->\n';
+echo "<!--Got output for: '.$pageName.'-->\n";
 
 echo $html;
 ?>
