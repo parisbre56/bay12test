@@ -118,7 +118,7 @@ function onloadStyleFunction() {
 	//Get the saved style from the cookie
 	currStyle = getCookie('currStyle');
 	//If there is no saved style, revert to the default
-	if(currStyle=="") {
+	if(currStyle==""||currStyle=="undefined") {
 		setCookie('currStyle','whiteStyle',365)
 		currStyle = 'whiteStyle';
 	}
