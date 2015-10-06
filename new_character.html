@@ -583,7 +583,7 @@
         <div class="formline" title="What your character looks like"><span class="formlabel"><label for="description">Physical Description:</label></span> <span class="formtext"><textarea name="description" id="description" placeholder="What your character looks like"></textarea></span></div>
         <div class="formline" title="Info you deem important about your character's life and personality"><span class="formlabel"><label for="bio">Personal Information:</label></span> <span class="formtext"><textarea name="bio" id="bio" placeholder="Info you deem important about your character's life and personality"></textarea></span></div>
         <div class="formline" title="The reason you ended up with the HMRC prisoner unit or decided to join ARM's revolution against the UWM. Note that if you were sent to the HMRC, then that happened about 200-400 years ago in objective time, while if you decided to join ARM then it should had happened in the few years that the rebellion has been active. If your history does not agree with in-game lore, then that will be attributed to stasis dementia, brain damage caused by flaws in the stasis pods.">
-        	<span class="formlabel"><select name="reasonType" id="reasonType">
+        	<span class="formlabel"><select onchange="processInput();" name="reasonType" id="reasonType">
         		<option selected value="hmrc">Reason assigned to HMRC</option>
         		<option value="arm">Reason for joining ARM</option>
         	</select></span>
