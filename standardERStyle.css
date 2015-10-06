@@ -13,6 +13,10 @@ body.darklingStyle {
 	color: #F0F0F0;
 }
 
+select {
+	width: inherit;
+}
+
 input, textarea {
 	background-color: inherit;
 	color: inherit;
