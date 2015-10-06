@@ -125,7 +125,7 @@
 
       	//Check if reason assigned to HMRC is small. If yes, put it in the PC template. Else put it in the page.
       	var reason = document.getElementById("reason").value;
-      	if(/\S/.test(reason) {
+      	if(/\S/.test(reason)) {
 	      	if (reason.length<=reasonLength) {
 	      		wikiOutString+="|reasonassingedtohmrc="+reason+"\n";
 	      	} else {
