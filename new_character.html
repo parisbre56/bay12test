@@ -356,8 +356,12 @@
 	//Write an error message if necessary
 	var negativeDelta=negativeNeeded-negLvlTotal;
 	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
+		wikiOutString+="ERROR: You need "+(-negativeDelta)+" more negative stat levels.\n";
+		forumOutString+="ERROR: You need "+(-negativeDelta)+" more negative stat levels.\n";
 		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
 	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
+		wikiOutString+="ERROR: You need "+negativeDelta+" less negative stat levels.\n";
+		forumOutString+="ERROR: You need "+negativeDelta+" less negative stat levels.\n";
 		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative stat levels.");
 	}
       	
@@ -517,8 +521,12 @@
 	//Write an error message if necessary
 	negativeDelta=negativeNeeded-negLvlTotal;
 	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
+		wikiOutString+="ERROR: You need "+(-negativeDelta)+" more negative skill levels.\n";
+		forumOutString+="ERROR: You need "+(-negativeDelta)+" more negative skill levels.\n";
 		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative skill levels.");
 	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
+		wikiOutString+="ERROR: You need "+negativeDelta+" less negative skill levels.\n";
+		forumOutString+="ERROR: You need "+negativeDelta+" less negative skill levels.\n";
 		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative skill levels.");
 	}
       	
