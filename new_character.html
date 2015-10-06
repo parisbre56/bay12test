@@ -125,8 +125,12 @@
 
       	//Check if reason assigned to HMRC is small. If yes, put it in the PC template. Else put it in the page.
       	var reason = document.getElementById("reason").value;
-      	if(/\S/.test(reason) && reason.length<=reasonLength) {
-      		wikiOutString+="|reasonassingedtohmrc="+reason+"\n";
+      	if(/\S/.test(reason) {
+	      	if (reason.length<=reasonLength) {
+	      		wikiOutString+="|reasonassingedtohmrc="+reason+"\n";
+	      	} else {
+	      		wikiOutString+="|reasonassingedtohmrc="+"Info below"+"\n";
+	      	}
       	}
       	
       	//Add reason type to the template
@@ -169,7 +173,7 @@
       	if(/\S/.test(reason) && reason.length>reasonLength) {
       		switch(reasonType) {
       			case "hmrc":
-      				wikiOutString+="\n===Reason Assigned to HMRC===\n";
+      				wikiOutString+="\n===Reason assigned to HMRC===\n";
 	      		break;
 	      		case "arm":
       				wikiOutString+="\n===Reason for joining ARM===\n";
