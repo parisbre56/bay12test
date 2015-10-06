@@ -254,7 +254,7 @@
       			//Write error and put NaNs everywhere
       			posLvlTotal=NaN;
       			negLvlTotal=NaN;
-      			writeTextAndBr(errorElement,"ERROR: Invalid input '"+statLevelText+"' for stat '"+statName+"'");
+      			writeTextAndBr(errorElement,"ERROR: Invalid input for stat '"+statName+"': Is not an number");
       		} 
       		//Change rating
       		var TableRowElements = document.getElementsByClassName(statCode+"TR");
@@ -416,7 +416,7 @@
       			//Write error and put NaNs everywhere
       			posLvlTotal=NaN;
       			negLvlTotal=NaN;
-      			writeTextAndBr(errorElement,"ERROR: Invalid input '"+statLevelText+"' for skill '"+statName+"'");
+      			writeTextAndBr(errorElement,"ERROR: Invalid input for skill '"+statName+"': Is not a number");
       		}  
       		//Change rating
       		var TableRowElements = document.getElementsByClassName(statCode+"TR");
