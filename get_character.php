@@ -11,6 +11,7 @@ curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($c, CURLOPT_VERBOSE, true);
 curl_setopt($c, CURLOPT_MAXREDIRS, 5);
 curl_setopt($c, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0');
+curl_setopt($c, CURLOPT_FAILONERROR, true);
 
 $html = curl_exec($c);
 
