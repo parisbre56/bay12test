@@ -474,7 +474,7 @@
 		    		levelName="Master";
 		    		levelTitle="+"+statLevel+": Master: Remember Pai Mei from Kill Bill? Yeah, like that. You basically always roll 5's in the majority of circumstances. Things need to be actively restricting you in order to make failure a chance. Note however that even in this level, in certain situations, rolling a 1 is still bad, since it could mean your action not succeeding as much as you'd like it to. It is not mechanically equivalent to always rolling 5s.";
 		    		if(statLevel>4) {
-		    			levelTitle+="\n\nNote that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled stat or skill by 1 level for the rest of the mission. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.";
+		    			levelTitle+="\n\nNote that having a level greater than 4 does not aid you in any way, except when using functions that somehow deduct levels from you. For example, Limiter Unlock makes the player auto-succeed in a roll for a turn, but at the cost of lowering the rolled skill or skill by 1 level for the rest of the mission. If someone at level 5 used a limiter unlock, they would drop to level 4, thus retaining their former capacity, since the two levels are equivalent.";
 		    		}
 		    	}
 		    	else {
@@ -517,9 +517,9 @@
 	//Write an error message if necessary
 	negativeDelta=negativeNeeded-negLvlTotal;
 	if(negativeDelta<0) { //-5-(-3)=-2 more levels needed
-		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative stat levels.");
+		writeTextAndBr(errorElement,"ERROR: You need "+(-negativeDelta)+" more negative skill levels.");
 	} else if (negativeDelta>0) { //-5-(-7)=2 more negative levels than necessary
-		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative stat levels.");
+		writeTextAndBr(errorElement,"ERROR: You need "+negativeDelta+" less negative skill levels.");
 	}
       	
       	//Add status section
