@@ -1,7 +1,9 @@
 <?php
 header('Content-Type: text/html');
 
-$c = curl_init('http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"]);
+$pageName = 'http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"];
+
+$c = curl_init($pageName);
 curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($c, CURLOPT_MAXREDIRS, 5);
@@ -17,6 +19,8 @@ if (curl_error($c)) {
 $status = curl_getinfo($c, CURLINFO_HTTP_CODE);
 
 curl_close($c);
+
+echo '<!--Got output for: '.$pageName.'-->\n';
 
 echo $html;
 ?>
