@@ -2,6 +2,7 @@
 header('Content-Type: text/html');
 
 $pageName = 'http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"];
+$pageName = $_GET["name"];
 
 $c = curl_init($pageName);
 curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
