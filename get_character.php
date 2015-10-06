@@ -2,7 +2,7 @@
 header('Content-Type: text/html');
 
 $pageName = 'http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"];
-$pageName = $_GET["name"];
+$proxy="217.123.188.90:80";
 
 $c = curl_init($pageName);
 curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
@@ -13,12 +13,13 @@ curl_setopt($c, CURLOPT_MAXREDIRS, 5);
 curl_setopt($c, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0');
 curl_setopt($c, CURLOPT_FAILONERROR, true);
 curl_setopt($c, CURLOPT_ENCODING, "gzip");
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
 $headers = array
 (
     'Host: einsteinianroulette.wikia.com',
     'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language: en-US,en;q=0.5',
-    'Accept-Encoding: gzip, deflate',
+    'Accept-Encoding: gzip',
     'DNT: 1',
     'Connection: keep-alive'
 ); 
