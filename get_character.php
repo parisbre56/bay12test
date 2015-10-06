@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html');
 
-die('test');
+echo 'test';
 
 $c = curl_init('http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"]);
 curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
