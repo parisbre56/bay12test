@@ -2,6 +2,8 @@
 header('Content-Type: text/html');
 
 $pageName = 'http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"];
+echo "<!-- Got output for: $pageName -->\n";
+
 $proxy="217.123.188.90:80";
 
 $c = curl_init($pageName);
@@ -36,8 +38,6 @@ if (curl_error($c)) {
 $status = curl_getinfo($c, CURLINFO_HTTP_CODE);
 
 curl_close($c);
-
-echo "<!-- Got output for: $pageName -->\n";
 
 echo $html;
 ?>
