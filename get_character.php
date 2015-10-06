@@ -15,11 +15,11 @@ curl_setopt($c, CURLOPT_FAILONERROR, true);
 curl_setopt($c, CURLOPT_ENCODING, "gzip");
 $headers = array
 (
-    'Host: einsteinianroulette.wikia.com'
-    'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    'Accept-Language: en-US,en;q=0.5'
-    'Accept-Encoding: gzip, deflate'
-    'DNT: 1'
+    'Host: einsteinianroulette.wikia.com',
+    'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language: en-US,en;q=0.5',
+    'Accept-Encoding: gzip, deflate',
+    'DNT: 1',
     'Connection: keep-alive'
 ); 
 curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
