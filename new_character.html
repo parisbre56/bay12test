@@ -214,7 +214,7 @@
       	for(var selStat=0 ; selStat < stats.length ; selStat++) {
       		var statCode = stats[selStat];
       		//Get the name of the stat
-      		var statName = document.getElementById(statCode+"N").textContent;
+      		var statName = document.getElementById(statCode+"N").textContent.trim();
       		//Get the level of the stat
       		var statLevelText = document.getElementById(statCode+"I").value;
       		var statLevel = parseInt(statLevelText,10);
@@ -372,7 +372,7 @@
       	for(var selStat=0 ; selStat < skills.length ; selStat++) {
       		var statCode = skills[selStat];
       		//Get the name of the skill
-      		var statName = document.getElementById(statCode+"N").textContent;
+      		var statName = document.getElementById(statCode+"N").textContent.trim();
       		//Get the level of the skill
       		var statLevelText = document.getElementById(statCode+"I").value;
       		var statLevel = parseInt(statLevelText,10);
