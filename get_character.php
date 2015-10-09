@@ -2,7 +2,6 @@
 header('Content-Type: text/html');
 
 $pageName = 'http://einsteinianroulette.wikia.com/wiki/'.$_GET["name"];
-$pageName = 'http://checkip.dyndns.org/';
 echo "<!-- Got output for: $pageName -->\n";
 
 $proxy="217.123.188.90:80";
