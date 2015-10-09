@@ -15,7 +15,7 @@ curl_setopt($c, CURLOPT_MAXREDIRS, 5);
 curl_setopt($c, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0');
 curl_setopt($c, CURLOPT_FAILONERROR, true);
 curl_setopt($c, CURLOPT_ENCODING, "gzip");
-curl_setopt($c, CURLOPT_PROXY, $proxy);
+//curl_setopt($c, CURLOPT_PROXY, $proxy);
 $headers = array
 (
     'Host: einsteinianroulette.wikia.com',
